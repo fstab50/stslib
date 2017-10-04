@@ -7,25 +7,9 @@ wkdir="/home/blake/Downloads"
 if [ $root ]; then
     cd $root     # git repo root dir
 else
-    cd $wkdir    # not located in the repo
+    echo -e '\nrepo reoot not found. Exit'
+    exit 1
 fi
-
-# prepare dir
-if [ -d ./$proj ]; then
-
-    # user confirm before proceeding
-    read -p "existing $proj directory found. Confirm deletion? [quit]" CHOICE
-    if [ -z $CHOICE ]; then
-        exit 0
-    else
-        rm -fr $proj
-        cp -r ~/git/$proj $wkdir/
-        cd $proj
-    fi
-else
-    cp -r ~/git/$proj $wkdir/
-fi
-
 
 # convert readme to required
 pandoc --from=markdown --to=rst --output=README.rst README.md
@@ -56,3 +40,5 @@ else
         pip install -U --extra-index-url https://test.pypi.org/simple/  $PACKAGE=="$CHOICE2"
     fi
 fi
+
+exit 0
