@@ -624,12 +624,12 @@ class StsCore():
         # unpack if iterable passed in args - TBD (here)
         if kwarg_dict is not None:
             keys = [key for key in kwarg_dict]
-            #for filter(lambda x: x not in x, args) in keys:
-            for key in keys:                      # <<< LAMBDA
-                if key not in args:
-                    raise KeyError(
-                        '%s: unknown parameter provided [%s]' %
-                        (inspect.stack()[0][3], key))
+            unknown_arg = list(filter(lambda x: x not in args, keys))
+            if unknown_arg:
+                raise KeyError(
+                    '%s: unknown parameter(s) provided [%s]' %
+                    (inspect.stack()[0][3], str(unknown_arg))
+                )
         return True
 
 
