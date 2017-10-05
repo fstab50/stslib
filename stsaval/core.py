@@ -329,7 +329,9 @@ class StsCore():
                 if self.refresh_credentials:
                     if self.debug_mode:
                         logger.debug('token_duration = %s min, RefreshCount = %s' %
-                            (convert_time(self.token.duration), str(self.token.duration.seconds //3600)))
+                            (convert_time(self.token.duration), 
+                            str(self.token.duration.seconds //3600))
+                        )
                     # stop active thread if exists before generating new one
                     if self._active_thread():
                         self._halt_thread()

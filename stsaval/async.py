@@ -78,7 +78,9 @@ class TimeKeeper(threading.Thread):
 
             # thread status reporting and update
             self.status = self.is_alive()
-            self.thread_status(exec=executions, max=max_executions, residual=remaining)
+            self.thread_status(
+                exec=executions, max=max_executions, residual=remaining
+            )
 
             while not self._halt_event.wait(timeout=self.delay_seconds):
                 if not self._halt_event.is_set():
@@ -89,7 +91,9 @@ class TimeKeeper(threading.Thread):
                     remaining = remaining - self.cycle
                     executions += 1
                     # log new status
-                    self.thread_status(exec=executions, max=max_executions, residual=remaining)
+                    self.thread_status(
+                        exec=executions, max=max_executions, residual=remaining
+                    )
                     # halt when completed
                     if (max_executions == executions):
                         self.halt()
