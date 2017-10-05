@@ -1,7 +1,7 @@
-# pygcreds v0.2.1 | Release Notes
+# stsAval v0.2.1 | Release Notes
 
 * * *
-**Release date**:  September 2017
+**Release date**:  September 23, 2017
 * * *
 
 ## Features Implemented in v0.2.1
@@ -16,11 +16,13 @@
 
 ## Limitations
 
-#### Non-Default Credential Files -- FIXED
+#### Non-Default Credential Files
 
-* Instantiation of a gcreds objects with non-default credentials filename or file location (ie  
+_Fixed in this version_
+
+* Instantiation of stsAval objects with non-default credentials filename or file location (ie  
 outside of default awscli config) previously broken.  Processes role profile info correctly when  
-passed to GCreds from a non-standard location outside of ~/.aws when contained in a file with   
+passed to StsCore from a non-standard location outside of ~/.aws when contained in a file with   
 a non-standard file name.
 
 
