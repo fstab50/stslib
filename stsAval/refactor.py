@@ -13,9 +13,9 @@ import configparser
 import sys
 import argparse
 import inspect
-from stsaval.statics import defaults
-from stsaval import logd
-from stsaval.statics import global_config, __version__
+from stsAval.statics import defaults
+from stsAval import logd
+from stsAval.statics import global_config, __version__
 
 
 logger = logd.getLogger(__version__)

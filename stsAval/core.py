@@ -21,12 +21,12 @@ import inspect
 import pytz
 import boto3
 from botocore.exceptions import ClientError, ProfileNotFound
-from stsaval.refactor import parse_awscli
-from stsaval.vault import STSToken, STSCredentials
-from stsaval.async import TimeKeeper, convert_time
-from stsaval.statics import defaults
-from stsaval import logd
-from stsaval.statics import global_config, __version__
+from stsAval.refactor import parse_awscli
+from stsAval.vault import STSToken, STSCredentials
+from stsAval.async import TimeKeeper, convert_time
+from stsAval.statics import defaults
+from stsAval import logd
+from stsAval.statics import global_config, __version__
 
 
 logger = logd.getLogger(__version__)
@@ -329,7 +329,7 @@ class StsCore():
                 if self.refresh_credentials:
                     if self.debug_mode:
                         logger.debug('token_duration = %s min, RefreshCount = %s' %
-                            (convert_time(self.token.duration), 
+                            (convert_time(self.token.duration),
                             str(self.token.duration.seconds //3600))
                         )
                     # stop active thread if exists before generating new one
