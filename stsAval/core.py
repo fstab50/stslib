@@ -578,8 +578,14 @@ class StsCore():
         try:
             # now, timezone offset aware
             now = datetime.datetime.utcnow().replace(tzinfo=pytz.UTC)
-            credentials = STSCredentials(self.credentials)
-
+            #credentials = STSCredentials(self.token, self.credentials)
+            """ the following is stub-in functionality """
+            credentials = self.credentials
+            keys = []
+            for key in credentials:
+                keys.append(key)
+            credential_expiration = credentials[keys[0]]['Expiration']
+            """ end stub """
             if self.token:
                 if self.token.end >= now:
                     token_life_reamining = self.token.end - now
@@ -589,8 +595,8 @@ class StsCore():
                 token_life_reamining = datetime.timedelta(minutes=0)
 
             if credentials:
-                if credentials.expiration >= now:
-                    credential_life_remaining = credentials.expiration - now
+                if credential_expiration >= now:
+                    credential_life_remaining = credential_expiration - now
             else:
                 credential_life_remaining = datetime.timedelta(minutes=0)
 
