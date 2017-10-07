@@ -345,8 +345,7 @@ class StsCore():
                             str(self.token.duration.seconds //3600))
                         )
                     # stop active thread if exists before generating new one
-                    if self._active_thread():
-                        self._halt_thread()
+                    self._halt_thread()
 
                     self.thread = TimeKeeper(
                         roles=accounts,

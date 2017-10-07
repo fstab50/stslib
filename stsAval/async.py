@@ -3,10 +3,11 @@ Summary:
     Non-blocking event caller
 
 Module Attributes:
-    cycle (int): duration of timer cycle which calls event 1 time
-    delta (int): number of seconds prior to end of cycle
-    delay_seconds (int): duration of cycle when event call occurs
-    debug (Boolean): flag, enable verbose log output
+    :type int: (datetime.timedelta)
+    :param cycle : duration of timer cycle which calls event 1 time
+    :delta (int): number of seconds prior to end of cycle
+    :delay (int): duration of cycle when event call occurs
+    :debug (Boolean): flag, enable verbose log output
 
 Returns:
     TYPE: Bool, False when cycle completes
@@ -49,19 +50,18 @@ class TimeKeeper(threading.Thread):
         self.event_result = {}
         self.status = False         # thread alive status
         if debug:
-            self.cycle = 30                           # seconds
-            delta = 5                                 # seconds
+            self.cycle = datetime.timedelta(seconds=30)
+            delta = datetime.timedelta(seconds=5)
         else:
-            self.cycle = 60 * 60                      # seconds (1 hr)
-            delta = 30                                # seconds
-        self.delay_seconds = self.cycle - delta
+            self.cycle = datetime.timedelta(hours=1)
+            delta =  datetime.timedelta(seconds=30)
         try:
+            self.delay = self.cycle - delta
             # session length in seconds
-            self.cycle_length = int(self.cycle * int(self.count)) - (int(self.count) * delta)
+            self.cycle_length = self.cycle * int(self.count) - int(self.count) * delta
         except ValueError as e:
             logger.critical('refresh count must be an integer')
             raise e
-        self.session_remaining = int(self.cycle_length)    # seconds
 
     def run(self):
         """
@@ -82,7 +82,7 @@ class TimeKeeper(threading.Thread):
                 exec=executions, max=max_executions, residual=remaining
             )
 
-            while not self._halt_event.wait(timeout=self.delay_seconds):
+            while not self._halt_event.wait(timeout=self.delay.seconds):
                 if not self._halt_event.is_set():
                     #
                     logger.info('executing event: %s' % str(self.event))
@@ -127,8 +127,7 @@ class TimeKeeper(threading.Thread):
         if 'NA' not in (completed, commit, residual):
             logger.info('completed %d out of %d total executions' %
                 (kwargs['exec'], kwargs['max']))
-            td = datetime.timedelta(seconds=int(kwargs['residual']))
-            logger.info('remaining in cycle: %s \n ' % convert_time(td))
+            logger.info('remaining in cycle: %s \n ' % convert_time(residual))
         return
 
 #
@@ -158,18 +157,27 @@ def convert_time(timedelta_object, return_iter=False):
         or
         human readable, notated units | TYPE: string
     """
-    seconds = timedelta_object.seconds
-    days = seconds // (3600 * 24)
-    hours = (seconds // 3600) % 24
-    minutes = (seconds // 60) % 60
-    seconds = seconds % 60
-    if return_iter:
-        return days, hours, minutes, seconds
-    # string format conversions
-    if days > 0:
-        format_string = ('{} days, {} hours'.format(minutes, hours))
-    elif hours < 1:
-        format_string = ('{} min, {} sec'.format(minutes, seconds))
-    else:
-        format_string = ('{} hours, {} min'.format(hours, minutes))
+    try:
+        seconds = timedelta_object.seconds
+        days = seconds // (3600 * 24)
+        hours = (seconds // 3600) % 24
+        minutes = (seconds // 60) % 60
+        seconds = seconds % 60
+        if return_iter:
+            return days, hours, minutes, seconds
+        # string format conversions
+        if days > 0:
+            format_string = ('{} days, {} hours'.format(minutes, hours))
+        elif hours < 1:
+            format_string = ('{} min, {} sec'.format(minutes, seconds))
+        else:
+            format_string = ('{} hours, {} min'.format(hours, minutes))
+    except AttributeError as e:
+        logger.exception(
+            '%s: Type mismatch when converting timedelta objects (Code: %s)' %
+            (inspect.stack()[0][3], str(e)))
+    except Exception as e:
+        logger.exception(
+            '%s: Unknown error when converting datetime objects (Code: %s)' %
+            (inspect.stack()[0][3], str(e)))
     return format_string
