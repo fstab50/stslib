@@ -118,7 +118,6 @@ class TestParsing():
         r_object_b, target_object_b = self.setup()
         #
         assert self.ordered(r_object_b) == self.ordered(target_object_b)
-        #pytest.fail("%s: not yet configured" % inspect.stack()[0][3])
 
 
     """
