@@ -681,4 +681,8 @@ class StsCore():
         else:
             # first-time local awscli refactor or force refresh of existing stsaval obj profiles
             logger.info('%s: refactoring awscli credentials file' % inspect.stack()[0][3])
-            return parse_awscli(parameter_input=input_file, parameter_output=output_file)
+            response = parse_awscli(parameter_input=input_file, parameter_output=output_file)
+            if response:
+                self.profiles = self.parse_profiles(pre_name=input_file, post_name=output_file)
+                return True
+            return False
