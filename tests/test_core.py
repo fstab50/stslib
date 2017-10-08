@@ -64,6 +64,14 @@ class TestParsing():
         target_pp = json.dumps(sts_obj.profiles, indent=2, sort_keys=True)
         return r_obj, target
 
+    def ordered(self, dict_obj):
+        if isinstance(dict_obj, dict):
+            return sorted((k, self.ordered(v)) for k, v in dict_obj.items())
+        if isinstance(dict_obj, list):
+            return sorted(self.ordered(x) for x in dict_obj)
+        else:
+            return dict_obj
+
     @pytest.fixture(scope='session')
     def generate_reference_object(self, fname):
         """
@@ -108,14 +116,8 @@ class TestParsing():
         """ compares parsed content for accuracy against a reference set """
         __tracebackhide__ = False
         r_object_b, target_object_b = self.setup()
-        r_keys, t_keys = [], []
-        for key in sorted(r_object_b):
-            r_keys.append(key)
-        for key in sorted(target_b):
-            t_keys.append(key)
-        print('\nr_reference key list contents are: \n%s' % str(r_keys))
-        intersection = list(filter(lambda x: x not in r_keys, t_keys)
-        assert intersection = []
+        #
+        assert self.ordered(r_object_b) == self.ordered(target_object_b)
         #pytest.fail("%s: not yet configured" % inspect.stack()[0][3])
 
 
