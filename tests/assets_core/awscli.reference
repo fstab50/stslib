@@ -1,17 +1,14 @@
-{
-    "SR-AutoTag": {
-        "role_arn": "arn:aws:iam::716415000000:role/SR-AutoTag",
-        "mfa_serial": "arn:aws:iam::716415000000:mfa/blake",
-        "source_profile": "default"
-    },
-    "DynamoDBFullAccess": {
-        "role_arn": "arn:aws:iam::716415000000:role/DynamoDBFullAccess",
-        "mfa_serial": "arn:aws:iam::716415000000:mfa/blake",
-        "source_profile": "default"
-    },
-    "SR-CodeDeploy": {
-        "role_arn": "arn:aws:iam::716415000000:role/CodeDeployServiceRole",
-        "mfa_serial": "arn:aws:iam::716415000000:mfa/blake",
-        "source_profile": "default"
-    }
-}
+[SR-AutoTag]
+role_arn = arn:aws:iam::716415000000:role/SR-AutoTag
+mfa_serial = arn:aws:iam::716415000000:mfa/blake
+source_profile = default
+
+[DynamoDBFullAccess]
+role_arn = arn:aws:iam::716415000000:role/DynamoDBFullAccess
+mfa_serial = arn:aws:iam::716415000000:mfa/blake
+source_profile = default
+
+[SR-CodeDeploy]
+role_arn = arn:aws:iam::716415000000:role/CodeDeployServiceRole
+mfa_serial = arn:aws:iam::716415000000:mfa/blake
+source_profile = default
