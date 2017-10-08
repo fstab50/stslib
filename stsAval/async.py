@@ -100,7 +100,7 @@ class TimeKeeper(threading.Thread):
                 else:
                     self.halt()
 
-            return {'thread_name': str(self.name), 'STATUS': 'COMPLETE'}
+            return {'thread_identifier': str(self.name), 'STATUS': 'COMPLETE'}
 
         except Exception as e:
             thread_exception['thread_identifier'] = str(self.name)

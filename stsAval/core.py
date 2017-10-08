@@ -558,12 +558,14 @@ class StsCore():
         return c_object, expiration
 
     def calc_lifetime(self, credentials=None, human_readable=False):
-        """
-        Summary: return remaining time on sts token, sts temporary credentials
+        """ Return remaining time on sts token, sts temporary credentials
 
         Args:
-            credentials:  STSCredentials object (if specified)
-            self.token STSToken object (if exists)
+            :type credentials:  STSCredentials object (if specified)
+            :param credentials generated for which remaining life requested
+
+            :type self.token: STSToken object (if exists)
+            :param latest token generated
 
         Returns:
             tuple containing TYPE: datetime.timedelta objects (DEFAULT)
@@ -671,6 +673,7 @@ class StsCore():
         Returns:
             TYPE Boolean | Success or Failure
         """
+        response = False
 
         if not force_rewrite and os.path.exists(output_file):
             # local awscli credentials already refactored
