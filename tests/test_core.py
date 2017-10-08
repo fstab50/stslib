@@ -8,6 +8,22 @@ Args:
     :type
     :param
 
+Useage:
+    import json, sys
+    sys.path.insert(0, '..')
+    from stsAval import core
+
+    source_a = './assets_core/awscli.reference'        # input file
+    source_b = './assets_core/parsed.reference'        # ouput file
+    def setup():
+        r_obj = generate_reference_object(source_b)
+        # create stsAval object, parse the test input file (awscli_reference)
+        b = source_b.split('/')[2]
+        sts_obj = core.StsCore(role_file=source_a, output_file=b)
+        # set instance attribute for reuse
+        target = json.dumps(sts_obj.profiles, indent=2, sort_keys=True)
+        return r_obj, target
+    r_obj_b, target_b = setup()
 """
 import sys
 
@@ -39,12 +55,13 @@ class TestParsing():
     validate core module for ability to accurately parse role credential files
     """
     def setup(self):
-        r_obj = self.generate_reference_object(source_b)
+        r_obj, pp = self.generate_reference_object(source_b)
         # create stsAval object, parse the test input file (awscli_reference)
         b = source_b.split('/')[2]
         sts_obj = core.StsCore(role_file=source_a, output_file=b)
         # set instance attribute for reuse
-        target = json.dumps(sts_obj.profiles, indent=2, sort_keys=True)
+        target = sts_obj.profiles
+        target_pp = json.dumps(sts_obj.profiles, indent=2, sort_keys=True)
         return r_obj, target
 
     @pytest.fixture(scope='session')
@@ -56,43 +73,49 @@ class TestParsing():
         try:
             handle = open(fname, 'r')
             file_obj = handle.read()
-            reference = json.dumps(
-                            json.loads(file_obj), indent=2, sort_keys=True
-                        )
+            reference = json.loads(file_obj)
+            reference_pp = json.dumps(reference, indent=2, sort_keys=True)
         except OSError as e:
             print('%s: Problem importing reference file object: %s' %
                 (inspect.stack()[0][3], str(fname)))
             raise
         except TypeError:
             # fname is already json object, not file-type object
-            reference = json.dumps(fname, indent=2, sort_keys=True)
-        return reference
+            reference = fname
+            reference_pp = json.dumps(fname, indent=2, sort_keys=True)
+        return reference, reference_pp
 
     def test_01_length(self):
         """
         validate awscli ini files are parsed correctly by benchmark to reference
         file asset
         """
+        __tracebackhide__ = False
         # retrieve reference object
-        r_object_b = self.generate_reference_object(source_b)
+        r_object_b, pp = self.generate_reference_object(source_b)
         print('\nr_object_b is:\n')
-        print(r_object_b)
+        print(pp)
         # create stsAval object, parse the test input file (awscli_reference)
         b = source_b.split('/')[2]
         sts_obj = core.StsCore(role_file=source_a, output_file=b)
+        self.target_object_b, pp = self.generate_reference_object(sts_obj.profiles)
         print('\nsts_obj is:\n')
-        print(sts_obj.profiles)
-        # set instance attribute for reuse
-        self.target_object_b = json.dumps(sts_obj.profiles, indent=2, sort_keys=True)
+        print(pp)
         # validate
         assert len(self.target_object_b) == len(r_object_b)
 
-    def test_02_content(self):
+    def test_02_key_content(self):
         """ compares parsed content for accuracy against a reference set """
+        __tracebackhide__ = False
         r_object_b, target_object_b = self.setup()
-        r_keys = list(r_object_b)
-        print('\nr_keys list contents are: \n%s' % str(r_keys))
-        out, err = capsys.readouterr()
+        r_keys, t_keys = [], []
+        for key in sorted(r_object_b):
+            r_keys.append(key)
+        for key in sorted(target_b):
+            t_keys.append(key)
+        print('\nr_reference key list contents are: \n%s' % str(r_keys))
+        intersection = list(filter(lambda x: x not in r_keys, t_keys)
+        assert intersection = []
         #pytest.fail("%s: not yet configured" % inspect.stack()[0][3])
 
 
