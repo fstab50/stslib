@@ -23,7 +23,7 @@ import os
 import sys
 from setuptools import setup, find_packages
 from codecs import open
-import stsaval
+import stsAval
 
 
 def read(fname):
@@ -40,12 +40,12 @@ requires = [
 
 setup(
     name='stsAval',
-    version=stsaval.__version__,
+    version=stsAval.__version__,
     description='Library for bulk generation of Amazon STS temporary credentials',
     long_description=read('README.rst'),
     url='https://bitbucket.org/blakeca00/stsaval',
-    author=stsaval.__author__,
-    author_email=stsaval.__email__,
+    author=stsAval.__author__,
+    author_email=stsAval.__email__,
     license='GPL-3.0',
     classifiers=[
         'Development Status :: 3 - Alpha',
