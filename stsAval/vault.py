@@ -13,8 +13,8 @@ Module Attributes:
 
 import datetime
 import inspect
-from stsAval.statics import defaults
 from stsAval import logd
+from stsAval.statics import defaults
 from stsAval._version import __version__
 
 

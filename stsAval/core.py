@@ -21,12 +21,11 @@ import inspect
 import pytz
 import boto3
 from botocore.exceptions import ClientError, ProfileNotFound
+from stsAval import logd
 from stsAval.refactor import parse_awscli
 from stsAval.vault import STSToken, STSCredentials
 from stsAval.async import TimeKeeper, convert_time
-from stsAval.statics import defaults
-from stsAval import logd
-from stsAval.statics import global_config
+from stsAval.statics import defaults, global_config
 from stsAval._version import __version__
 
 

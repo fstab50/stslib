@@ -13,9 +13,8 @@ import configparser
 import sys
 import argparse
 import inspect
-from stsAval.statics import defaults
 from stsAval import logd
-from stsAval.statics import global_config
+from stsAval.statics import defaults, global_config
 from stsAval._version import __version__
 
 
