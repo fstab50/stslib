@@ -1,14 +1,29 @@
-[SR-AutoTag]
-role_arn = arn:aws:iam::716415000000:role/SR-AutoTag
-mfa_serial = arn:aws:iam::716415000000:mfa/blake
+[AutoTagRole]
+role_arn = arn:aws:iam::716415000000:role/AutoTagRole
+mfa_serial = arn:aws:iam::716415000000:mfa/bobsmith
 source_profile = default
 
 [DynamoDBFullAccess]
 role_arn = arn:aws:iam::716415000000:role/DynamoDBFullAccess
-mfa_serial = arn:aws:iam::716415000000:mfa/blake
+mfa_serial = arn:aws:iam::716415000000:mfa/bobsmith
 source_profile = default
 
-[SR-CodeDeploy]
+[CodeDeployServiceRole]
 role_arn = arn:aws:iam::716415000000:role/CodeDeployServiceRole
-mfa_serial = arn:aws:iam::716415000000:mfa/blake
+mfa_serial = arn:aws:iam::716415000000:mfa/bobsmith
 source_profile = default
+
+[EC2FullAccessRole]
+role_arn = arn:aws:iam::333047500000:role/EC2FullAccessRole
+mfa_serial = arn:aws:iam::333047500000:mfa/sallymae
+source_profile = acme-dev1
+
+[S3ReadOnlyQARole]
+role_arn = arn:aws:iam::333047500000:role/S3ReadOnlyQARole
+mfa_serial = arn:aws:iam::333047500000:mfa/sallymae
+source_profile = acme-dev1
+
+[VPCFlowLogRole]
+role_arn = arn:aws:iam::333047500000:role/VPCFlowLogRole
+mfa_serial = arn:aws:iam::333047500000:mfa/sallymae
+source_profile = acme-dev1
