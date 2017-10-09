@@ -26,7 +26,8 @@ from stsAval.vault import STSToken, STSCredentials
 from stsAval.async import TimeKeeper, convert_time
 from stsAval.statics import defaults
 from stsAval import logd
-from stsAval.statics import global_config, __version__
+from stsAval.statics import global_config
+from stsAval._version import __version__
 
 
 logger = logd.getLogger(__version__)

@@ -35,7 +35,7 @@ import pytest
 import inspect
 import logging
 from stsAval import core
-from stsAval.statics import __version__
+from stsAval._version import __version__
 
 __tracebackhide__ = False
 

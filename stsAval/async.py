@@ -27,7 +27,7 @@ from threading import current_thread
 import time
 import datetime
 from stsAval import logd
-from stsAval.statics import __version__
+from stsAval._version import __version__
 
 
 logger = logd.getLogger(__version__)

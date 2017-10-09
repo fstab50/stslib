@@ -20,9 +20,9 @@ import sys
 import datetime
 import inspect
 import logging
+from stsAval._version import __version__
 
 # module attributes
-__version__ = '0.3.5'
 E_DEPENDENCY = 1
 
 logger = logging.getLogger(__version__)
