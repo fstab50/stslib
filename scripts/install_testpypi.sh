@@ -2,6 +2,7 @@
 
 VENV_PATH='~/Downloads'
 VENV_DIR='p3.6_env'
+PACKAGE='stsAval'
 
 
 function venv(){
@@ -19,4 +20,4 @@ function venv(){
 venv
 
 # install from test site
-pip install -U awscli --extra-index-url https://test.pypi.org/simple/ pygcreds 
+pip install -U awscli --extra-index-url https://test.pypi.org/simple/ $PACKAGE 

@@ -34,7 +34,7 @@ else
     read -p "which version to install? [latest]" CHOICE2
     if [ -z $CHOICE2 ]; the
         # version required or test.pypi breaks
-        version=$(grep '__version__' pygcreds/statics.py  | head -n 1 | awk -F"'" '{print $2}')
+        version=$(grep '__version__' $PACKAGE/_version.py  | head -n 1 | awk -F"'" '{print $2}')
         pip install -U --extra-index-url https://test.pypi.org/simple/  $PACKAGE==$version
     else
         pip install -U --extra-index-url https://test.pypi.org/simple/  $PACKAGE=="$CHOICE2"

@@ -5,7 +5,7 @@
 # AUTHOR:  Blake Huber
 #
 # SYNOPSIS:
-#   this script is used to perform gcreds source build
+#   this script is used to perform stsAval source build
 #   and upload to test pypi and pypi
 #
 # REQUIREMENTS:
