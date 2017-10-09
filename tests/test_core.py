@@ -26,14 +26,14 @@ Useage:
     r_obj_b, target_b = setup()
 """
 import sys
-
-sys.path.insert(0,'..')        # required to import modules
-
 import json
 import configparser
 import pytest
 import inspect
 import logging
+
+# target modules
+sys.path.insert(0,'..')        # required to import modules
 from stsAval import core
 from stsAval._version import __version__
 
