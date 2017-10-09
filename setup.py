@@ -55,7 +55,7 @@ setup(
         'Operating System :: POSIX :: Linux'
     ],
     keywords='iam role credentials',
-    packages=find_packages(exclude=['docs', 'tests*']),
+    packages=find_packages(exclude=['docs', 'tests*', 'notes']),
     install_requires=requires,
     python_requires='>=3.5, <4',
     zip_safe=False
