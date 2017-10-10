@@ -2,7 +2,8 @@
 
 PACKAGE='stsaval'
 root=$(git rev-parse --show-toplevel 2>/dev/null)
-wkdir="/home/blake/Downloads"
+HOME=$(echo $HOME)
+wkdir="$HOME/Downloads"
 
 if [ $root ]; then
     cd $root     # git repo root dir
@@ -32,7 +33,7 @@ if [ -z $CHOICE ]; then
     exit 0
 else
     read -p "which version to install? [latest]" CHOICE2
-    if [ -z $CHOICE2 ]; the
+    if [ -z $CHOICE2 ]; then
         # version required or test.pypi breaks
         version=$(grep '__version__' $PACKAGE/_version.py  | head -n 1 | awk -F"'" '{print $2}')
         pip install -U --extra-index-url https://test.pypi.org/simple/  $PACKAGE==$version
