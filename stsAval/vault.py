@@ -13,6 +13,7 @@ Module Attributes:
 
 import datetime
 import inspect
+from collections import namedtuple
 from stsAval import logd
 from stsAval.statics import defaults
 from stsAval._version import __version__
@@ -122,11 +123,8 @@ class STSCredentials():
             if overwrite:
                 for key, value in new_credentials.items():
                     self.credentials[key] = SingleSetCredential(new_credentials[key])
-                    # add role_name: expiration entry onto the ring.
-                    """
-                    self.ring[credentials[key]] = credentials[key]['end']
-                    self.ring[credentials[key]] = token-that-generated-credentials  <<< LINK TOKEN TO CRED SET HERE
-                    """
+
+                    #self.ring[credentials[key]] = token-that-generated-credentials  <<< LINK TOKEN TO CRED SET HERE
             else:
                 return      # FUTURE
                 # add creds to ring but accept duplicate credentials
