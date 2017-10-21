@@ -65,7 +65,7 @@ class StsCore():
             stsaval_profiles = kwargs.get('output_file', defaults['output_file'])
             self.profile_user = kwargs.get('profile_name', defaults['profile_user'])
             self.log_mode = kwargs.get('log_mode', global_config['log_mode'])
-            self.format = kwargs.get('format', 'vault')
+            self.format = kwargs.get('format', defaults['format'])
             self.debug_mode = kwargs.get('debug', False)
         else:
             return

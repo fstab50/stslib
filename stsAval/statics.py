@@ -68,6 +68,7 @@ else:
     awscli_creds = user_home + '/' + '.aws/credentials'
     awscli_creds_alternate = os.getenv('AWS_SHARED_CREDENTIALS_FILE')
     default_awscli = awscli_creds_alternate or awscli_creds
+    credential_format = 'vault'
 
     # global vars
     config_file = config_path + '/' + 'stsaval.cfg'
@@ -104,7 +105,8 @@ defaults = {
     'output_file': post_transform_file,
     'awscli_creds': awscli_creds,
     'awscli_creds_alt': awscli_creds_alternate,
-    'default_awscli': default_awscli
+    'default_awscli': default_awscli,
+    'format': credential_format
 }
 
 global_config = {
