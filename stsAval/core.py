@@ -12,7 +12,6 @@ Example Usage:
 """
 
 import os
-import sys
 import json
 from json import JSONDecodeError
 import datetime
@@ -284,7 +283,7 @@ class StsCore():
             return {'Error': str(e)}
         return self.token
 
-    def generate_credentials(self, accounts, token='', strict=True):
+    def generate_credentials(self, accounts, token=None, strict=True):
         """
         Summary:
             generate temporary credentials for profiles
@@ -321,7 +320,8 @@ class StsCore():
         # prep, now - tz offset aware
         now = datetime.datetime.utcnow().replace(tzinfo=pytz.UTC)
         session_token = token or self.token
-        prefix = global_config['credential_prefix']
+        prefix = global_config['credential_prefix'] + '-'
+        credentials = {}
 
         try:
             if self._valid_token(session_token):
@@ -341,7 +341,8 @@ class StsCore():
                             RoleSessionName=prefix + alias
                         )
                         response['Credentials']['StartTime'] = now
-                        self.credentials[prefix + alias] = response['Credentials']
+                        credentials[prefix + alias] = response['Credentials']
+                        self.credentials = STSCredentials(credentials).credentials
                 else:
                     return {}    # validation fail
                 # branch, auto-refresh or one-time gen of credentials
@@ -586,7 +587,7 @@ class StsCore():
         try:
             # now, timezone offset aware
             now = datetime.datetime.utcnow().replace(tzinfo=pytz.UTC)
-            #credentials = STSCredentials(self.token, self.credentials)
+
             """ the following is stub-in functionality """
             credentials = self.credentials
             keys = []
