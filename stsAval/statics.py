@@ -16,7 +16,6 @@ Module Attributes:
 """
 
 import os
-import sys
 import datetime
 import inspect
 import logging
@@ -29,7 +28,7 @@ logger = logging.getLogger(__version__)
 logger.setLevel(logging.INFO)
 
 
-### --  project-level DEFAULTS  ------------------------------------------------
+# --  project-level DEFAULTS  ------------------------------------------------
 
 try:
 
@@ -43,12 +42,12 @@ except KeyError as e:
 
 else:
     # defaults
-    config_dirname = '.stsaval'                              # config.cfg
+    config_dirname = '.stsaval'                           # config.cfg
     config_path = user_home + '/' + config_dirname
-    sts_max = 2160                                          # minutes
-    sts_min = 15                                            # minutes
-    token_life_default = 60                                 # minutes
-    credential_life_default = 60                            # min, 1 hour (AWS Default)
+    sts_max = 2160                                        # minutes
+    sts_min = 15                                          # minutes
+    token_life_default = 60                               # minutes
+    credential_life_default = 60                          # 1 hr (STS Default)
     profile_user = 'default'
     post_transform_file = 'profiles.json'
     awscli_creds = user_home + '/' + '.aws/credentials'
@@ -60,15 +59,14 @@ else:
     log_dir = user_home + '/' + 'logs'
     log_file = log_dir + '/' + 'stsaval.log'
     log_mode = 'file'
-    prefix = 'sts' + '-'
-    prefix_alt = 'gcreds' + '-'
+    prefix = 'sts'
+    prefix_alt = 'gcreds'
 
 try:
     if not os.path.exists(log_dir):
         os.mkdir(log_dir)
         os.chmod(log_dir, 0o755)
     elif os.path.exists(config_file):
-        prefix = prefix    # FUTURE:  extract prefxi from config file when exists
         logger.info('%s: %s has not been generated, using default prefix (%s)' %
             (inspect.stack()[0][3],config_file, prefix)
         )
@@ -79,7 +77,7 @@ except OSError as e:
     raise
 
 
-### --  project-level import objects  ------------------------------------------
+# --  project-level import objects  ------------------------------------------
 
 defaults = {
     'config_path': config_path,
