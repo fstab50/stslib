@@ -191,9 +191,11 @@ class StsCore():
             (if hardware token assigned)
 
         Args:
-            :user:  iam_user in local awscli profile.  user may be a profile name
-                   which is used exclusively in the awscli but does not represent
-                   an actual iam name recorded in the Amazon Web Services account.
+            :type user: string
+            :param user:  iam_user in local awscli profile.  user may be a
+                profile name which is used exclusively in the awscli but does
+                not represent an actual iam name recorded in the Amazon Web
+                Services account.
 
         Returns:
             TYPE: string
@@ -229,7 +231,7 @@ class StsCore():
         Args:
             lifetime (int): token lifetime duration in hours
             mfa_code (str): 6 digit authorization code from a multi-factor (mfa)
-            authentication device
+                authentication device
 
         Returns:
             session credentials | TYPE: dict
@@ -282,8 +284,8 @@ class StsCore():
             logger.warning(
                 '%s: Exception generating session token with iam user %s (Code: %s Message: %s)' %
                 (inspect.stack()[0][3], self.iam_user, e.response['Error']['Code'],
-                e.response['Error']['Message']
-            ))
+                e.response['Error']['Message'])
+                )
             return {'Error': str(e)}
         return self.token
 
@@ -294,17 +296,17 @@ class StsCore():
 
         Args:
             accounts: TYPE: list
-                    List of account aliases or profile names from the local
-                    awscli configuration in accounts to assume a role
+                List of account aliases or profile names from the local
+                awscli configuration in accounts to assume a role
 
             strict: TYPE: list
-                    Determines if strict membership checking is applied to
-                    aliases found in accounts parameter list. if strict=True
-                    (Default), then if 1 account profilename given in the accounts
-                    list, all accounts will be rejected and no temporary credentials
-                    are generated.  If False, temporary credentials generated
-                    for all profiles that are valid, only invalid profiles will
-                    fail to generate credentials
+                Determines if strict membership checking is applied to
+                aliases found in accounts parameter list. if strict=True
+                (Default), then if 1 account profilename given in the accounts
+                list, all accounts will be rejected and no temporary credentials
+                are generated.  If False, temporary credentials generated
+                for all profiles that are valid, only invalid profiles will
+                fail to generate credentials
 
         Returns:
             iam role temporary credentials | TYPE: Dict
@@ -675,17 +677,19 @@ class StsCore():
                       output_file=defaults['output_file'], force_rewrite=True):
         """
         Summary:
-            Refactors native awscli credentials file into a useable form. Credentials
-            file in the native format used by awscli is refactored into a json file
-            located in the stsaval configuration directory (typically ~/.stsaval) in
-            user's home.
+            Refactors native awscli credentials file into a useable form.
+            Credentials file in the native format used by awscli is refactored
+            into a json file located in the stsaval configuration directory
+            (typically ~/.stsaval) in user's home.
 
-            refactor exists as a StsCore class method so that it refactoring operations
-            can be initiated on an ad hoc basis whenever credentails are refreshed
+            refactor exists as a StsCore class method so that it refactoring
+            operations can be initiated on an ad hoc basis whenever credentails
+            are refreshed
 
         Args:
             input_file: pathname of awscli credentails file
-            output_file: name of json formatted output file, post awscli transformation
+            output_file: name of json formatted output file, post awscli
+                transformation
 
         Returns:
             TYPE Boolean | Success or Failure
