@@ -30,7 +30,6 @@ from stsAval._version import __version__
 logger = logd.getLogger(__version__)
 
 
-
 class StsCore():
     """
     Class definition, STS credentials library
@@ -51,16 +50,21 @@ class StsCore():
             :param profile_name: user profile configured in local awscli config
                                  with permissions to assume roles in target aws
                                  accounts
+            :type format: string
+            :param format: format of credentials, either boto (native) or
+                stsAval custom format
             :type debug: bool
             :param debug:  optional debug flag (DEFAULT = False)
         """
         # validate provided kwargs
-        keywords = ('role_file', 'output_file', 'profile_name', 'log_mode', 'debug')
+        keywords = ('role_file', 'output_file', 'profile_name',
+                    'log_mode', 'format', 'debug')
         if self.filter_args(kwargs, *keywords):
             boto_profiles = kwargs.get('role_file', None)
             stsaval_profiles = kwargs.get('output_file', defaults['output_file'])
             self.profile_user = kwargs.get('profile_name', defaults['profile_user'])
             self.log_mode = kwargs.get('log_mode', global_config['log_mode'])
+            self.format = kwargs.get('format', 'boto')
             self.debug_mode = kwargs.get('debug', False)
         else:
             return
@@ -342,7 +346,10 @@ class StsCore():
                         )
                         response['Credentials']['StartTime'] = now
                         credentials[prefix + alias] = response['Credentials']
-                        self.credentials = STSCredentials(credentials).credentials
+                        if self.format == 'boto':
+                            self.credentials = credentials
+                        else:
+                            self.credentials = STSCredentials(credentials).credentials
                 else:
                     return {}    # validation fail
                 # branch, auto-refresh or one-time gen of credentials
@@ -588,13 +595,15 @@ class StsCore():
             # now, timezone offset aware
             now = datetime.datetime.utcnow().replace(tzinfo=pytz.UTC)
 
-            """ the following is stub-in functionality """
             credentials = self.credentials
             keys = []
             for key in credentials:
                 keys.append(key)
-            credential_expiration = credentials[keys[0]]['Expiration']
-            """ end stub """
+            if self.format == 'boto':
+                credential_expiration = credentials[keys[0]]['Expiration']
+            else:
+                credential_expiration = credentials[keys[0]].end
+
             if self.token:
                 if self.token.end >= now:
                     token_life_reamining = self.token.end - now
