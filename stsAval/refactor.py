@@ -27,7 +27,7 @@ prefix = global_config['credential_prefix']
 prefix_alt = global_config['alternate_prefix']
 
 
-# -- function declarations  ----------------------------------------------------
+# -- function declarations  ---------------------------------------------------
 
 def parse_awscli(parameter_input=None, parameter_output=None):
     """
@@ -35,8 +35,8 @@ def parse_awscli(parameter_input=None, parameter_output=None):
         imports awscli credentials file, refactors format to json
 
     Args:
-        parameter_input: TYPE: string, optional input file if not awscli default
-        parameter_output: TYPE: string, optional ouput file if not stsaval default
+        parameter_input: TYPE: string, opt input file if not awscli default
+        parameter_output: TYPE: string, opt ouput file if not stsaval default
 
     Returns:
         Success or Failure, TYPE: Boolean
@@ -45,9 +45,9 @@ def parse_awscli(parameter_input=None, parameter_output=None):
     awscli_file = parameter_input or defaults['default_awscli']
     # ouput file - after parsing
     if config_dir in parameter_output:
-        output_file = ( parameter_output or defaults['output_file'] )
+        output_file = (parameter_output or defaults['output_file'])
     else:
-        output_file = config_dir + '/' + ( parameter_output or defaults['output_file'] )
+        output_file = config_dir + '/' + (parameter_output or defaults['output_file'])
 
     logger.info('awscli_file (input) is: %s' % awscli_file)
     logger.info('output_file is: %s' % output_file)
@@ -56,7 +56,7 @@ def parse_awscli(parameter_input=None, parameter_output=None):
 
     if not os.path.exists(awscli_file):
         logger.info(
-            'awscli default credentials or provided file input [%s] missing. Abort refactor' %
+            'awscli credentials or provided file input [%s] missing. Abort' %
             awscli_file
         )
         return False
@@ -70,8 +70,11 @@ def parse_awscli(parameter_input=None, parameter_output=None):
     iam_keys = ['aws_access_key_id', 'aws_secret_access_key']
     role_keys = ['role_arn', 'mfa_serial', 'source_profile']
 
+    filtered_list = list(filter(lambda x: prefix_alt not in x,
+                        filter(lambda x: prefix not in x, config.sections())))
+
     try:
-        for profile in filter(lambda x: (prefix or prefix_alt) not in x, config.sections()):
+        for profile in filtered_list:
             if set(iam_keys).issubset(config[profile].keys()):
                 for key in iam_keys:
                     tmp[key] = config[profile][key]
