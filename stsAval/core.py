@@ -39,22 +39,23 @@ class StsCore():
         Summary: initalization, attribute assignment
 
         Args:
-            :type role_file: string
-            :param role_file: optional name of a json structured file located
-                              stsaval config directory in users home directory.
-                              File contains information about roles for which
-                              you which to generate temporary credentials
-            :type ouput_file: string
-            :param output_file: optional non-default filename
-            :type profile_name: string
-            :param profile_name: user profile configured in local awscli config
-                                 with permissions to assume roles in target aws
-                                 accounts
-            :type format: string
-            :param format: format of credentials, either boto (native) or
-                stsAval custom format
-            :type debug: bool
-            :param debug:  optional debug flag (DEFAULT = False)
+            :role_file (arg, TYPE: str):
+                optional name of a json structured file located stsaval config directory
+                in users home directory. File contains information about roles for which
+                you which to generate temporary credentials
+            :output_file (attr, TYPE: str):
+                optional non-default filename
+            :profile_name (param, TYPE: str):
+                user profile configured in local awscli config with permissions to
+                assume roles in target aws accounts
+            :profile_user (attr, TYPE: str):
+                Instance attr for profile_name when passed as a parameter
+            :log_mode (attr, TYPE: str):
+                Parameter designation for file or stream log output
+            :format (attr, TYPE: str):
+                format of credentials, either boto (native) or stsAval custom format
+            :debug (attr, TYPE: bool):
+                optional debug flag (DEFAULT = False)
         """
         # validate provided kwargs
         keywords = ('role_file', 'output_file', 'profile_name',
@@ -64,7 +65,7 @@ class StsCore():
             stsaval_profiles = kwargs.get('output_file', defaults['output_file'])
             self.profile_user = kwargs.get('profile_name', defaults['profile_user'])
             self.log_mode = kwargs.get('log_mode', global_config['log_mode'])
-            self.format = kwargs.get('format', 'boto')
+            self.format = kwargs.get('format', 'vault')
             self.debug_mode = kwargs.get('debug', False)
         else:
             return
@@ -99,7 +100,7 @@ class StsCore():
         self.users = self.get_valid_users(iam_client)
         self.iam_user = self._map_identity(self.profile_user, sts_client)
         self.mfa_serial = self.get_mfa_info(self.iam_user, iam_client)
-        self.thread = ''
+        self.thread = None
 
     def _map_identity(self, user, client):
         """
@@ -252,8 +253,6 @@ class StsCore():
 
         # now, timezone offset aware
         now = datetime.datetime.utcnow().replace(tzinfo=pytz.UTC)
-
-        #token_life = int(hours) * 60
         token_life = datetime.timedelta(hours=int(lifetime))
         mfa_code = str(mfa_code)
         sts_client = self.session.client('sts')
@@ -282,7 +281,7 @@ class StsCore():
                 return {}
         except ClientError as e:
             logger.warning(
-                '%s: Exception generating session token with iam user %s (Code: %s Message: %s)' %
+                '%s: Exception gen session token with iam user %s (Code: %s Message: %s)' %
                 (inspect.stack()[0][3], self.iam_user, e.response['Error']['Code'],
                 e.response['Error']['Message'])
                 )
@@ -372,7 +371,6 @@ class StsCore():
                     )
                     self.thread.start()
                     self.refresh_credentials = False
-                    return self.current_credentials()
             else:
                 logger.warning('No credentials generated, token is expired')
                 return {}    # token expired
@@ -519,8 +517,8 @@ class StsCore():
             logger.critical(
                 '%s: Unable to establish session (Code: %s Message: %s)' %
                 (inspect.stack()[0][3], e.response['Error']['Code'],
-                e.response['Error']['Message']
-            ))
+                e.response['Error']['Message'])
+                )
             raise
         return session_init
 
@@ -671,7 +669,6 @@ class StsCore():
                     (inspect.stack()[0][3], str(unknown_arg))
                 )
         return True
-
 
     def refactor(self, input_file=defaults['default_awscli'],
                       output_file=defaults['output_file'], force_rewrite=True):
