@@ -1,16 +1,31 @@
 """
 Summary:
-    Module level constants common across stsaval project
+    stsAval Project defaults and inputs
 
 Module Attributes:
-    user_home (str):
-        $HOME environment variable, present in most shells of Unix and
-        Unix-like systems
-    config_path(str):
-        default for all stsaval config files (~/.stsaval)
-    default_awscli (str):
-        default awscli credentials file used for input
-    default_output (str):
+
+    :user_home (attr, TYPE: str):
+        $HOME environment variable, present for most Unix and Unix-like POSIX systems
+    :config_dirname (attr, TYPE: str):
+        directory name default for stsaval config files (.stsaval)
+    :config_path (attr, TYPE: str):
+        default for stsaval config files, includes config_dirname (~/.stsaval)
+    :sts_min (attr, TYPE: int):
+        min Amazon STS temp credential lifetime (minutes)
+    :sts_max (attr, TYPE: int):
+        max Amazon STS temp credential lifetime (minutes)
+    :token_life_default (attr, TYPE: int):
+        Default valid lifetime for Amazon STS generated session tokens (minutes)
+    :credential_life_default (attr, TYPE: int):
+        Default valid lifetime for Amazon STS generated temp credentails (minutes)
+    :awscli_creds (attr, TYPE: str):
+        Path including filename to the default awscli credentials file
+    :awscli_creds_alternate (attr, TYPE: str):
+        Path including filename to the alternate default awscli credentials file
+    :default_awscli (attr, TYPE: str):
+        valid local location of the default awscli credentials file. Either
+        awscli_creds or awscli_creds_alternate
+    :default_output (attr, TYPE: str):
         default output file written to disk during refactoring operations
 
 """
