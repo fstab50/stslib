@@ -48,6 +48,8 @@ reset=$(tput sgr0)
 BOLD=`tput bold`
 UNBOLD=`tput sgr0`
 
+python_pkgs=( 'twine' 'setuptools' 'pandoc' 'sphinx' )
+
 #
 ### -- functions declarations  ----------------------------------------------###
 #
@@ -121,6 +123,8 @@ function venv(){
             python3 -m venv $VENV_PATH/$VENV_DIR
         fi
         source $VENV_PATH/$VENV_DIR/bin/activate
+        for py_pkg in python_pkgs:
+            pip install -U $py_pkg
     fi
 }
 
