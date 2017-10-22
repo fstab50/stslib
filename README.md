@@ -93,7 +93,24 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
     >>> object = StsCore()
     >>> token = object.generate_session_token()
     >>> print(token)
+    <stsAval.vault.STSToken at 0x7f05365e3ef0>
 
+    # token attributes
+
+    >>> print(token.start)
+    datetime.datetime(2017, 8, 25, 20, 4, 37, tzinfo=tzutc()
+
+    >>> print(token.end)
+    datetime.datetime(2017, 8, 25, 21, 4, 36, tzinfo=tzutc())
+
+    >>> print(token.access_key)
+    'ASIAI6QV2U3JJAYRHCJQ'
+
+    >>> print(token.secret_key)
+    'MdjPAkXTHl12k64LSjmgTWMsmnHk4cJfeMHdXMLA'
+
+    >>> print(token.raw)    # native boto generated format
+    
 {
     'AccessKeyId': 'ASIAI6QV2U3JJAYRHCJQ',
     'StartTime': datetime.datetime(2017, 8, 25, 20, 4, 37, tzinfo=tzutc()),
@@ -129,10 +146,10 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 ```
 
+#### Generate Credentials
 
-#### Generation of Credentials
-
-* STS temporary credentials, default lifetime (60 minutes)
+* generate STS temporary credentials, default lifetime (60 minutes)
+* credentials in 'boto' format
 
 ```python
 
@@ -178,8 +195,9 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 #### Named IAM user, Generate Extended Use Credentials
 
-* IAM user profile in local awscli config, MFA protected cli
-* Token with 5 hour lifetime
+* IAM user profile in local awscli config
+* MFA protected cli configuration
+* Credentials auto-refreshed for total 5 hour valid lifetime
 
 ```python
 
@@ -189,7 +207,7 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
     >>> code = '123566'
     >>> token = object.generate_session_token(lifetime=5, mfa_code=code)
 
-    >>> print(token)
+    >>> print(token.raw)
 
 {
     'AccessKeyId': 'ASIAI6QV2U3JJAYRHCJQ',
@@ -203,11 +221,11 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 #### Refresh of Credentials
 
-* STS temp credentials will regenerate once per hour, before expiration
-* Refresh of credentials is non-blocking (via separate thread)
-* Thread management is via event states so threads are terminated as soon as they either  
-their associated session token expires or they receive a halt event.
-*   No hanging threads. Any threads which are alive when new credentials generated are killed  
+* STS temp credentials will regenerate once per hour, prior to expiration
+* Refresh of credentials is non-blocking (via threading)
+* Thread management is via event states; threads are terminated as soon as their associated  
+session token expires or they receive a halt event.
+* No hanging threads. Any threads which are alive when new credentials generated are killed  
 before generating a new set.
 
 ```python
@@ -304,31 +322,22 @@ directly
 
 * * *
 
-#### Non-default name or location of credentials file instead of awscli credentials
+#### Non-default IAM Role credentials filename or location
 
-* Initialization
-
-    < tbd >
-
-* Output
-
-    < tbd >
-
-* * *
-
-#### Use of Non-default IAM Role credentials file located outside of the awscli config
+**Use-Case**: When you wish to use role credentials file not currently part of the awscli,  
+you can provide a custom location to stsAval as a parameter
 
 * Initialization
 
 ```python
 
-    from stsAval import StsCore
+    import stsAval
 
-    >>> object = StsCore()
+    >>> object = stsAval.StsCore()
     >>> credentials_file = '~/myAccount/role_credentials'   # awscli credentials file, located in ~/.aws
 
     >>> object.refactor(credentials_file)
-
+    >>> object.profiles
 ```
 
 * Output
