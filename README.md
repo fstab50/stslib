@@ -3,12 +3,13 @@
 
 ## Purpose ##
 
-**stsAval** (pronounced "s-t-s Aay-val" - Spanish for "sts _trustee_"), is a python3 library that requests  
-and manages temporary credentials from [Amazon's Security Token Service (STS)](http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html).  stsAval generates temporary credentials  
-against roles that reside in any number of AWS accounts.
+**stsAval** (pronounced "s-t-s Aay-val") -- Spanish for "sts _trustee_". stsAval is a python3 library  
+that requests and manages temporary credentials from [Amazon's Security Token Service (STS)](http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html) on your behalf.  stsAval  
+generates temporary credentials against roles that reside in any number of AWS accounts.
 
-A primary use case for the **stsAval** library is to generate a temporary set of AWS access credentials  
-for automation tools running on your local machine.  
+A primary use case for the **stsAval** library is generation of temporary access credentials for automation tools  
+to authenticate to Amazon Web Services.  Such automation tooling may be running within AWS; however, commonly  
+are running in environments external to AWS such as a local machine.
 
 **stsAval** manages temporary credentials generates credentials in memory for applications that  
 need access to iam roles at AWS.  If temporary credentials are needed for extended periods (> 1 hour),  
@@ -109,14 +110,17 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
     >>> print(token.secret_key)
     'MdjPAkXTHl12k64LSjmgTWMsmnHk4cJfeMHdXMLA'
 
-    >>> print(token.raw)    # native boto generated format
-    
+    >>> print(token.session)
+    'FQoDYXdzEDMaDHAaP2wi/+77fNJJryKvAa20AqGxoQlcRtf8RFLa5Mps9zK9V5SM3Q7+M3h9iNbcxfaZsUnTzFvFwjVZjYKk...zQU='
+
+    >>> print(token.boto)    # native boto generated format
+
 {
     'AccessKeyId': 'ASIAI6QV2U3JJAYRHCJQ',
     'StartTime': datetime.datetime(2017, 8, 25, 20, 4, 37, tzinfo=tzutc()),
     'Expiration': datetime.datetime(2017, 8, 25, 21, 4, 36, tzinfo=tzutc()),
     'SecretAccessKey': 'MdjPAkXTHl12k64LSjmgTWMsmnHk4cJfeMHdXMLA',
-    'SessionToken': 'FQoDYXdzEDMaDHAaP2wi/+77fNJJryKvAdVZjYKk...zQU='
+    'SessionToken': 'FQoDYXdzEDMaDHAaP2wi/+77fNJJryKvAa20AqGxoQlcRtf8RFLa5Mps9zK9V5SM3Q7+M3h9iNbcxfa...zQU='
 }
 
 ```
@@ -134,7 +138,7 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
     >>> code = '123566'
     >>> token = object.generate_session_token(mfa_code=code)
 
-    >>> print(token)
+    >>> print(token.boto)
 
 {
     'AccessKeyId': 'ASIAI6QV2U3JJAYRHCJQ',
