@@ -14,9 +14,11 @@ for automation tools running on your local machine.
 need access to iam roles at AWS.  If temporary credentials are needed for extended periods (> 1 hour),  
 **stsAval** will automatically renew sts credentials before expiration.
 
-See [v0.2.1 Release Notes](./notes/release_v0.2.1.md)
+See [v0.3.6 Release Notes](./notes/release_v0.3.6.md)
 
 #### Previous Releases ####
+
+* [v0.2.1 Release Notes](./notes/release_v0.2.1.md)
 * [v0.1.8 Release Notes](./notes/release_v0.1.8.md)
 
 * * *
@@ -64,13 +66,13 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 * Installation via pip
 
 ```bash
-    $ sudo -H pip3 install stsaval
+    $ sudo -H pip3 install stsAval
 ```
 
 * Setup and Configuration
 
 ```bash
-    $ cd /home/user/<stsaval directory>/
+    $ cd /home/user/<stsAval directory>/
     $ python3 ...TBD
 ```
 
@@ -78,18 +80,40 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 ## Use Cases & Examples ##
 * * *
 
-MFA: Multi-Factor Authentication (6 digit code)
-
-#### Default IAM User, Generate one-time use token (MFA)
+#### Generate one-time use token (default IAM User)
 
 * Default IAM user in local awscli config
-* MFA protected cli access
+* Token with default lifetime (60 minutes)
+* Cli not protected with MFA
+
+```python
+
+    from stsAval import StsCore
+
+    >>> object = StsCore()
+    >>> token = object.generate_session_token()
+    >>> print(token)
+
+{
+    'AccessKeyId': 'ASIAI6QV2U3JJAYRHCJQ',
+    'StartTime': datetime.datetime(2017, 8, 25, 20, 4, 37, tzinfo=tzutc()),
+    'Expiration': datetime.datetime(2017, 8, 25, 21, 4, 36, tzinfo=tzutc()),
+    'SecretAccessKey': 'MdjPAkXTHl12k64LSjmgTWMsmnHk4cJfeMHdXMLA',
+    'SessionToken': 'FQoDYXdzEDMaDHAaP2wi/+77fNJJryKvAdVZjYKk...zQU='
+}
+
+```
+
+#### Generate Session Token (named IAM User)
+
+* IAM user profile in local awscli config
+* MFA (Multi-Factor Authentication) protected cli access configuration
 * STS Token with default lifetime (60 minutes)
 
 ```python
-    from stsaval import StsCore
+    from stsAval import StsCore
 
-    >>> object = StsCore()
+    >>> object = StsCore(profile_name='BobSmith')
     >>> code = '123566'
     >>> token = object.generate_session_token(mfa_code=code)
 
@@ -105,30 +129,6 @@ MFA: Multi-Factor Authentication (6 digit code)
 
 ```
 
-#### Named IAM user, Generate one-time use token (no MFA)
-
-* IAM user profile in local awscli config
-* Token with default lifetime (60 minutes)
-* Cli not protected with MFA
-
-```python
-
-    from stsaval import StsCore
-
-    >>> object = StsCore(profile_name='IAM_USER1')
-    >>> token = object.generate_session_token()
-
-    >>> print(token)
-
-{
-    'AccessKeyId': 'ASIAI6QV2U3JJAYRHCJQ',
-    'StartTime': datetime.datetime(2017, 8, 25, 20, 4, 37, tzinfo=tzutc()),
-    'Expiration': datetime.datetime(2017, 8, 25, 21, 4, 36, tzinfo=tzutc()),
-    'SecretAccessKey': 'MdjPAkXTHl12k64LSjmgTWMsmnHk4cJfeMHdXMLA',
-    'SessionToken': 'FQoDYXdzEDMaDHAaP2wi/+77fNJJryKvAdVZjYKk...zQU='
-}
-
-```
 
 #### Generation of Credentials
 
@@ -183,7 +183,7 @@ MFA: Multi-Factor Authentication (6 digit code)
 
 ```python
 
-    from stsaval import StsCore
+    from stsAval import StsCore
 
     >>> object = StsCore(profile_name='IAM_USER1')
     >>> code = '123566'
@@ -226,7 +226,7 @@ before generating a new set.
 
 * **stsAval** returns a method to `credentials_object`.  This method queries StsCore for a class attribute,  
 holding the latest credentials generated.
-* applications using stsaval need only to access Amazon Web Services' resources by utilising credentials_object  
+* applications using stsAval need only to access Amazon Web Services' resources by utilising credentials_object  
 directly
 
 ```python
@@ -322,7 +322,7 @@ directly
 
 ```python
 
-    from stsaval import StsCore
+    from stsAval import StsCore
 
     >>> object = StsCore()
     >>> credentials_file = '~/myAccount/role_credentials'   # awscli credentials file, located in ~/.aws
@@ -375,4 +375,4 @@ see [Frequently Asked Questions](./notes/faq.md)
 
 ## Enhancement Roadmap ##
 
-for a complete list of enhancements logged against the stsaval project, see the [list of stsaval issues](https://bitbucket.org/blakeca00/stsaval/issues?status=new&status=open).
+for a complete list of enhancements logged against the stsAval project, see the [list of stsAval issues](https://bitbucket.org/blakeca00/stsaval/issues?status=new&status=open).
