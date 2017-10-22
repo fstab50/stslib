@@ -17,9 +17,11 @@ when  instantiating the `StsCore` class.
 ### Format 1: `vault` Format (DEFAULT)
 
 * Parameter consumption based on attribute specification
-* Additional custom parameter:
-    * Duration Attribute (datetime)
-    * Expiration Attribute (expiration string format)
+* Additional custom parameters:
+    * Duration Attribute (datetime object)
+    * Expiration Attribute (expiration datetime stamp in string format)
+
+### Format 1 Example:
 
 ```python
 
@@ -79,6 +81,8 @@ when  instantiating the `StsCore` class.
 
 * For use in legacy applications
 * Applications where translation of STS credentials is not authorized or discouraged
+
+### Format 2 Example:
 
 ```python
 
