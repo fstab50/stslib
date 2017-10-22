@@ -25,7 +25,7 @@ function update_minor_version(){
 if [ $root ]; then
     cd $root     # git repo root dir
 else
-    echo -e '\nrepo reoot not found. Exit'
+    echo -e '\nrepo root not found. Exit'
     exit 1
 fi
 
@@ -55,7 +55,7 @@ else
     if [ -z $CHOICE2 ]; then
         # version required or test.pypi breaks
         version=$(grep '__version__' $PACKAGE/_version.py  | head -n 1 | awk -F"'" '{print $2}')
-        pip install -U --extra-index-url https://test.pypi.org/simple/ 
+        pip install -U --extra-index-url https://test.pypi.org/simple/
     else
         pip install -U --extra-index-url https://test.pypi.org/simple/  $PACKAGE=="$CHOICE2"
     fi
