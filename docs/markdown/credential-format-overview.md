@@ -49,6 +49,8 @@
     'SessionToken': 'FQoDYXdzEDMaDHAaP2wi/+77fNJJryKvAa20AqGxoQlcRtf8RFLa5Mps9zK9V5SM3Q7+M3h9iNbcxfa...zQU='
 }
 
+```
+
 * * *
 
 ### Authentication Credential Formats
