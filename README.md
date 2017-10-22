@@ -158,6 +158,7 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 * generate STS temporary credentials, default lifetime (60 minutes)
 * See the [Credentials Format Overview](./docs/credential_format_overview.md)
+* Credential format set to 'boto' (native Amazon STS format)
 
 ```python
 
@@ -220,7 +221,8 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
             # where profile_list = list of profile names from local awscli config
 
-    >>> credentials = sts_object.generate_credentials(profile_list)
+    >>> sts_object.generate_credentials(profile_list)
+    >>> credentials = sts_object.current_credentials
 
 ```
 
@@ -235,7 +237,7 @@ before generating a new set.
 
 ```python
 
-    >>> print(sts_object.credentials)
+    >>> print(credentials())
 
 {
   'sts-DynamoDBRole-dev': {        
@@ -270,7 +272,7 @@ before generating a new set.
 /stsaval/async.py - 0.2.0 - [INFO]: remaining in cycle: 4 hours, 59 minutes
 
 
-  >>> print(credentials_object)
+  >>> print(credentials())
 
 {
   'sts-DynamoDBRole-dev': {        
