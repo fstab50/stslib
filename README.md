@@ -160,18 +160,22 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 ```python
 
+    >>> object = StsCore(profile_name='BobSmith', format='boto')
+    >>> token = object.generate_session_token()
     >>> profile_list = [
-
             'DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod'
-
         ]
 
             # where profile_list = list of profile names from local awscli config
 
     >>> object.generate_credentials(profile_list)
 
-    >>> print(credentials.boto)
+    >>> print(credentials)     # boto format credentials
+```
 
+* Output
+
+```json
 {
     'sts-DynamoDBRole-dev': {        
         'StartTime': datetime.datetime(2017, 9, 3, 19, 0, 5, tzinfo=<UTC>)},
@@ -214,7 +218,7 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
     >>> code = '123456'
     >>> token = object.generate_session_token(lifetime=5, mfa_code=code)
 
-    >>> print(token.raw)
+    >>> print(token.boto)
 
 {
     'AccessKeyId': 'ASIAI6QV2U3JJAYRHCJQ',
@@ -245,18 +249,14 @@ before generating a new set.
 
             # where profile_list = list of profile names from local awscli config
 
-    >>> credentials_object = object.generate_credentials(profile_list)
+    >>> credentials = object.generate_credentials(profile_list)
+    >>> print(credentials)
 
 ```
 
-* **stsAval** returns a method to `credentials_object`.  This method queries StsCore for a class attribute,  
-holding the latest credentials generated.
-* applications using stsAval need only to access Amazon Web Services' resources by utilising credentials_object  
-directly
+* Output
 
-```python
-
-    >>> print(credentials_object)
+```json
 
 {
   'sts-DynamoDBRole-dev': {        
