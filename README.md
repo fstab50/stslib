@@ -135,7 +135,7 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
     from stsAval import StsCore
 
     >>> object = StsCore(profile_name='BobSmith')
-    >>> code = '123566'
+    >>> code = '123456'
     >>> token = object.generate_session_token(mfa_code=code)
 
     >>> print(token.boto)
@@ -150,10 +150,12 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 ```
 
-#### Generate Credentials
+* * *
+
+#### Generate Credentials (default lifetime)
 
 * generate STS temporary credentials, default lifetime (60 minutes)
-* credentials in 'boto' format
+* See the [Credentials Format Overview](./docs/credential_format_overview.md)
 
 ```python
 
@@ -167,7 +169,7 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
     >>> object.generate_credentials(profile_list)
 
-    >>> print(credentials)
+    >>> print(credentials.boto)
 
 {
     'sts-DynamoDBRole-dev': {        
@@ -197,7 +199,7 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 * * *
 
-#### Named IAM user, Generate Extended Use Credentials
+#### Generate Extended Use Credentials (auto-refresh, named IAM user)
 
 * IAM user profile in local awscli config
 * MFA protected cli configuration
@@ -207,8 +209,8 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
     from stsAval import StsCore
 
-    >>> object = StsCore(profile_name='IAM_USER1')
-    >>> code = '123566'
+    >>> object = StsCore(profile_name='BobSmith')
+    >>> code = '123456'
     >>> token = object.generate_session_token(lifetime=5, mfa_code=code)
 
     >>> print(token.raw)
@@ -225,7 +227,7 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 #### Refresh of Credentials
 
-* STS temp credentials will regenerate once per hour, prior to expiration
+* STS temporary credentials will regenerate once per hour, prior to expiration
 * Refresh of credentials is non-blocking (via threading)
 * Thread management is via event states; threads are terminated as soon as their associated  
 session token expires or they receive a halt event.
@@ -382,7 +384,7 @@ you can provide a custom location to stsAval as a parameter
 
 ## FAQ ##
 
-see [Frequently Asked Questions](./notes/faq.md)
+see [Frequently Asked Questions](./FAQ.md)
 
 * * *
 
