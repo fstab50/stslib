@@ -9,8 +9,10 @@
 1. **stsAval** Enhanced `vault` Format (DEFAULT).  
 2. Native `boto` Format, Amazon STS temporary credential format returned by boto python SDK
 
-* Either credential format can be selected by passing the `format` class attribute parameter  
-when  instantiating the `StsCore` class.
+Either credential format can be selected by passing the `format` class attribute parameter  
+when instantiating the `StsCore` class.
+
+Alternatively, you may change default stsAval format in the config file `~/stsaval/config.yml`.  
 
 * * *
 
