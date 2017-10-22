@@ -21,8 +21,8 @@ Alternatively, you may change the default **stsAval** format in the config file 
 * Parameter consumption based on attribute specification
 * Additional custom parameters:
 
-    * `Duration` Attribute (datetime object)
-    * `Expiration` Attribute (expiration datetime stamp in string format)
+    * `duration` Attribute (datetime object)
+    * `expiration` Attribute (Expiration datetime stamp in string format)
 
 ### `vault` Example:
 
