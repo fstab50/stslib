@@ -64,14 +64,14 @@ else:
     token_life_default = 60                               # minutes
     credential_life_default = 60                          # 1 hr (STS Default)
     profile_user = 'default'
-    post_transform_file = 'profiles.json'
+    sts_profiles_file = 'profiles.json'
     awscli_creds = user_home + '/' + '.aws/credentials'
     awscli_creds_alternate = os.getenv('AWS_SHARED_CREDENTIALS_FILE')
     default_awscli = awscli_creds_alternate or awscli_creds
     credential_format = 'vault'
 
     # global vars
-    config_file = config_path + '/' + 'stsaval.cfg'
+    config_file = config_path + '/' + 'config.yml'
     log_dir = user_home + '/' + 'logs'
     log_file = log_dir + '/' + 'stsaval.log'
     log_mode = 'file'
@@ -102,7 +102,7 @@ defaults = {
     'token_life': datetime.timedelta(minutes=int(token_life_default)),
     'credential_life': datetime.timedelta(minutes=int(credential_life_default)),
     'profile_user': profile_user,
-    'output_file': post_transform_file,
+    'output_file': sts_profiles_file,
     'awscli_creds': awscli_creds,
     'awscli_creds_alt': awscli_creds_alternate,
     'default_awscli': default_awscli,
