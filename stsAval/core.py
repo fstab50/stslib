@@ -53,7 +53,7 @@ class StsCore():
             :log_mode (attr, TYPE: str):
                 Parameter designation for file or stream log output
             :format (attr, TYPE: str):
-                format of credentials, either boto (native) or stsAval custom format
+                format of credentials, either boto (native) or vault (stsAval default format)
             :debug (attr, TYPE: bool):
                 optional debug flag (DEFAULT = False)
         """

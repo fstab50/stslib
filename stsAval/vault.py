@@ -33,7 +33,7 @@ class STSToken():
             self.end = ''
             self.expiration = ''
             self.duration = datetime.timedelta(seconds=0)
-            self.raw = {}
+            self.boto = {}
             return
         else:
             self.set(token)
@@ -59,7 +59,7 @@ class STSToken():
             self.access_key = token['AccessKeyId']
             self.secret_key = token['SecretAccessKey']
             self.session = token['SessionToken']
-            self.raw = token
+            self.boto = token
             #self.add(token)    # FUTURE: add init token to ring
         except KeyError as e:
             logger.exception(
@@ -103,7 +103,7 @@ class STSCredentials():
             self.add(credentials)   # v2.0, MULTIPLE CREDENTIAL SETS
         else:
             self.role_name = ''
-            self.raw = {}
+            self.boto = {}
 
     def request_ring(self, index=0):
         """
@@ -161,18 +161,18 @@ class STSCredentials():
             access_key = single_set['AccessKeyId']
             secret_key = single_set['SecretAccessKey']
             session = single_set['SessionToken']
-            raw = single_set
+            boto = single_set
 
             container = namedtuple('container',
                 [
                     'start', 'end', 'expiration',
                     'access_key', 'secret_key',
-                    'session', 'raw'
+                    'session', 'boto'
                 ]
             )
             ntuple = container(
                         start, end, expiration, access_key,
-                        secret_key, session, raw
+                        secret_key, session, boto
                         )
         except KeyError as e:
             logger.exception(
@@ -207,5 +207,5 @@ class STSingleSet():
         self.access_key = single_set['AccessKeyId']
         self.secret_key = single_set['SecretAccessKey']
         self.session = single_set['SessionToken']
-        self.raw = single_set
+        self.boto = single_set
         return self
