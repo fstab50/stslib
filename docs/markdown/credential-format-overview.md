@@ -14,14 +14,14 @@ when  instantiating the `StsCore` class.
 
 * * *
 
-### `vault` Format (DEFAULT)
+### stsAval `vault` Format (DEFAULT)
 
 * Parameter consumption based on attribute specification
 * Additional custom parameters:
     * Duration Attribute (datetime object)
     * Expiration Attribute (expiration datetime stamp in string format)
 
-### `vault` Credential Format Example:
+### Example:
 
 ```python
 
@@ -36,7 +36,7 @@ when  instantiating the `StsCore` class.
             # where profile_list = list of profile names from local awscli config
 
     >>> credentials = sts_object.generate_credentials(profile_list)
-    
+
     >>> print(credentials)
 {
     'sts-DynamoDBRole-dev': <stsAval.vault.STSingleSet at 0x7fee0ae05c88>,
@@ -82,12 +82,12 @@ when  instantiating the `StsCore` class.
 
 * * *
 
-### `boto` | Amazon STS Native Credential Format
+### Optional Format: `boto` | Amazon STS Native Credential Format
 
 * Legacy applications
 * Applications where translation of STS credentials is not authorized or discouraged
 
-### `boto` Credential Format Example:
+### Example:
 
 ```python
 
