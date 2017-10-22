@@ -14,25 +14,30 @@ when  instantiating the `StsCore` class.
 
 * * *
 
-### Format 1: `vault` Format (DEFAULT)
+### `vault` Format (DEFAULT)
 
 * Parameter consumption based on attribute specification
 * Additional custom parameters:
     * Duration Attribute (datetime object)
     * Expiration Attribute (expiration datetime stamp in string format)
 
-### Format 1 Example:
+### `vault` Credential Format Example:
 
 ```python
 
     >>> sts_object = StsCore(profile_name='BobSmith')
     >>> code = '123466'
     >>> token = sts_object.generate_session_token(mfa_code=code)
-    >>> profile_list = ['DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod']
-    >>> sts_object.generate_credentials(profile_list)
+    >>> profile_list = [
 
-    >>> credentials = sts_object.current_credentials
+            'DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod'
+        ]
 
+            # where profile_list = list of profile names from local awscli config
+
+    >>> credentials = sts_object.generate_credentials(profile_list)
+    
+    >>> print(credentials)
 {
     'sts-DynamoDBRole-dev': <stsAval.vault.STSingleSet at 0x7fee0ae05c88>,
     'sts-CodeDeployRole-qa': <stsAval.vault.STSingleSet at 0x7fee0ae05f60>,
@@ -77,12 +82,12 @@ when  instantiating the `StsCore` class.
 
 * * *
 
-### Format 2: `boto` | Amazon STS Native Credential Format
+### `boto` | Amazon STS Native Credential Format
 
-* For use in legacy applications
+* Legacy applications
 * Applications where translation of STS credentials is not authorized or discouraged
 
-### Format 2 Example:
+### `boto` Credential Format Example:
 
 ```python
 
@@ -91,6 +96,7 @@ when  instantiating the `StsCore` class.
     >>> sts_object = StsCore(profile_name='BobSmith', format='boto')
     >>> token = sts_object.generate_session_token()  
     >>> profile_list = [
+
             'DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod'
         ]
 
