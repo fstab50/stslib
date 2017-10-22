@@ -84,9 +84,10 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 ### Generate Session Token (default IAM User)
 
-* Default IAM user in local awscli config
+* `Default` profile in local awscli config. Default user has permissions to assume roles for which **stsAval**  
+will generate credentials
 * Token with default lifetime (60 minutes)
-* Cli not protected with MFA
+* Cli _not_ protected with MFA (Multi-Factor Authentication, 6 digit code)
 
 ```python
 
@@ -128,8 +129,9 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 ### Generate Session Token (named IAM User)
 
-* IAM user profile in local awscli config
-* MFA (Multi-Factor Authentication) protected cli access configuration
+* Named IAM user profile in local awscli config. User has permissions to assume roles for which **stsAval**  
+will generate credentials
+* MFA protected cli access configuration
 * STS Token with default lifetime (60 minutes)
 
 ```python
@@ -157,12 +159,12 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 ### Generate Credentials (default lifetime)
 
 * generate STS temporary credentials, default lifetime (60 minutes)
-* See the [Credentials Format Overview](./docs/credential_format_overview.md)
-* Credential format set to 'boto' (native Amazon STS format)
+* Credential format set to 'vault' (default stsAval format)
+* **stsAval** supports 2 credential formats.  See the [Credentials Format Overview](./docs/credential_format_overview.md)
 
 ```python
 
-    >>> sts_object = StsCore(profile_name='BobSmith', format='boto')
+    >>> sts_object = StsCore(profile_name='BobSmith')
     >>> token = sts_object.generate_session_token()
     >>> profile_list = [
             'DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod'
@@ -172,40 +174,24 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
     >>> sts_object.generate_credentials(profile_list)
 
-    >>> print(credentials)     # boto format credentials
+    >>> print(credentials)     
 
 {
-    'sts-DynamoDBRole-dev': {        
-        'StartTime': datetime.datetime(2017, 9, 3, 19, 0, 5, tzinfo=<UTC>)},
-        'Expiration': datetime.datetime(2017, 9, 4, 20, 0, 4, tzinfo=tzutc()),
-        'AccessKeyId': 'ASIAJRW7F2BAVN4J34LQ',
-        'SecretAccessKey': 'P8EjwTUKL4hil4Y7Ouo9OkFzQ1IxGikbhIjMP5uN',
-        'SessionToken': 'FQoDYXdzEDMaDCpxZzDdwWGok/ylQiLcAdlrHCkxP+kvQOes3mnQ0r5GXt...'
-    },
-    'sts-CodeDeployRole-qa': {
-        'StartTime': datetime.datetime(2017, 9, 3, 19, 0, 14, tzinfo=<UTC>)},
-        'Expiration': datetime.datetime(2017, 9, 4, 20, 0, 13, tzinfo=tzutc()),
-        'AccessKeyId': 'ASIAIOOOKUYFICAPC6TQ',
-        'SecretAccessKey': '3Q+N4UMpbmW7OrvY2mfgbjXxr/qt1L4XqmO+Njpq',
-        'SessionToken': 'FQoDYXdzEDMaDL/sJkeAF28UsxE/iyLUAbvBrCUoAkP/eqeS...'
-    },
-    'sts-S3ReadOnlyRole-prod': {        
-        'StartTime': datetime.datetime(2017, 9, 3, 19, 0, 22, tzinfo=<UTC>)},
-        'Expiration': datetime.datetime(2017, 9, 4, 20, 0, 22, tzinfo=tzutc()),
-        'AccessKeyId': 'ASIAJPRTS4IXPYGPLKZA',
-        'SecretAccessKey': 'EMAfJUz5zMNOyjKl7U2IWpJ0GCtWCos0squOE0wz',
-        'SessionToken': 'FQoDYXdzEDMaDO0ekTXJi4+IRWV1ESLXAe1ZfOpmGcS9hbIr...'
-    }
+    'sts-DynamoDBRole-dev': <stsAval.vault.STSingleSet at 0x7fee0ae05c88>,
+    'sts-CodeDeployRole-qa': <stsAval.vault.STSingleSet at 0x7fee0ae05f60>,
+    'sts-S3ReadOnlyRole-prod': <stsAval.vault.STSingleSet at 0x7fee0ae05fd0>
 }
 
 ```
 
 * * *
 
-### Generate Extended Use Credentials (auto-refresh, named IAM user)
+### Generate Extended Use Credentials (Auto-refresh)
 
-* IAM user profile in local awscli config
+* Named IAM user profile in local awscli config. User has permissions to assume roles for which stsAval  
+will generate credentials
 * MFA protected cli configuration
+* Credential format set to 'boto' (native Amazon STS format)
 * Credentials auto-refreshed for total 5 hour valid lifetime without MFA auth
 
 ```python
@@ -232,12 +218,12 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 * Refresh of credentials is non-blocking (via threading)
 * Thread management is via event states; threads are terminated as soon as their associated  
 session token expires or they receive a halt event.
-* No hanging threads. Any threads which are alive when new credentials generated are killed  
+* No hanging threads. Any threads which are alive when new credentials generated are safely terminated  
 before generating a new set.
 
 ```python
 
-    >>> print(credentials())
+    >>> print(credentials())         # boto format credentials
 
 {
   'sts-DynamoDBRole-dev': {        
