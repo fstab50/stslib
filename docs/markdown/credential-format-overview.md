@@ -21,7 +21,7 @@ when  instantiating the `StsCore` class.
     * Duration Attribute (datetime object)
     * Expiration Attribute (expiration datetime stamp in string format)
 
-### Example:
+### 'vault' Example:
 
 ```python
 
@@ -82,12 +82,12 @@ when  instantiating the `StsCore` class.
 
 * * *
 
-### Optional Format: `boto` | Amazon STS Native Credential Format
+### 'boto' | Amazon STS Native Credential Format
 
 * Legacy applications
 * Applications where translation of STS credentials is not authorized or discouraged
 
-### Example:
+### 'boto' Example:
 
 ```python
 
