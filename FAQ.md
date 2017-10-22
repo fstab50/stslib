@@ -2,7 +2,7 @@
 
 * * *
 
-#### For long-lived credentials, how do I ensure that I always have a copy of valid credentials?
+## For long-lived credentials, how do I ensure that I always have a copy of valid credentials?
 
 **A**:  There are 2 methods.
 
@@ -34,7 +34,7 @@ generating long-lived credentials that are auto-refreshed:
 
 ```
 
-**Method 2**:  Monitor the ```python StsCore``` credentials class attribute
+**Method 2**:  Monitor the `StsCore` credentials class attribute
 Alternatively, your application may monitor the class attribute holding the latest copy of credentials:
 
 ```python
@@ -51,7 +51,7 @@ Alternatively, your application may monitor the class attribute holding the late
 
 * * *
 
-#### How do I access AccessKeyId and SecretAccessKey values when using stsAval's default credential format?
+## How do I access AccessKeyId and SecretAccessKey values when using stsAval's default credential format?
 
 ```python
 
