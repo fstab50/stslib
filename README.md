@@ -79,7 +79,7 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 ```
 
 * * *
-# Use Cases & Examples ##
+# Use Cases & Examples #
 * * *
 
 ### Generate Session Token (default IAM User)
@@ -92,8 +92,8 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
     from stsAval import StsCore
 
-    >>> object = StsCore()
-    >>> token = object.generate_session_token()
+    >>> sts_object = StsCore()
+    >>> token = sts_object.generate_session_token()
     >>> print(token)
     <stsAval.vault.STSToken at 0x7f05365e3ef0>
 
@@ -133,11 +133,12 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 * STS Token with default lifetime (60 minutes)
 
 ```python
+
     from stsAval import StsCore
 
-    >>> object = StsCore(profile_name='BobSmith')
+    >>> sts_object = StsCore(profile_name='BobSmith')
     >>> code = '123456'
-    >>> token = object.generate_session_token(mfa_code=code)
+    >>> token = sts_object.generate_session_token(mfa_code=code)
 
     >>> print(token.boto)
 
@@ -160,22 +161,18 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 ```python
 
-    >>> object = StsCore(profile_name='BobSmith', format='boto')
-    >>> token = object.generate_session_token()
+    >>> sts_object = StsCore(profile_name='BobSmith', format='boto')
+    >>> token = sts_object.generate_session_token()
     >>> profile_list = [
             'DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod'
         ]
 
             # where profile_list = list of profile names from local awscli config
 
-    >>> object.generate_credentials(profile_list)
+    >>> sts_object.generate_credentials(profile_list)
 
     >>> print(credentials)     # boto format credentials
-```
 
-* Output
-
-```json
 {
     'sts-DynamoDBRole-dev': {        
         'StartTime': datetime.datetime(2017, 9, 3, 19, 0, 5, tzinfo=<UTC>)},
@@ -208,25 +205,22 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 * IAM user profile in local awscli config
 * MFA protected cli configuration
-* Credentials auto-refreshed for total 5 hour valid lifetime
+* Credentials auto-refreshed for total 5 hour valid lifetime without MFA auth
 
 ```python
 
     from stsAval import StsCore
 
-    >>> object = StsCore(profile_name='BobSmith')
+    >>> sts_object = StsCore(profile_name='BobSmith', format='boto')
     >>> code = '123456'
-    >>> token = object.generate_session_token(lifetime=5, mfa_code=code)
+    >>> token = sts_object.generate_session_token(lifetime=5, mfa_code=code)  
+    >>> profile_list = [
+            'DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod'
+        ]
 
-    >>> print(token.boto)
+            # where profile_list = list of profile names from local awscli config
 
-{
-    'AccessKeyId': 'ASIAI6QV2U3JJAYRHCJQ',
-    'StartTime': datetime.datetime(2017, 9, 21, 20, 4, 37, tzinfo=tzutc()),
-    'Expiration': datetime.datetime(2017, 9, 21, 20, 9, 37, tzinfo=tzutc()),
-    'SecretAccessKey': 'MdjPAkXTHl12k64LSjmgTWMsmnHk4cJfeMHdXMLA',
-    'SessionToken': 'FQoDYXdzEDMaDHAaP2wi/+77fNJJryKvAdVZjYKk...zQU='
-}
+    >>> credentials = sts_object.generate_credentials(profile_list)
 
 ```
 
@@ -241,22 +235,7 @@ before generating a new set.
 
 ```python
 
-    >>> profile_list = [
-
-            'DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod'
-
-        ]
-
-            # where profile_list = list of profile names from local awscli config
-
-    >>> credentials = object.generate_credentials(profile_list)
-    >>> print(credentials)
-
-```
-
-* Output
-
-```json
+    >>> print(sts_object.credentials)
 
 {
   'sts-DynamoDBRole-dev': {        
@@ -324,7 +303,6 @@ before generating a new set.
 /stsaval/async.py - 0.2.0 - [INFO]: completed 2 out of 5 total executions
 /stsaval/async.py - 0.2.0 - [INFO]: remaining in cycle: 3 hours, 59 minutes
 
-
 ```
 
 * * *
@@ -340,11 +318,11 @@ you can provide a custom location to stsAval as a parameter
 
     import stsAval
 
-    >>> object = stsAval.StsCore()
+    >>> sts_object = stsAval.StsCore()
     >>> credentials_file = '~/myAccount/role_credentials'   # awscli credentials file, located in ~/.aws
 
-    >>> object.refactor(credentials_file)
-    >>> object.profiles
+    >>> sts_object.refactor(credentials_file)
+    >>> sts_object.profiles
 ```
 
 * Output
