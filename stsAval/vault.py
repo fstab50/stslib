@@ -98,7 +98,10 @@ class STSCredentials():
         """
         init empty credentials object with null values or add if generated
         """
-        self.credentials, self.ring = {}, {}
+        self.credentials = {}
+        self.boto = {}
+        self.ring = {}
+
         if credentials:
             self.add(credentials)   # v2.0, MULTIPLE CREDENTIAL SETS
         else:
@@ -115,6 +118,7 @@ class STSCredentials():
         """ adds new credentials to the ring """
 
         credentials = {}
+        self.boto = new_credentials    # retained copy of the native boto format
 
         try:
             if overwrite:
@@ -122,20 +126,10 @@ class STSCredentials():
                     self.credentials[key] = STSingleSet(new_credentials[key])
                     # self.credentials[key] = self.named_tuple(new_credentials[key])
             else:
-                return      # FUTURE
                 # add creds to ring but accept duplicate credentials
                 for key, value in new_credentials.items():
                     if key not in self.ring:
-                        credentials[key] = {
-                            'start': value['StartTime'],
-                            'end': value['Expiration'],
-                            'expiration': value['Expiration'].isoformat(),
-                            'default': defaults['credential_life'],
-                            'access_key': value['AccessKeyId'],
-                            'secret_key': value['SecretAccessKey'],
-                            'session': value['SessionToken']
-                        }
-                        # add role_name: expiration entry onto the ring.
+                        credentials[key] = STSingleSet(new_credentials[key])
                         self.ring[credentials[key]] = credentials[key]['end']
                     else:
                         # key (credentials) already exist
