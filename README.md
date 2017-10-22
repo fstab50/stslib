@@ -79,7 +79,7 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 ```
 
 * * *
-## Use Cases & Examples ##
+# Use Cases & Examples ##
 * * *
 
 ### Generate Session Token (default IAM User)
