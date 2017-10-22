@@ -6,15 +6,15 @@
 
 **stsAval** supports 2 different output formats when generating temporary credentials:
 
-* Format 1: `vault`, **stsAval** Custom Format (DEFAULT).  
-* Format 2: `boto`, Native format returned by Amazon's boto library
+1. **stsAval** Enhanced `vault` Format (DEFAULT).  
+2. Native `boto` Format, Amazon STS temporary credential format returned by boto python SDK 
 
 * Either credential format can be selected by passing the `format` class attribute parameter  
 when  instantiating the `StsCore` class.
 
 * * *
 
-### (1) stsAval `vault` Format (DEFAULT)
+### stsAval `vault` Format (DEFAULT)
 
 * Parameter consumption based on attribute specification
 * Additional custom parameters:
@@ -82,7 +82,7 @@ when  instantiating the `StsCore` class.
 
 * * *
 
-### (2) `boto` Format | Amazon STS Native Credential Format
+### `boto` Format | Amazon STS Native Credential Format
 
 * Legacy applications
 * Applications where translation of STS credentials is not authorized or discouraged
