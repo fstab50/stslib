@@ -21,8 +21,6 @@ function venv(){
 }
 # source venv
 venv
-exit 0
+
 # install from test site
-pip install -U awscli --extra-index-url https://test.pypi.org/simple/ $PACKAGE 
-
-
+pip install -U awscli --extra-index-url https://test.pypi.org/simple/ $PACKAGE
