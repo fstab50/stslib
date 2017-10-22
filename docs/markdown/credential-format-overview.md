@@ -12,7 +12,7 @@
 Either credential format can be selected by setting the `format` class attribute parameter  
 when instantiating the `StsCore` class.
 
-Alternatively, you may change the default stsAval format in the config file `~/stsaval/config.yml`  
+Alternatively, you may change the default **stsAval** format in the config file `~/stsaval/config.yml`  
 
 * * *
 
@@ -20,8 +20,9 @@ Alternatively, you may change the default stsAval format in the config file `~/s
 
 * Parameter consumption based on attribute specification
 * Additional custom parameters:
-    * Duration Attribute (datetime object)
-    * Expiration Attribute (expiration datetime stamp in string format)
+
+    * `Duration` Attribute (datetime object)
+    * `Expiration` Attribute (expiration datetime stamp in string format)
 
 ### `vault` Example:
 
