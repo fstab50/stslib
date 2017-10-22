@@ -16,8 +16,8 @@ are running in environments external to AWS such as a local machine.
 need access to iam roles at AWS.  If temporary credentials are needed for extended periods (> 1 hour),  
 **stsAval** will automatically renew sts credentials before expiration.
 
-Prior to reading the Use Cases & Examples section of this README, you may wish to review * **stsAval**  
-[Credential Dual Format Overview](./docs/markdown/credential_format_overview.md).  
+Prior to reading the Use Cases & Examples section of this README, you may wish to review **stsAval**  
+[Credential Format Overview](./docs/markdown/credential-format-overview.md).  
 
 See [v0.3.6 Release Notes](./notes/release_v0.3.6.md)
 
@@ -163,7 +163,7 @@ will generate credentials
 
 * generate STS temporary credentials, default lifetime (60 minutes)
 * Credential format set to 'vault' (default stsAval format)
-* **stsAval** supports 2 credential formats.  See the [Credential Dual Format Overview](./docs/markdown/credential_format_overview.md)
+* **stsAval** supports 2 credential formats.  See the [Credential Format Overview](./docs/markdown/credential-format-overview.md).  
 
 ```python
 
