@@ -2,57 +2,6 @@
 
 * * *
 
-### Session Token Format
-
-* Custom Format
-* Parameter consumption based on token attribute specification
-* Additional Parameters:
-
-    * `StartTime`: datetime object representing the datetime stamp of credential generation
-    * `boto`:  attribute holding the native STS format of the token as returned from Amazon STS
-
-### Example:
-
-```python
-
-    from stsAval import StsCore
-
-    >>> sts_object = StsCore()
-    >>> token = sts_object.generate_session_token()
-    >>> print(token)
-    <stsAval.vault.STSToken at 0x7f05365e3ef0>
-
-    # token attributes
-
-    >>> print(token.start)
-    datetime.datetime(2017, 8, 25, 20, 4, 37, tzinfo=tzutc()
-
-    >>> print(token.end)
-    datetime.datetime(2017, 8, 25, 21, 4, 36, tzinfo=tzutc())
-
-    >>> print(token.access_key)
-    'ASIAI6QV2U3JJAYRHCJQ'
-
-    >>> print(token.secret_key)
-    'MdjPAkXTHl12k64LSjmgTWMsmnHk4cJfeMHdXMLA'
-
-    >>> print(token.session)
-    'FQoDYXdzEDMaDHAaP2wi/+77fNJJryKvAa20AqGxoQlcRtf8RFLa5Mps9zK9V5SM3Q7+M3h9iNbcxfaZsUnTzFvFwjVZjYKk...zQU='
-
-    >>> print(token.boto)    # native boto generated format
-
-{
-    'AccessKeyId': 'ASIAI6QV2U3JJAYRHCJQ',
-    'StartTime': datetime.datetime(2017, 8, 25, 20, 4, 37, tzinfo=tzutc()),
-    'Expiration': datetime.datetime(2017, 8, 25, 21, 4, 36, tzinfo=tzutc()),
-    'SecretAccessKey': 'MdjPAkXTHl12k64LSjmgTWMsmnHk4cJfeMHdXMLA',
-    'SessionToken': 'FQoDYXdzEDMaDHAaP2wi/+77fNJJryKvAa20AqGxoQlcRtf8RFLa5Mps9zK9V5SM3Q7+M3h9iNbcxfa...zQU='
-}
-
-```
-
-* * *
-
 ### Authentication Credential Formats
 
 **stsAval** supports 2 different output formats when generating temporary credentials:
@@ -186,6 +135,58 @@ Alternatively, you may change the default **stsAval** format in the config file 
 }
 
 ```
+
+* * *
+
+### Session Token Format
+
+* Custom Format
+* Parameter consumption based on token attribute specification
+* Additional Parameters:
+
+    * `StartTime`: datetime object representing the datetime stamp of credential generation
+    * `boto`:  attribute holding the native STS format of the token as returned from Amazon STS
+
+### Example:
+
+```python
+
+    from stsAval import StsCore
+
+    >>> sts_object = StsCore()
+    >>> token = sts_object.generate_session_token()
+    >>> print(token)
+    <stsAval.vault.STSToken at 0x7f05365e3ef0>
+
+    # token attributes
+
+    >>> print(token.start)
+    datetime.datetime(2017, 8, 25, 20, 4, 37, tzinfo=tzutc()
+
+    >>> print(token.end)
+    datetime.datetime(2017, 8, 25, 21, 4, 36, tzinfo=tzutc())
+
+    >>> print(token.access_key)
+    'ASIAI6QV2U3JJAYRHCJQ'
+
+    >>> print(token.secret_key)
+    'MdjPAkXTHl12k64LSjmgTWMsmnHk4cJfeMHdXMLA'
+
+    >>> print(token.session)
+    'FQoDYXdzEDMaDHAaP2wi/+77fNJJryKvAa20AqGxoQlcRtf8RFLa5Mps9zK9V5SM3Q7+M3h9iNbcxfaZsUnTzFvFwjVZjYKk...zQU='
+
+    >>> print(token.boto)    # native boto generated format
+
+{
+    'AccessKeyId': 'ASIAI6QV2U3JJAYRHCJQ',
+    'StartTime': datetime.datetime(2017, 8, 25, 20, 4, 37, tzinfo=tzutc()),
+    'Expiration': datetime.datetime(2017, 8, 25, 21, 4, 36, tzinfo=tzutc()),
+    'SecretAccessKey': 'MdjPAkXTHl12k64LSjmgTWMsmnHk4cJfeMHdXMLA',
+    'SessionToken': 'FQoDYXdzEDMaDHAaP2wi/+77fNJJryKvAa20AqGxoQlcRtf8RFLa5Mps9zK9V5SM3Q7+M3h9iNbcxfa...zQU='
+}
+
+```
+
 * * *
 
 ( [Back to README](../../README.md) )
