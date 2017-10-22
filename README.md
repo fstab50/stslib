@@ -18,7 +18,7 @@ need access to iam roles at AWS.  If temporary credentials are needed for extend
 
 See [v0.3.6 Release Notes](./notes/release_v0.3.6.md)
 
-#### Previous Releases ####
+### Previous Releases ###
 
 * [v0.2.1 Release Notes](./notes/release_v0.2.1.md)
 * [v0.1.8 Release Notes](./notes/release_v0.1.8.md)
@@ -82,7 +82,7 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 ## Use Cases & Examples ##
 * * *
 
-#### Generate Session Token (default IAM User)
+### Generate Session Token (default IAM User)
 
 * Default IAM user in local awscli config
 * Token with default lifetime (60 minutes)
@@ -126,7 +126,7 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 ```
 
-#### Generate Session Token (named IAM User)
+### Generate Session Token (named IAM User)
 
 * IAM user profile in local awscli config
 * MFA (Multi-Factor Authentication) protected cli access configuration
@@ -153,7 +153,7 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 * * *
 
-#### Generate Credentials (default lifetime)
+### Generate Credentials (default lifetime)
 
 * generate STS temporary credentials, default lifetime (60 minutes)
 * See the [Credentials Format Overview](./docs/credential_format_overview.md)
@@ -200,7 +200,7 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 * * *
 
-#### Generate Extended Use Credentials (auto-refresh, named IAM user)
+### Generate Extended Use Credentials (auto-refresh, named IAM user)
 
 * IAM user profile in local awscli config
 * MFA protected cli configuration
@@ -226,7 +226,7 @@ BitBucket: [@blake](blakeca00[AT]gmail.com)
 
 ```
 
-#### Refresh of Credentials
+### Refresh of Credentials
 
 * STS temporary credentials will regenerate once per hour, prior to expiration
 * Refresh of credentials is non-blocking (via threading)
@@ -329,7 +329,7 @@ directly
 
 * * *
 
-#### Non-default IAM Role credentials filename or location
+### Non-default IAM Role credentials filename or location
 
 **Use-Case**: When you wish to use role credentials file not currently part of the awscli,  
 you can provide a custom location to stsAval as a parameter

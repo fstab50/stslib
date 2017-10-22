@@ -2,7 +2,7 @@
 
 * * *
 
-## For long-lived credentials, how do I ensure that I always have a copy of valid credentials?
+## For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?
 
 **A**:  There are 2 methods.
 
