@@ -2,7 +2,7 @@
 
 * * *
 
-## For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?
+### Q: For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?
 
 **A**:  There are 2 methods.
 
@@ -51,7 +51,7 @@ Alternatively, your application may monitor the class attribute holding the late
 
 * * *
 
-## How do I access AccessKeyId and SecretAccessKey values when using stsAval's default credential format?
+### Q: How do I access AccessKeyId and SecretAccessKey values when using stsAval's default credential format?
 
 ```python
 
