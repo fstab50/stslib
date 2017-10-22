@@ -18,7 +18,7 @@ Alternatively, you may change the default **stsAval** format in the config file 
 
 ### stsAval `vault` Format (DEFAULT)
 
-* Parameter consumption based on attribute specification
+* Access values by specifying credential key + object attribute
 * Additional custom parameters:
 
     * `StartTime`: datetime object representing the datetime stamp of credential generation
@@ -141,7 +141,7 @@ Alternatively, you may change the default **stsAval** format in the config file 
 ### Session Token Format
 
 * Custom Format
-* Parameter consumption based on token attribute specification
+* Access values by specifying token attributes
 * Additional Parameters:
 
     * `StartTime`: datetime object representing the datetime stamp of credential generation
