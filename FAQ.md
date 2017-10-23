@@ -1,6 +1,8 @@
+***
+
 # stsAval | FAQ
 
-* * *
+***
 
 ### Q: For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?
 

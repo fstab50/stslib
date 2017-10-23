@@ -1,5 +1,6 @@
+***
 # README :  stsAval
-* * *
+***
 
 ## Purpose ##
 
