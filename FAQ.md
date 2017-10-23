@@ -14,17 +14,17 @@ generating long-lived credentials that are auto-refreshed:
 
 * use `current_credentials` method
 * returns _only_ valid credentials
-* returns `{}` when credentials are expired
+* returns None (`{}`) when credentials are expired
 
 ```python
 
-    >>> object = StsCore(profile_name='BobSmith')
+    >>> sts_object = StsCore(profile_name='BobSmith')
     >>> code = '123466'
-    >>> token = object.generate_session_token(mfa_code=code)
+    >>> token = sts_object.generate_session_token(mfa_code=code)
     >>> profile_list = ['DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod']
-    >>> object.generate_credentials(profile_list)
+    >>> sts_object.generate_credentials(profile_list)
 
-    >>> credentials = object.current_credentials
+    >>> credentials = sts_object.current_credentials
 
     >>> credentials()
 
@@ -41,7 +41,7 @@ Alternatively, your application may monitor the class attribute holding the late
 
 ```python
 
-    >>> credentials = object.credentials
+    >>> credentials = sts_object.credentials
     >>> print(credentials)
 
     {
