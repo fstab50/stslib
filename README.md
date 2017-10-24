@@ -22,7 +22,7 @@ Before going further, you may wish to understand **stsAval** key concepts and us
 
 * [Frequently Asked Questions (FAQ)](./FAQ.md)
 * [Credential Format Overview](./docs/markdown/credential-format-overview.md) -- A primer on the dual credential formats supported by **stsAval**
-* [Code Examples](./docs/markdown/toc-code-examples.md)
+* [Code Examples](./docs/markdown/index-code-examples.md)
 
 * * *
 
