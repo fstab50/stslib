@@ -1,6 +1,6 @@
-***
+* * *
 # README :  stsAval
-***
+* * *
 
 ## Purpose ##
 
@@ -210,9 +210,9 @@ will generate credentials
 
     from stsAval import StsCore
 
-    >>> sts_object = StsCore(profile_name='BobSmith', format='boto')     # boto format credentials
+    >>> sts_object = StsCore(profile_name='BobSmith', format='boto')            # boto format credentials
     >>> code = '123456'
-    >>> token = sts_object.generate_session_token(lifetime=5, mfa_code=code)  
+    >>> token = sts_object.generate_session_token(lifetime=5, mfa_code=code)    # 5 hour lifetime triggers auto-refresh
     >>> profile_list = [
             'DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod'
         ]
@@ -227,11 +227,7 @@ will generate credentials
 ### Auto-Refresh of Credentials
 
 * **stsAval** will automatically generate new temporary credentials once per hour, prior to expiration
-* Refresh of credentials is non-blocking (via threading)
-* Thread management is via event states; threads are terminated as soon as their associated  
-session token expires or they receive a halt event.
-* No hanging threads. Any live threads when new credentials generated are safely terminated  
-before generating a new set.
+
 
 ```python
 
@@ -304,6 +300,14 @@ before generating a new set.
 /stsaval/async.py - 0.2.0 - [INFO]: remaining in cycle: 3 hours, 59 minutes
 
 ```
+
+### Auto-Refresh Credentials -- Additional Info
+
+* Refresh of credentials is non-blocking (via threading)
+* Thread management is via event states; threads are terminated as soon as their associated  
+session token expires or they receive a halt event.
+* No hanging threads. Any live threads when new credentials generated are safely terminated  
+before generating a new set.
 
 * * *
 
