@@ -17,8 +17,12 @@ are running in environments external to AWS such as a local machine.
 need access to iam roles at AWS.  If temporary credentials are needed for extended periods (> 1 hour),  
 **stsAval** will automatically renew sts credentials before expiration.
 
-Prior to reading the Use Cases & Examples section of this README, you may find it helpful to review an overview of  
-**stsAval**'s  dual credential formats in the [Credential Format Overview](./docs/markdown/credential-format-overview.md).  
+### Important Documents
+Before going further, you may wish to understand **stsAval** key concepts and use cases:
+
+* [Frequently Asked Questions (FAQ)](./FAQ.md)
+* [Credential Format Overview](./docs/markdown/credential-format-overview.md) -- A primer on the dual credential formats supported by **stsAval**
+* [Code Examples](,/docs/markdown/index-code-examples.md)
 
 See [v0.3.6 Release Notes](./notes/release_v0.3.6.md)
 
@@ -160,7 +164,7 @@ will generate credentials
 
 * * *
 
-### Generate Credentials (default lifetime)
+### Generate Credentials (1 hour lifetime)
 
 * generate STS temporary credentials, default lifetime (60 minutes)
 * Credential format set to 'vault' (default stsAval format)
@@ -190,7 +194,7 @@ will generate credentials
 
 * * *
 
-### Generate Extended Use Credentials (Auto-refresh)
+### Generate Extended Use Credentials (Multi-hour, Auto-refresh)
 
 * Named IAM user profile in local awscli config. User has permissions to assume roles for which stsAval  
 will generate credentials
@@ -202,7 +206,7 @@ will generate credentials
 
     from stsAval import StsCore
 
-    >>> sts_object = StsCore(profile_name='BobSmith', format='boto')
+    >>> sts_object = StsCore(profile_name='BobSmith', format='boto')     # boto format credentials
     >>> code = '123456'
     >>> token = sts_object.generate_session_token(lifetime=5, mfa_code=code)  
     >>> profile_list = [
@@ -216,18 +220,18 @@ will generate credentials
 
 ```
 
-### Refresh of Credentials
+### Auto-Refresh of Credentials
 
-* STS temporary credentials will regenerate once per hour, prior to expiration
+* **stsAval** will automatically generate new temporary credentials once per hour, prior to expiration
 * Refresh of credentials is non-blocking (via threading)
 * Thread management is via event states; threads are terminated as soon as their associated  
 session token expires or they receive a halt event.
-* No hanging threads. Any threads which are alive when new credentials generated are safely terminated  
+* No hanging threads. Any live threads when new credentials generated are safely terminated  
 before generating a new set.
 
 ```python
 
-    >>> print(credentials())         # boto format credentials
+    >>> print(credentials())        
 
 {
   'sts-DynamoDBRole-dev': {        
