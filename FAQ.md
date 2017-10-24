@@ -1,10 +1,15 @@
-***
-
+* * *
 # stsAval | FAQ
+* * *
 
-***
+## Questions
 
-### Q: For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?
+[For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?](#01)
+[How do I access `AccessKeyId` and `SecretAccessKey` values when using stsAval's default credential format?](#02)
+[How will **stsAval** generate credentials if the profile name in my local awscli config does not match my  actual](#03)
+
+* * *
+### <a name="01"></a>Q: For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?
 
 **A**:  There are 2 methods.
 
@@ -36,8 +41,8 @@ generating long-lived credentials that are auto-refreshed:
 
 ```
 
-**Method 2**:  Monitor the `StsCore` credentials class attribute
-Alternatively, your application may monitor the class attribute holding the latest copy of credentials:
+**Method 2**:  Monitor the `StsCore` credentials class attribute containing the latest copy  
+of credentials:
 
 ```python
 
@@ -51,9 +56,10 @@ Alternatively, your application may monitor the class attribute holding the late
     }
 ```
 
+
 * * *
 
-### Q: How do I access `AccessKeyId` and `SecretAccessKey` values when using stsAval's default credential format?
+### <a name="02"></a>Q: How do I access `AccessKeyId` and `SecretAccessKey` values when using stsAval's default credential format?
 
 **A**:  Example use below:
 
@@ -85,7 +91,7 @@ Alternatively, your application may monitor the class attribute holding the late
 
 * * *
 
-### Q: How will **stsAval** generate credentials if the profile name in my local awscli config does not match my  actual  
+### <a name="03"></a>Q: How will **stsAval** generate credentials if the profile name in my local awscli config does not match my  actual  
 IAM user in my AWS Account?
 
 **A**:  Some basic calls to AWS' sts and iam services do not require MFA even when the Amazon API is protected with MFA.   At instantiation, **stsAval** maps profile names given to assume roles to IAM users in your account to pinpoint  
