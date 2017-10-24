@@ -137,6 +137,8 @@ Alternatively, you may change the default **stsAval** format in the config file 
 
 ```
 
+( [Back to README](../../README.md) )
+
 * * *
 
 ### Session Token Format

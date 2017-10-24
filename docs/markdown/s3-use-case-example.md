@@ -37,13 +37,19 @@
 
 
     session = boto3.Session(
-        aws_access_key_id=credentials()['sts-RoleNameAccount1'].access_key, 
-        aws_secret_access_key=credentials()['sts-RoleNameAccount1'].secret_key, 
+        aws_access_key_id=credentials()['sts-RoleNameAccount1'].access_key,
+        aws_secret_access_key=credentials()['sts-RoleNameAccount1'].secret_key,
         aws_session_token=credentials()['sts-RoleNameAccount1'].session
     )
-        
+
         # Note:  no region_name param required in the session bc s3 global service
 
     s3_client = session.client('s3')
 
 ```
+
+***
+
+( [Back to Code Examples Index](./index-code-examples.md) )
+
+***

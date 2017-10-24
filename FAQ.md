@@ -53,7 +53,9 @@ Alternatively, your application may monitor the class attribute holding the late
 
 * * *
 
-### Q: How do I access AccessKeyId and SecretAccessKey values when using stsAval's default credential format?
+### Q: How do I access `AccessKeyId` and `SecretAccessKey` values when using stsAval's default credential format?
+
+**A**:  Example use below:
 
 ```python
 
@@ -80,6 +82,14 @@ Alternatively, your application may monitor the class attribute holding the late
     '2017-10-22T15:36:14+00:00'
 
 ```
+
+* * *
+
+### Q: How will **stsAval** generate credentials if the profile name in my local awscli config does not match my  actual  
+IAM user in my AWS Account?
+
+**A**:  Some basic calls to AWS' sts and iam services do not require MFA even when the Amazon API is protected with MFA.   At instantiation, **stsAval** maps profile names given to assume roles to IAM users in your account to pinpoint  
+the real IAM username to be used when assuming roles.
 
 * * *
 
