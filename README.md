@@ -24,6 +24,10 @@ Before going further, you may wish to understand **stsAval** key concepts and us
 * [Credential Format Overview](./docs/markdown/credential-format-overview.md) -- A primer on the dual credential formats supported by **stsAval**
 * [Code Examples](,/docs/markdown/index-code-examples.md)
 
+***
+
+## Releases
+
 See [v0.3.6 Release Notes](./notes/release_v0.3.6.md)
 
 ### Previous Releases ###
