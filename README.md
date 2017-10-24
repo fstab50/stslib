@@ -224,9 +224,9 @@ will generate credentials
 
 ```
 
-### Auto-Refresh of Credentials
+#### Auto-Refresh of Credentials
 
-* **stsAval** will automatically generate new temporary credentials once per hour, prior to expiration
+* **stsAval** will automatically generate new temporary credentials once per hour, prior to expiration (process below)
 
 
 ```python
@@ -301,7 +301,7 @@ will generate credentials
 
 ```
 
-### Auto-Refresh Credentials -- Additional Info
+#### Auto-Refresh Credentials -- Additional Info
 
 * Refresh of credentials is non-blocking (via threading)
 * Thread management is via event states; threads are terminated as soon as their associated  
