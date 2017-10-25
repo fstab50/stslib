@@ -18,7 +18,7 @@ need access to iam roles at AWS.  If temporary credentials are needed for extend
 **stsAval** will automatically renew sts credentials before expiration.
 
 ### Important Documents
-Before going further, you may wish to understand **stsAval** key concepts and use cases:
+Before going further, read the following to understand **stsAval** key concepts and use cases:
 
 * [Frequently Asked Questions (FAQ)](./FAQ.md)
 * [Credential Format Overview](./docs/markdown/credential-format-overview.md) -- A primer on the dual credential formats supported by **stsAval**
