@@ -31,25 +31,22 @@ Purpose
 Important Documents
 ^^^^^^^^^^^^^^^^^^^
 
-Before going further, you may wish to understand **stsAval** key
-concepts and use cases:
+Before going further, you may wish to understand **stsAval** key concepts and use cases:
 
--  `Frequently Asked Questions (FAQ) <./FAQ.md>`__
--  `Credential Format
-   Overview <./docs/markdown/credential-format-overview.md>`__ -- A
-   primer on the dual credential formats supported by **stsAval**
--  `Code Examples <./docs/markdown/index-code-examples.md>`__
+-  `Frequently Asked Questions (FAQ) <./FAQ.rst>`__
+-  `Credential Format Overview <../markdown/credential-format-overview.md>`__ -- A primer on the dual credential formats supported by **stsAval**
+-  `Code Examples <../markdown/index-code-examples.md>`__
 
 
 Releases
 ^^^^^^^^
 
-See `v0.3.6 Release Notes <./notes/release_v0.3.6.md>`__
+See `v0.3.6 Release Notes <../releases/release_v0.3.6.rst>`__
 
 **Previous Releases**
 
--  `v0.2.1 Release Notes <./notes/release_v0.2.1.md>`__
--  `v0.1.8 Release Notes <./notes/release_v0.1.8.md>`__
+-  `v0.2.1 Release Notes <../releses/release_v0.2.1.rst>`__
+-  `v0.1.8 Release Notes <../releases/release_v0.1.8.rst>`__
 
 
 Deployment Owner/ Author
@@ -198,7 +195,7 @@ Generate Credentials (1 hour lifetime)
 -  generate STS temporary credentials, default lifetime (60 minutes)
 -  Credential format set to 'vault' (default stsAval format)
 -  **stsAval** supports 2 credential formats. See the `Credential Format
-   Overview <./docs/markdown/credential-format-overview.md>`__.
+   Overview <../markdown/credential-format-overview.md>`__.
 
 .. code:: python
 
@@ -392,14 +389,13 @@ Non-default IAM Role credentials filename or location
 
 
 FAQ
----
+^^^
 
-see `Frequently Asked Questions <./FAQ.md>`__
+see `Frequently Asked Questions <./FAQ.rst>`__
 
 
 Enhancement Roadmap
--------------------
+^^^^^^^^^^^^^^^^^^^
 
 for a complete list of enhancements logged against the stsAval project,
-see the `list of stsAval
-issues <https://bitbucket.org/blakeca00/stsaval/issues?status=new&status=open>`__.
+see the `list of stsAval issues <https://bitbucket.org/blakeca00/stsaval/issues?status=new&status=open>`__.
