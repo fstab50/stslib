@@ -59,7 +59,5 @@ target/
 .pydevproject
 .settings/
 
-# python-commons
-*.rst
-!index.rst
-doc/_build
+# python-documentation
+docs/build
