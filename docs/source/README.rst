@@ -24,8 +24,8 @@ Important Documents
 Before going further, you may wish to understand **stsAval** key concepts and use cases:
 
 -  `Frequently Asked Questions (FAQ) <./FAQ.html>`__
--  `Credential Format Overview <../markdown/credential-format-overview.md>`__ -- A primer on the dual credential formats supported by **stsAval**
--  `Code Examples <../markdown/index-code-examples.md>`__
+-  `Credential Format Overview <./primer/credential-format-overview.html>`__ -- A primer on the dual credential formats supported by **stsAval**
+-  `Code Examples <./primer/index-code-examples.html>`__
 
 
 Releases
@@ -97,3 +97,7 @@ Installation - Redhat / Ubuntu
 
         $ cd /home/user/<stsAval directory>/
         $ python3 ...TBD
+
+--------------
+
+( `Back <./index.html>`__ )

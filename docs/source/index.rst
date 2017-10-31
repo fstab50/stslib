@@ -13,8 +13,8 @@ Contents
    FAQ
    license
 
-Credential Overview
-^^^^^^^^^^^^^^^^^^^
+Amazon STS Credentials
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
    :maxdepth: 2

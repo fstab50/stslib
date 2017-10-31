@@ -281,7 +281,7 @@ Non-default IAM Role credentials filename or location
 FAQ
 ~~~
 
-see `Frequently Asked Questions <./FAQ.rst>`__
+see `Frequently Asked Questions <./FAQ.html>`__
 
 
 Enhancement Roadmap
@@ -289,3 +289,7 @@ Enhancement Roadmap
 
 for a complete list of enhancements logged against the stsAval project,
 see the `list of stsAval issues <https://bitbucket.org/blakeca00/stsaval/issues?status=new&status=open>`__.
+
+--------------
+
+( `Back <./index.html>`__ )
