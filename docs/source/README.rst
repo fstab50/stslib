@@ -1,5 +1,5 @@
 ===========================
- README \| ``stsAval`` 
+ README \| ``stsAval``
 ===========================
 
 
@@ -109,7 +109,7 @@ Author
 
 --------------
 
-( `Back <./index.html>`__ )
+( `Table Of Contents <./index.html>`__ )
 
 -----------------
 

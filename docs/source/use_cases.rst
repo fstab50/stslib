@@ -280,7 +280,7 @@ Non-default IAM Role credentials filename or location
 
 --------------
 
-( `Back <./index.html>`__ )
+( `Table Of Contents <./index.html>`__ )
 
 -----------------
 

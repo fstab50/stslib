@@ -27,6 +27,10 @@
 |    For a complete list of enhancements logged against the stsAval project,
 |    see the `list of stsAval issues <https://bitbucket.org/blakeca00/stsaval/issues?status=new&status=open>`__.
 
+--------------
+
+( `Table Of Contents <./index.html>`__ )
+
 -----------------
 
 |

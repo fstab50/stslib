@@ -697,7 +697,7 @@ please read http://www.gnu.org/philosophy/why-not-lgpl.html.
 
 --------------
 
-( `Back <./index.html>`__ )
+( `Table Of Contents <./index.html>`__ )
 
 -----------------
 

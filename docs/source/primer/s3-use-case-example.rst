@@ -53,3 +53,7 @@
 --------------
 
 ( `Back to Code Examples <./index-code-examples.html>`__ )
+
+-----------------
+
+|
