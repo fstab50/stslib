@@ -12,6 +12,14 @@ Documents
    FAQ
    license
 
+Credential Overview
+^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 2
+
+   primer/toctree_primer
+
 Release Notes
 ^^^^^^^^^^^^^
 
