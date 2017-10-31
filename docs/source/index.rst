@@ -2,42 +2,36 @@
  stsAval | Generate Amazon STS Credentials
 ===========================================
 
-Contents
-^^^^^^^^^
-
 .. toctree::
    :maxdepth: 2
+   :caption: Contents
 
    README
    use_cases
    FAQ
-   roadmap
    license
 
-Amazon STS Credentials
-^^^^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
    :maxdepth: 2
+   :caption: Amazon STS Credentials
 
    primer/toctree_primer
 
-Code
-^^^^
 
 .. toctree::
    :maxdepth: 2
+   :caption: Developer Documentation
 
    code_examples/toctree_code_examples
+   roadmap
 
 * :ref:`modindex`
 
 
-Release Notes
-^^^^^^^^^^^^^
-
 .. toctree::
    :maxdepth: 2
+   :caption: Versions
 
    releases/toctree_releases
 

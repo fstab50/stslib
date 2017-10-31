@@ -1,23 +1,23 @@
 ===========================
- README \| ``stsAval``
+ README
 ===========================
 
 
 Purpose
 ~~~~~~~
 
-**stsAval** (pronounced *s-t-s ayy-val*), is a python3 library that requests and manages temporary credentials from
-`Amazon's Security Token Service (STS) <http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html>`__ on your behalf. The library generates
-temporary credentials against roles that reside in any number of AWS accounts.
+    **stsAval** (pronounced *s-t-s ayy-val*), is a python3 library that requests and manages temporary credentials from
+    `Amazon's Security Token Service (STS) <http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html>`__ on your behalf. The library generates
+    temporary credentials against roles that reside in any number of AWS accounts.
 
-A primary use case for the **stsAval** library is generation of temporary access credentials for
-automation tools which need to authenticate to Amazon Web Services. Such automation tooling may
-be running within AWS; however, commonly are running in environments external to AWS such as a
-local machine.
+    A primary use case for the **stsAval** library is generation of temporary access credentials for
+    automation tools which need to authenticate to Amazon Web Services. Such automation tooling may
+    be running within AWS; however, commonly are running in environments external to AWS such as a
+    local machine.
 
-**stsAval** manages temporary credentials generates credentials in memory for applications that
-need access to iam roles at AWS. If temporary credentials are needed for extended periods
-(> 1 hour), **stsAval** will automatically renew sts credentials before expiration.
+    **stsAval** manages temporary credentials generates credentials in memory for applications that
+    need access to iam roles at AWS. If temporary credentials are needed for extended periods
+    (> 1 hour), **stsAval** will automatically renew sts credentials before expiration.
 
 ------------
 
@@ -61,8 +61,17 @@ Dependencies
 
 ------------
 
-Installation - Redhat / Ubuntu
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Installation
+~~~~~~~~~~~~
+
+Redhat / CentOS
+***************
+
+-  Install Python3 Package Manager
+
+.. code:: bash
+
+        $ sudo yum install python3-pip
 
 -  Install `awscli <https://github.com/aws/aws-cli/>`__
 
@@ -74,16 +83,83 @@ Installation - Redhat / Ubuntu
 
 .. code:: bash
 
-        $ sudo pip install awscli
+        $ sudo pip3 install awscli
 
 -  If you have the aws-cli installed and want to upgrade to the latest
    version you can run:
 
 .. code:: bash
 
-        $ sudo pip install --upgrade awscli
+        $ sudo pip3 install --upgrade awscli
 
--  Installation via pip
+-  Installation via pip3 (python3 packages via pip package manager)
+
+.. code:: bash
+
+        $ sudo -H pip3 install stsAval
+
+-  Setup and Configuration
+
+.. code:: bash
+
+        $ cd /home/user/<stsAval directory>/
+        # $  ...TBD
+
+
+------------------
+
+Ubuntu 16.04+ / Ubuntu-based Distros
+**************************************
+
+-  Install Python3 Package Manager
+
+.. code:: bash
+
+        $ sudo apt-get install python3-pip
+
+-  Install `awscli <https://github.com/aws/aws-cli/>`__
+
+   Detailed instructions can be found in the README located at:
+   https://github.com/aws/aws-cli/
+
+   The easiest method, provided your platform supports it, is via
+   `pip <http://www.pip-installer.org/en/latest>`__.
+
+.. code:: bash
+
+        $ sudo pip3 install awscli
+
+-  If you have the aws-cli installed and want to upgrade to the latest
+   version you can run:
+
+.. code:: bash
+
+        $ sudo pip3 install --upgrade awscli
+
+-  Installation via pip3 (python3 packages via pip package manager)
+
+.. code:: bash
+
+        $ sudo -H pip3 install stsAval
+
+-  Setup and Configuration
+
+.. code:: bash
+
+        $ cd /home/user/<stsAval directory>/
+        # $  ...TBD
+
+
+------------------
+
+Amazon Linux 2017.09 +
+***********************
+
+-  Install Python3 Package Manager
+
+.. code:: bash
+
+        $ sudo yum install python36-pip
 
 .. code:: bash
 
@@ -95,6 +171,8 @@ Installation - Redhat / Ubuntu
 
         $ cd /home/user/<stsAval directory>/
         $ python3 ...TBD
+
+
 
 --------------
 
