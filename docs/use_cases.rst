@@ -85,7 +85,7 @@ Generate Credentials (1 hour lifetime)
 -  generate STS temporary credentials, default lifetime (60 minutes)
 -  Credential format set to 'vault' (default stsAval format)
 -  **stsAval** supports 2 credential formats. See the `Credential Format
-   Overview <../markdown/credential-format-overview.md>`__.
+   Overview <./primer/credential-format-overview.html>`__.
 
 .. code:: python
 
@@ -218,11 +218,8 @@ Auto-Refresh Credentials -- Additional Info
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Refresh of credentials is non-blocking (via threading)
--  Thread management is via event states; threads are terminated as soon
-   as their associated
-   session token expires or they receive a halt event.
--  No hanging threads. Any live threads when new credentials generated
-   are safely terminated
+-  Thread management is via event states; threads are terminated as soon as their associated session token expires or they receive a halt event.
+-  No hanging threads. Any live threads when new credentials generated are safely terminated
    before generating a new set.
 
 

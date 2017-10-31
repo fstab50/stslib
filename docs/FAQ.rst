@@ -16,7 +16,7 @@ Long-Life (Auto-Refreshed) Credentials
     for expired credentials). You may use this method when generating temporary credentials
     for any length of time; however, it is especially useful when generating long-lived credentials that are
     auto-refreshed because is it prevents application code from "polling" ``stsAval`` to see if new
-    credentials have been generated.  
+    credentials have been generated.
 
         -  use ``current_credentials`` method
         -  returns *only* valid credentials

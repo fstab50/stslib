@@ -29,11 +29,9 @@ stsAval `vault` Format (DEFAULT)
 -  Out-of-the-box default for stsAval library
 -  Additional custom parameters:
 
-   -  ``StartTime``: datetime object representing the datetime stamp of
-      credential generation
+   -  ``StartTime``: datetime object representing the datetime stamp of credential generation
    -  ``duration`` Attribute (datetime object)
-   -  ``expiration`` Attribute (Expiration datetime stamp in string
-      format)
+   -  ``expiration`` Attribute (Expiration datetime stamp in string format)
 
 ``vault`` **Code Example**:
 

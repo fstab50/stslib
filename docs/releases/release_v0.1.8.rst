@@ -1,9 +1,10 @@
-stsAval v0.1.8 \| Release Notes
+===============================
+ v0.1.8 \| Release Notes
 ===============================
 
 --------------
 
-**Release date**: September 8, 2017 \* \* \*
+**Release date**: September 8, 2017
 
 Features Implemented in v0.1.8
 ------------------------------
@@ -28,8 +29,10 @@ Non-Default Credential Files
    filename or file location (ie
    outside of default awscli config) currently broken.
 
---------------
+   --------------
 
-( `Back to README <../README.md>`__ )
+   ( `Back to README <../README.html>`__ )
 
---------------
+   --------------
+
+   |
