@@ -22,14 +22,6 @@ Amazon STS Credentials
 
    primer/toctree_primer
 
-Release Notes
-^^^^^^^^^^^^^
-
-.. toctree::
-   :maxdepth: 2
-
-   releases/toctree_releases
-
 Code
 ^^^^
 
@@ -39,6 +31,15 @@ Code
    code_examples/toctree_code_examples
 
 * :ref:`modindex`
+
+
+Release Notes
+^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 2
+
+   releases/toctree_releases
 
 
 Site Map
