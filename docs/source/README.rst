@@ -55,17 +55,23 @@ Dependencies
 -  Installation of Amazon CLI tools (awscli, see Installation section)
 -  Linux Operating System, one of the following:
 
-   -  Redhat Enterprise Linux v7.X (preferred)
+   -  Redhat Enterprise Linux v7.X
+   -  Centos 7.4
    -  Ubuntu 14.04, (Ubuntu 16.04 preferred)
-   -  Amazon Linux (2017.03+ )
+   -  Amazon Linux (2017.09+)
+
+**Note**:
+
+    | Any modern Linux distribution should work, but it must have
+    | `Python 3.5 <http://www.python.org>`_ *as a minimum requirement*.
 
 ------------
 
 Installation
 ~~~~~~~~~~~~
 
-Redhat / CentOS
-***************
+Redhat 7.4+ / CentOS 7
+***********************
 
 -  Install Python3 Package Manager
 
@@ -108,7 +114,7 @@ Redhat / CentOS
 
 ------------------
 
-Ubuntu 16.04+ / Ubuntu-based Distros
+Ubuntu v16.04+ / Ubuntu-based Distros
 **************************************
 
 -  Install Python3 Package Manager
@@ -152,7 +158,7 @@ Ubuntu 16.04+ / Ubuntu-based Distros
 
 ------------------
 
-Amazon Linux 2017.09 +
+Amazon Linux v2017.09 +
 ***********************
 
 -  Install Python3 Package Manager
