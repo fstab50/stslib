@@ -49,21 +49,21 @@ Dependencies
 
 -  Python3 via one of the following:
 
-   -  Python 3.5.X+
-   -  Python 3.6.X+
+   -  Python 3.5+
+   -  Python 3.6+
 
 -  Installation of Amazon CLI tools (awscli, see Installation section)
 -  Linux Operating System, one of the following:
 
    -  Redhat Enterprise Linux v7.X
-   -  Centos 7.4
+   -  Centos 7.X
    -  Ubuntu 14.04, (Ubuntu 16.04 preferred)
    -  Amazon Linux (2017.09+)
 
 **Note**:
 
     | Any modern Linux distribution should work, but it must have
-    | `Python 3.5 <http://www.python.org>`_ *as a minimum requirement*.
+    | `Python 3.5 + <http://www.python.org>`_ *as a minimum requirement*.
 
 ------------
 
