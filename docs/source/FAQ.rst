@@ -2,18 +2,17 @@
  FAQ \| Frequently Asked Questions
 ===================================
 
+Question Index
+^^^^^^^^^^^^^^
 
-Questions
----------
+* `For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?`
+* `How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stsAval's default credential format?`
+* `How will **stsAval** generate credentials if the profile name in my local awscli config does not match my actual IAM username?`
 
-**Q**: `For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?
-`How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stsAval's default credential format?`
-`How will **stsAval** generate credentials if the profile name in my local awscli config does not match my actual IAM username?`
 
---------------
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 **Q**: For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 **A**: There are 2 methods.
 
 | **Method 1** Call current\_credentials method (Preferred):
@@ -61,7 +60,7 @@ Questions
 
 --------------
 
- ### Q: How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stsAval's default credential format?
+**Q**: How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stsAval's default credential format?
 
 **A**: Example use below:
 
