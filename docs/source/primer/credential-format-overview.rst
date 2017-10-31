@@ -1,9 +1,8 @@
---------------
-
+=====================================
 stsAval \| Credential Format Overview
 =====================================
 
---------------
+
 
 Authentication Credential Formats
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -26,7 +25,7 @@ config file ``~/stsaval/config.yml``
 --------------
 
 stsAval ``vault`` Format (DEFAULT)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==================================
 
 -  Access values by specifying credential key + object attribute
 -  Additional custom parameters:
@@ -96,10 +95,10 @@ stsAval ``vault`` Format (DEFAULT)
 
         ... etc
 
---------------
+
 
 ``boto`` Format \| Amazon STS Native Credential Format
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+======================================================
 
 -  Legacy applications
 -  Applications where translation of STS credentials is not authorized
@@ -116,7 +115,7 @@ stsAval ``vault`` Format (DEFAULT)
         from stsAval import StsCore
 
         >>> sts_object = StsCore(profile_name='BobSmith', format='boto')
-        >>> token = sts_object.generate_session_token()  
+        >>> token = sts_object.generate_session_token()
         >>> profile_list = [
 
                 'DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod'
@@ -129,7 +128,7 @@ stsAval ``vault`` Format (DEFAULT)
         >>> print(credentials)         # boto format credentials
 
     {
-      'sts-DynamoDBRole-dev': {        
+      'sts-DynamoDBRole-dev': {
           'StartTime': datetime.datetime(2017, 10, 1, 14, 17, 45, 652218, tzinfo=<UTC>)},
           'Expiration': datetime.datetime(2017, 10, 1, 15, 17, 45, tzinfo=tzutc()),
           'AccessKeyId': 'ASIAJRW7F2BAVN4J34LQ',
@@ -143,7 +142,7 @@ stsAval ``vault`` Format (DEFAULT)
           'SecretAccessKey': '3Q+N4UMpbmW7OrvY2mfgbjXxr/qt1L4XqmO+Njpq',
           'SessionToken': 'FQoDYXdzEDMaDL/sJkeAF28UsxE/iyLUAbvBrCUoAkP/eqeS...'
       },
-      'sts-S3ReadOnlyRole-prod': {        
+      'sts-S3ReadOnlyRole-prod': {
           'StartTime': datetime.datetime(2017, 10, 1, 14, 17, 45, 652218, tzinfo=<UTC>)}}
           'Expiration': datetime.datetime(2017, 10, 1, 15, 17, 46, tzinfo=tzutc()),
           'AccessKeyId': 'ASIAJPRTS4IXPYGPLKZA',
@@ -157,7 +156,7 @@ stsAval ``vault`` Format (DEFAULT)
 --------------
 
 Session Token Format
-~~~~~~~~~~~~~~~~~~~~
+====================
 
 -  Custom **stsAval** Format
 -  Access values by specifying token attributes
@@ -210,6 +209,4 @@ Example:
 
 --------------
 
-( `Back to README <../../README.md>`__ )
-
---------------
+( `Back <../index.html>`__ )
