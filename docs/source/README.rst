@@ -4,42 +4,34 @@
 
 
 Purpose
-^^^^^^^
+~~~~~~~
 
 **stsAval** (pronounced "s-t-s aay-val") -- Spanish for "sts *trustee*".
 
-| **stsAval** is a python3 library that requests and manages temporary
-  credentials from `Amazon's Security Token Service
-  (STS) <http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html>`__
+| **stsAval** is a python3 library that requests and manages temporary credentials from `Amazon's Security Token Service (STS) <http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html>`__
   on your behalf.
-| stsAval generates temporary credentials against roles that reside in
-  any number of AWS accounts.
+| stsAval generates temporary credentials against roles that reside in any number of AWS accounts.
 
-| A primary use case for the **stsAval** library is generation of
-  temporary access credentials for automation tools
-| which need to authenticate to Amazon Web Services. Such automation
-  tooling may be running within AWS; however, commonly
+| A primary use case for the **stsAval** library is generation of temporary access credentials for automation tools
+| which need to authenticate to Amazon Web Services. Such automation tooling may be running within AWS; however, commonly
 | are running in environments external to AWS such as a local machine.
 
-| **stsAval** manages temporary credentials generates credentials in
-  memory for applications that
-| need access to iam roles at AWS. If temporary credentials are needed
+| **stsAval** manages temporary credentials generates credentials in memory for applications that need access to iam roles at AWS. If temporary credentials are needed
   for extended periods (> 1 hour),
-| **stsAval** will automatically renew sts credentials before
-  expiration.
+| **stsAval** will automatically renew sts credentials before expiration.
 
 Important Documents
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 Before going further, you may wish to understand **stsAval** key concepts and use cases:
 
--  `Frequently Asked Questions (FAQ) <./FAQ.rst>`__
+-  `Frequently Asked Questions (FAQ) <./FAQ.html>`__
 -  `Credential Format Overview <../markdown/credential-format-overview.md>`__ -- A primer on the dual credential formats supported by **stsAval**
 -  `Code Examples <../markdown/index-code-examples.md>`__
 
 
 Releases
-^^^^^^^^
+~~~~~~~~
 
 See `v0.3.6 Release Notes <../releases/release_v0.3.6.rst>`__
 
@@ -50,7 +42,7 @@ See `v0.3.6 Release Notes <../releases/release_v0.3.6.rst>`__
 
 
 Deployment Owner/ Author
-^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 | Blake Huber
 | Slack: [@blake](https://mpcaws.slack.com/team/blake)
@@ -58,7 +50,7 @@ Deployment Owner/ Author
 
 
 Dependencies
-^^^^^^^^^^^^
+~~~~~~~~~~~~
 
 -  Python3 via one of the following:
 
@@ -74,7 +66,7 @@ Dependencies
 
 
 Installation - Redhat / Ubuntu
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Install `awscli <https://github.com/aws/aws-cli/>`__
 
@@ -114,7 +106,7 @@ Installation - Redhat / Ubuntu
 
 
 Generate Session Token (default IAM User)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  ``Default`` profile in local awscli config. Default user has permissions to assume roles for which **stsAval**
    will generate credentials
@@ -161,7 +153,7 @@ Generate Session Token (default IAM User)
 
 
 Generate Session Token (named IAM User)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Named IAM user profile in local awscli config. User has permissions
    to assume roles for which **stsAval**
@@ -190,7 +182,7 @@ Generate Session Token (named IAM User)
 
 
 Generate Credentials (1 hour lifetime)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  generate STS temporary credentials, default lifetime (60 minutes)
 -  Credential format set to 'vault' (default stsAval format)
@@ -220,7 +212,7 @@ Generate Credentials (1 hour lifetime)
 
 
 Generate Extended Use Credentials (Multi-hour, Auto-refresh)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Named IAM user profile in local awscli config. User has permissions
    to assume roles for which stsAval
@@ -325,7 +317,7 @@ Auto-Refresh of Credentials
     /stsaval/async.py - 0.2.0 - [INFO]: remaining in cycle: 3 hours, 59 minutes
 
 Auto-Refresh Credentials -- Additional Info
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Refresh of credentials is non-blocking (via threading)
 -  Thread management is via event states; threads are terminated as soon
@@ -337,7 +329,7 @@ Auto-Refresh Credentials -- Additional Info
 
 
 Non-default IAM Role credentials filename or location
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | **Use-Case**: When you wish to use role credentials file not currently part of the awscli, provide a custom location to stsAval as a parameter.
 
@@ -389,13 +381,13 @@ Non-default IAM Role credentials filename or location
 
 
 FAQ
-^^^
+~~~
 
 see `Frequently Asked Questions <./FAQ.rst>`__
 
 
 Enhancement Roadmap
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 for a complete list of enhancements logged against the stsAval project,
 see the `list of stsAval issues <https://bitbucket.org/blakeca00/stsaval/issues?status=new&status=open>`__.

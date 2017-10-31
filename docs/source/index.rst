@@ -1,6 +1,6 @@
-
-stsAval | Generate Amazon STS Credentials 
-=========================================
+===========================================
+ stsAval | Generate Amazon STS Credentials
+===========================================
 
 Documents
 ^^^^^^^^^
@@ -8,10 +8,17 @@ Documents
 .. toctree::
    :maxdepth: 2
 
-   README 
+   README
    FAQ
    license
 
+Release Notes
+^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 2
+
+   releases/toctree_releases
 
 Code
 ^^^^
@@ -24,4 +31,3 @@ Site Map
 
 * :ref:`genindex`
 * :ref:`search`
-
