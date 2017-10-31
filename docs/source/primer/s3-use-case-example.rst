@@ -1,9 +1,7 @@
---------------
+===============================================
+ Accessing Amazon S3 using stsAval credentials
+===============================================
 
-S3 Use Case: Accessing S3 using stsAval credentials
-===================================================
-
---------------
 
 -  Jenkins IAM user used to assume roles
 -  Require access to roles in other accounts for extended duration (> 1
@@ -38,8 +36,8 @@ S3 Use Case: Accessing S3 using stsAval credentials
         }
 
 
-        # let's start with account 1 role
-
+        # let's start with 1 role in another account
+        # Note: no region_name param necessary in session, s3 global service
 
         session = boto3.Session(
             aws_access_key_id=credentials()['sts-RoleNameAccount1'].access_key,
@@ -47,12 +45,11 @@ S3 Use Case: Accessing S3 using stsAval credentials
             aws_session_token=credentials()['sts-RoleNameAccount1'].session
         )
 
-            # Note:  no region_name param required in the session bc s3 global service
-
         s3_client = session.client('s3')
 
+        # list all s3 buckets in the account
+        buckets = [x['Name'] for x in s3_client.list_buckets()['Buckets']]
+
 --------------
 
-( `Back to Code Examples Index <./index-code-examples.md>`__ )
-
---------------
+( `Back to Code Examples <./index-code-examples.html>`__ )
