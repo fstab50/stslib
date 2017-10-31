@@ -11,6 +11,7 @@ Contents
    README
    use_cases
    FAQ
+   roadmap
    license
 
 Amazon STS Credentials
