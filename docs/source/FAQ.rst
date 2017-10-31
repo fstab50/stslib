@@ -1,13 +1,13 @@
-
-stsAval \| FAQ
-==============
+===================================
+ FAQ \| Frequently Asked Questions
+===================================
 
 
 Questions
 ---------
 
-**Q**: `For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials? 
-`How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stsAval's default credential format?` 
+**Q**: `For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?
+`How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stsAval's default credential format?`
 `How will **stsAval** generate credentials if the profile name in my local awscli config does not match my actual IAM username?`
 
 --------------
@@ -26,7 +26,6 @@ Questions
 -  returns None (``{}``) when credentials are expired
 
 .. code:: python
-
 
         >>> sts_object = StsCore(profile_name='BobSmith')
         >>> code = '123466'
@@ -107,4 +106,3 @@ IAM user in my AWS Account?
 --------------
 
 ( `Back to README <./README.md>`__ )
-
