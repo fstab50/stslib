@@ -1,6 +1,8 @@
+Releases
+^^^^^^^^
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2 
 
    release_v0.1.8
    release_v0.2.1
