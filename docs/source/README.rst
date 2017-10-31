@@ -33,12 +33,12 @@ Before going further, you may wish to understand **stsAval** key concepts and us
 Releases
 ~~~~~~~~
 
-See `v0.3.6 Release Notes <../releases/release_v0.3.6.rst>`__
+See `v0.3.6 Release Notes <releases/release_v0.3.6.html>`__
 
 **Previous Releases**
 
--  `v0.2.1 Release Notes <../releses/release_v0.2.1.rst>`__
--  `v0.1.8 Release Notes <../releases/release_v0.1.8.rst>`__
+-  `v0.2.1 Release Notes <releases/release_v0.2.1.html>`__
+-  `v0.1.8 Release Notes <releases/release_v0.1.8.html>`__
 
 
 Deployment Owner/ Author
