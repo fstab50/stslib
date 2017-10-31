@@ -100,7 +100,7 @@ Installation - Redhat / Ubuntu
 
 --------------
 
-Author
+Contact
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 | **Author**: Blake Huber
