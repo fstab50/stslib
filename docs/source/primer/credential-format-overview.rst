@@ -3,31 +3,30 @@
 ==================================
 
 
-
 Authentication Credential Formats
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **stsAval** supports 2 different output formats when generating
 temporary credentials:
 
-1. **stsAval** ``vault`` Format (DEFAULT). Enhanced, custom credential
-   format
-2. Native ``boto`` Format. Amazon STS temporary credential format
-   returned by the boto3 python SDK
+1. **stsAval** ``vault`` Format (DEFAULT). Enhanced, custom credential format
+2. Native ``boto`` Format. Amazon STS temporary credential format returned by the boto3 python SDK
 
-| Either credential format can be selected by setting the ``format``
-  class attribute parameter
-| when instantiating the ``StsCore`` class.
+**Important to Remember**:
 
-Alternatively, you may change the default **stsAval** format in the
-config file ``~/stsaval/config.yml``
+    | Either credential format can be selected by setting the ``format`` class attribute parameter
+    | when instantiating the ``StsCore`` class.
+    |
+    | Alternatively, you may change the default **stsAval** format in the
+    | config file ``~/stsaval/config.yml``
 
 --------------
 
-stsAval ``vault`` Format (DEFAULT)
-==================================
+stsAval `vault` Format (DEFAULT)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  Access values by specifying credential key + object attribute
+-  Out-of-the-box default for stsAval library
 -  Additional custom parameters:
 
    -  ``StartTime``: datetime object representing the datetime stamp of
@@ -36,11 +35,11 @@ stsAval ``vault`` Format (DEFAULT)
    -  ``expiration`` Attribute (Expiration datetime stamp in string
       format)
 
-``vault`` Example:
-~~~~~~~~~~~~~~~~~~
+``vault`` **Code Example**:
 
-.. code:: python
+.. sourcecode:: python
 
+        >>> from stsAval import StsCore
 
         >>> sts_object = StsCore(profile_name='BobSmith')
         >>> code = '123466'
@@ -55,6 +54,7 @@ stsAval ``vault`` Format (DEFAULT)
         >>> credentials = sts_object.generate_credentials(profile_list)
 
         >>> print(credentials)
+
     {
         'sts-DynamoDBRole-dev': <stsAval.vault.STSingleSet at 0x7fee0ae05c88>,
         'sts-CodeDeployRole-qa': <stsAval.vault.STSingleSet at 0x7fee0ae05f60>,
@@ -93,12 +93,16 @@ stsAval ``vault`` Format (DEFAULT)
         >>> credentials['sts-CodeDeployRole-qa'].secret_key
         'LqzseVc4jnjoqKuJM3+Iiobdlkj9335u7Ep023jlk'
 
-        ... etc
+        # ... etc
 
+--------------
 
+( `Table of Contents <../index.html>`__ )
+
+--------------
 
 ``boto`` Format \| Amazon STS Native Credential Format
-======================================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  Legacy applications
 -  Applications where translation of STS credentials is not authorized
@@ -106,13 +110,11 @@ stsAval ``vault`` Format (DEFAULT)
 -  Enable format when instantiating objects from ``StsCore`` (example
    below)
 
-``boto`` Example:
-~~~~~~~~~~~~~~~~~
+``boto`` **Code Example**:
 
-.. code:: python
+.. sourcecode:: python
 
-
-        from stsAval import StsCore
+        >>> from stsAval import StsCore
 
         >>> sts_object = StsCore(profile_name='BobSmith', format='boto')
         >>> token = sts_object.generate_session_token()
@@ -151,12 +153,14 @@ stsAval ``vault`` Format (DEFAULT)
       }
     }
 
-( `Back to README <../../README.md>`__ )
+--------------
+
+( `Table of Contents <../index.html>`__ )
 
 --------------
 
 Session Token Format
-====================
+^^^^^^^^^^^^^^^^^^^^
 
 -  Custom **stsAval** Format
 -  Access values by specifying token attributes
@@ -167,13 +171,11 @@ Session Token Format
    -  ``boto``: attribute holding the native STS format of the token as
       returned from Amazon STS
 
-Example:
-~~~~~~~~
+**Session Token Example**:
 
-.. code:: python
+.. sourcecode:: python
 
-
-        from stsAval import StsCore
+        >>> from stsAval import StsCore
 
         >>> sts_object = StsCore()
         >>> token = sts_object.generate_session_token()
