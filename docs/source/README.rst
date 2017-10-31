@@ -6,9 +6,7 @@
 Purpose
 ~~~~~~~
 
-**stsAval** (pronounced *s-t-s aay-val*) -- Spanish for "sts *trustee*".
-
-**stsAval** is a python3 library that requests and manages temporary credentials from
+**stsAval** (pronounced *s-t-s ayy-val*), is a python3 library that requests and manages temporary credentials from
 `Amazon's Security Token Service (STS) <http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html>`__ on your behalf. The library generates
 temporary credentials against roles that reside in any number of AWS accounts.
 

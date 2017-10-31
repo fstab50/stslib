@@ -1,9 +1,9 @@
 ===================================
- FAQ \| Frequently Asked Questions
+ Frequently Asked Questions
 ===================================
 
-Question Index
-^^^^^^^^^^^^^^
+Index
+^^^^^
 
 * `For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?`
 * `How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stsAval's default credential format?`

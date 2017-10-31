@@ -33,6 +33,11 @@ Release Notes
 Code
 ^^^^
 
+.. toctree::
+   :maxdepth: 2
+
+   code_examples/toctree_code_examples
+
 * :ref:`modindex`
 
 
