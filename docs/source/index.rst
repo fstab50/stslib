@@ -32,8 +32,6 @@ Release Notes
 Code
 ^^^^
 
-.. autoclass:: core
-
 * :ref:`modindex`
 
 

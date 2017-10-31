@@ -12,7 +12,7 @@ Generate Session Token (default IAM User)
 -  Cli *not* protected with MFA (Multi-Factor Authentication, 6 digit
    code)
 
-.. sourcecode:: ipython
+.. sourcecode:: python
 
 
         from stsAval import StsCore
