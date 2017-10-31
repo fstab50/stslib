@@ -1,28 +1,26 @@
-===================================
+###################################
  Frequently Asked Questions
-===================================
+###################################
 
-Index
-^^^^^
+------------
 
-* `For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?`
-* `How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stsAval's default credential format?`
-* `How will **stsAval** generate credentials if the profile name in my local awscli config does not match my actual IAM username?`
+Long-Life (Auto-Refreshed) Credentials
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 **Q**: For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 **A**: There are 2 methods.
 
-| **Method 1** Call current\_credentials method (Preferred):
-| Always set your application to monitor the current\_credentials
-  method, especially when generating long-lived credentials that are
-  auto-refreshed:
+    **Method 1** Call ``current_credentials`` method (Preferred):
+    Seting your application to monitor the ``current_credentials``
+    method will ensure you receive *only* valid credentials (the method returns None
+    for expired credentials). You may use this method when generating temporary credentials
+    for any length of time; however, it is especially useful when generating long-lived credentials that are
+    auto-refreshed because is it prevents application code from "polling" ``stsAval`` to see if new
+    credentials have been generated.  
 
--  use ``current_credentials`` method
--  returns *only* valid credentials
--  returns None (``{}``) when credentials are expired
+        -  use ``current_credentials`` method
+        -  returns *only* valid credentials
+        -  returns None (``{}``) when credentials are expired
 
 .. code:: python
 
@@ -60,8 +58,10 @@ Index
 
 --------------
 
-**Q**: How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stsAval's default credential format?
+Using ``stsAval`` Credentials
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**Q**: How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stsAval's default credential format?
 **A**: Example use below:
 
 .. code:: python
@@ -91,10 +91,11 @@ Index
 
 --------------
 
-Q: How will **stsAval** generate credentials if the profile name in my local awscli config does not match my actual
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Miscellaneous Questions
+^^^^^^^^^^^^^^^^^^^^^^^
 
-IAM user in my AWS Account?
+**Q**: How will **stsAval** generate credentials if the profile name in my local awscli
+config does not match my actual IAM user in my AWS Account?
 
 | **A**: Some basic calls to AWS' sts and iam services do not require
   MFA even when the Amazon API is protected with MFA. At instantiation,

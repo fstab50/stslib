@@ -8,8 +8,7 @@
    hour)
 -  Auto-refresh of credentials, once per hour
 
-.. code:: python
-
+.. sourcecode:: python
 
         import stsAval
 
@@ -53,7 +52,3 @@
 --------------
 
 ( `Back to Code Examples <./index-code-examples.html>`__ )
-
------------------
-
-|

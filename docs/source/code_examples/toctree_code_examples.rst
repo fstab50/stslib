@@ -5,4 +5,3 @@ Code Examples
    :maxdepth: 2
 
    index-code-examples
-   
