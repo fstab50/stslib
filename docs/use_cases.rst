@@ -247,7 +247,6 @@ Non-default IAM Role credentials filename or location
 
 .. code:: json
 
-
     {
         "acme-db-dev": {
             "role_arn": "arn:aws:iam::236600111358:role/AcmeDEV",

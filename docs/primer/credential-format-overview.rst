@@ -4,7 +4,7 @@
 
 
 Authentication Credential Formats
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**********************************
 
 **stsAval** supports 2 different output formats when generating
 temporary credentials:
@@ -18,12 +18,12 @@ temporary credentials:
     | when instantiating the ``StsCore`` class.
     |
     | You may change the default **stsAval** format in the
-    | config file ``~/stsaval/config.yml``
+    | config file ``*/stsaval/config.yml``
 
 --------------
 
 stsAval `vault` Format (DEFAULT)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**********************************
 
 -  Access values by specifying credential key + object attribute
 -  Out-of-the-box default for stsAval library
@@ -100,7 +100,7 @@ stsAval `vault` Format (DEFAULT)
 --------------
 
 ``boto`` \| Native Amazon STS Credential Format (Optional)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**********************************************************
 
 -  Legacy applications
 -  Applications where translation of STS credentials is not authorized
@@ -158,7 +158,7 @@ stsAval `vault` Format (DEFAULT)
 --------------
 
 Session Token Format
-~~~~~~~~~~~~~~~~~~~~~~
+**********************
 
 -  Custom **stsAval** Format
 -  Access values by specifying token attributes
