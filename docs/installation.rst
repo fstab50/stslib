@@ -6,9 +6,9 @@
 
 Choose your operating system for correct installation instructions:
 
-   -  Redhat Enterprise Linux v7.X / Centos 7.X
-   -  Ubuntu 14.04 / Ubuntu 16.04
-   -  Amazon Linux (2017.09+)
+   - :ref:`redhat`
+   - :ref:`ubuntu`
+   - :ref:`amazonlinux`
 
 **Note**:
 
@@ -17,8 +17,10 @@ Choose your operating system for correct installation instructions:
 
 ------------
 
-Redhat 7.4+ / CentOS 7
-***********************
+.. _redhat:
+
+Redhat Enterprise Linux v7.X / Centos 7.X
+******************************************
 
 -  Install Python3 Package Manager
 
@@ -60,6 +62,8 @@ Redhat 7.4+ / CentOS 7
 
 
 ------------------
+
+.. _ubuntu:
 
 Ubuntu v16.04+ / Ubuntu-based Distros
 **************************************
@@ -104,6 +108,8 @@ Ubuntu v16.04+ / Ubuntu-based Distros
 
 
 ------------------
+
+.. _amazonlinux:
 
 Amazon Linux v2017.09 +
 ***********************
