@@ -7,6 +7,7 @@
    :caption: Contents
 
    README
+   installation
    use_cases
    FAQ
    license
