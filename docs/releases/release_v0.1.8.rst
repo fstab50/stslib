@@ -9,13 +9,10 @@
 Features Implemented in v0.1.8
 ------------------------------
 
--  **Thread Management**: Thread persistence solved with threading event
-   based wait states
+-  **Thread Management**: Thread persistence solved with threading event based wait states
 
--  | **Token & Credential Lifetime**: Method to retrieve both token and
-     credentials life remaining.
-   | Two forms returned: datatime.timedelta objects for programmatic use
-     or human\_readable format.
+-  **Token & Credential Lifetime**: Method to retrieve both token and credentials life remaining.
+   Two forms returned: datatime.timedelta objects for programmatic use or human\_readable format.
 
 --------------
 
@@ -29,10 +26,10 @@ Non-Default Credential Files
    filename or file location (ie
    outside of default awscli config) currently broken.
 
-   --------------
+--------------
 
-   ( `Back to README <../README.html>`__ )
+( `Back to README <../README.html>`__ )
 
-   --------------
+--------------
 
    |

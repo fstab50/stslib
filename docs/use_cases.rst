@@ -9,10 +9,9 @@ Generate Session Token (default IAM User)
 -  ``Default`` profile in local awscli config. Default user has permissions to assume roles for which **stsAval**
    will generate credentials
 -  Token with default lifetime (60 minutes)
--  Cli *not* protected with MFA (Multi-Factor Authentication, 6 digit
-   code)
+-  Cli *not* protected with MFA (Multi-Factor Authentication, 6 digit code)
 
-.. sourcecode:: python
+.. code:: python
 
 
         from stsAval import StsCore
@@ -49,6 +48,9 @@ Generate Session Token (default IAM User)
         'SessionToken': 'FQoDYXdzEDMaDHAaP2wi/+77fNJJryKvAa20AqGxoQlcRtf8RFLa5Mps9zK9V5SM3Q7+M3h9iNbcxfa...zQU='
     }
 
+::
+
+---------------
 
 Generate Session Token (named IAM User)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -59,7 +61,7 @@ Generate Session Token (named IAM User)
 -  MFA protected cli access configuration
 -  STS Token with default lifetime (60 minutes)
 
-.. sourcecode:: python
+.. code:: python
 
 
         from stsAval import StsCore
@@ -78,6 +80,7 @@ Generate Session Token (named IAM User)
         'SessionToken': 'FQoDYXdzEDMaDHAaP2wi/+77fNJJryKvAdVZjYKk...zQU='
     }
 
+---------------
 
 Generate Credentials (1 hour lifetime)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -108,6 +111,7 @@ Generate Credentials (1 hour lifetime)
         'sts-S3ReadOnlyRole-prod': <stsAval.vault.STSingleSet at 0x7fee0ae05fd0>
     }
 
+---------------
 
 Generate Extended Use Credentials (Multi-hour, Auto-refresh)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -117,11 +121,9 @@ Generate Extended Use Credentials (Multi-hour, Auto-refresh)
    will generate credentials
 -  MFA protected cli configuration
 -  Credential format set to 'boto' (native Amazon STS format)
--  Credentials auto-refreshed for total 5 hour valid lifetime without
-   MFA auth
+-  Credentials auto-refreshed for total 5 hour valid lifetime without MFA auth
 
 .. code:: python
-
 
         from stsAval import StsCore
 
@@ -138,7 +140,7 @@ Generate Extended Use Credentials (Multi-hour, Auto-refresh)
         >>> credentials = sts_object.current_credentials
 
 Auto-Refresh of Credentials
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+***************************
 
 -  **stsAval** will automatically generate new temporary credentials
    once per hour, prior to expiration (process below)
@@ -222,6 +224,7 @@ Auto-Refresh Credentials -- Additional Info
 -  No hanging threads. Any live threads when new credentials generated are safely terminated
    before generating a new set.
 
+---------------
 
 Non-default IAM Role credentials filename or location
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -232,12 +235,11 @@ Non-default IAM Role credentials filename or location
 
 .. code:: python
 
-
         import stsAval
 
         >>> sts_object = stsAval.StsCore()
-        >>> credentials_file = '~/myAccount/role_credentials'   # awscli credentials file, located in ~/.aws
-
+        >>> credentials_file = '~/myAccount/role_credentials'   # awscli credentials file,
+                                                                # located in ~/.aws
         >>> sts_object.refactor(credentials_file)
         >>> sts_object.profiles
 

@@ -32,8 +32,7 @@ Before going further, you may wish to understand **stsAval** key concepts and us
 
 ------------
 
-Releases
-~~~~~~~~
+**Current Release**:
 
 See `v0.3.6 Release Notes <releases/release_v0.3.6.html>`__
 
