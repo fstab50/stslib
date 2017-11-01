@@ -1,10 +1,6 @@
-==================================
- Dual Credential Format Overview
-==================================
 
-
-Authentication Credential Formats
-**********************************
+Credential Formats
+^^^^^^^^^^^^^^^^^^^
 
 **stsAval** supports 2 different output formats when generating
 temporary credentials:
@@ -12,7 +8,7 @@ temporary credentials:
 1. **stsAval** ``vault`` Format (DEFAULT). Enhanced, custom credential format
 2. Native ``boto`` Format. Amazon STS temporary credential format returned by the boto3 python SDK
 
-**Important to Remember**:
+**Important**:
 
     | Either credential format can be selected by setting the ``format`` class attribute parameter
     | when instantiating the ``StsCore`` class.
@@ -22,8 +18,8 @@ temporary credentials:
 
 --------------
 
-stsAval `vault` Format (DEFAULT)
-**********************************
+``vault`` \| Default Format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  Access values by specifying credential key + object attribute
 -  Out-of-the-box default for stsAval library
@@ -99,8 +95,8 @@ stsAval `vault` Format (DEFAULT)
 
 --------------
 
-``boto`` \| Native Amazon STS Credential Format (Optional)
-**********************************************************
+``boto`` \| Native Amazon STS Format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  Legacy applications
 -  Applications where translation of STS credentials is not authorized
@@ -158,7 +154,7 @@ stsAval `vault` Format (DEFAULT)
 --------------
 
 Session Token Format
-**********************
+^^^^^^^^^^^^^^^^^^^^^
 
 -  Custom **stsAval** Format
 -  Access values by specifying token attributes

@@ -20,8 +20,8 @@
 import os
 import sys
 import sphinx_rtd_theme
-sys.path.insert(0, os.path.abspath('../../stsAval'))
-#sys.path.insert(0, os.path.abspath('modules'))
+sys.path.insert(0, os.path.abspath('..'))
+
 
 # -- General configuration ------------------------------------------------
 
@@ -33,6 +33,7 @@ sys.path.insert(0, os.path.abspath('../../stsAval'))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ['sphinx.ext.autodoc',
+    'sphinx.ext.todo',
     'sphinx.ext.viewcode'
 ]
 
@@ -72,13 +73,13 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = []
+exclude_patterns = ['build', '.DS_Store', 'Thumbs.db']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = False
+todo_include_todos = True
 
 
 # -- Options for HTML output ----------------------------------------------

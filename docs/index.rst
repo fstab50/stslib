@@ -14,9 +14,9 @@
 
 .. toctree::
    :maxdepth: 2
-   :caption: Amazon STS Credentials
+   :caption: Authentication Credentials
 
-   primer/toctree_primer
+   primer/credential-format-overview
 
 
 .. toctree::

@@ -48,8 +48,6 @@ Generate Session Token (default IAM User)
         'SessionToken': 'FQoDYXdzEDMaDHAaP2wi/+77fNJJryKvAa20AqGxoQlcRtf8RFLa5Mps9zK9V5SM3Q7+M3h9iNbcxfa...zQU='
     }
 
-::
-
 ---------------
 
 Generate Session Token (named IAM User)
@@ -139,10 +137,8 @@ Generate Extended Use Credentials (Multi-hour, Auto-refresh)
         >>> sts_object.generate_credentials(profile_list)
         >>> credentials = sts_object.current_credentials
 
-Auto-Refresh of Credentials
-***************************
 
--  **stsAval** will automatically generate new temporary credentials
+-  **Auto-Refresh of Credentials**: ``stsAval`` will automatically generate new temporary credentials
    once per hour, prior to expiration (process below)
 
 .. code:: python
