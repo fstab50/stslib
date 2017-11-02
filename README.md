@@ -20,10 +20,12 @@ need access to iam roles at AWS.  If temporary credentials are needed for extend
 ### Important Documents
 Before going further, read the following to understand **stsAval** key concepts and use cases:
 
-* [Frequently Asked Questions (FAQ)](./FAQ.md)
-* [Credential Format Overview](./docs/markdown/credential-format-overview.md) -- A primer on the dual credential formats supported by **stsAval**
-* [Code Examples](./docs/markdown/index-code-examples.md)
-* [LICENSE (GPLv3)](./LICENSE.txt)
+* [Frequently Asked Questions (FAQ)](http://stsaval.readthedocs.io/en/latest/FAQ.html)
+* [Credential Format Overview](http://stsaval.readthedocs.io/en/latest/primer/credential-format-overview.html) -- A primer on the dual credential formats supported by **stsAval**
+* [Code Examples](http://stsaval.readthedocs.io/en/latest/code_examples/toctree_code_examples.html)
+* [LICENSE (GPLv3)](http://stsaval.readthedocs.io/en/latest/license.html)
+
+Complete Documentation is available at [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io).
 
 * * *
 
