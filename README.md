@@ -17,26 +17,22 @@ are running in environments external to AWS such as a local machine.
 need access to iam roles at AWS.  If temporary credentials are needed for extended periods (> 1 hour),  
 **stsAval** will automatically renew sts credentials before expiration.
 
+* * *
+
+## Documentation ##
+
+Complete Documentation is available at [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io).
+
 ### Important Documents
-Before going further, read the following to understand **stsAval** key concepts and use cases:
+Before starting, read the following to understand **stsAval** key concepts and use cases:
 
 * [Frequently Asked Questions (FAQ)](http://stsaval.readthedocs.io/en/latest/FAQ.html)
 * [Credential Format Overview](http://stsaval.readthedocs.io/en/latest/primer/credential-format-overview.html) -- A primer on the dual credential formats supported by **stsAval**
 * [Code Examples](http://stsaval.readthedocs.io/en/latest/code_examples/toctree_code_examples.html)
-* [LICENSE (GPLv3)](http://stsaval.readthedocs.io/en/latest/license.html)
 
-Complete Documentation is available at [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io).
 
-* * *
+**stsAval** is licensed under [GPLv3](http://stsaval.readthedocs.io/en/latest/license.html)
 
-## Releases
-
-See [v0.3.6 Release Notes](./notes/release_v0.3.6.md)
-
-### Previous Releases ###
-
-* [v0.2.1 Release Notes](./notes/release_v0.2.1.md)
-* [v0.1.8 Release Notes](./notes/release_v0.1.8.md)
 
 * * *
 

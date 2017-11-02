@@ -1,5 +1,5 @@
 ===============================
- v0.3.6 \| Release Notes
+ v0.3.6D \| Release Notes
 ===============================
 
 --------------
@@ -10,8 +10,8 @@
 Documentation Release: v0.3.6D
 ------------------------------
 
--  | **Documentation Release**: v0.3.6D is not a feature release.  Documentation release to
-   | [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io).
+-  | **Documentation Release**: Documentation release to [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io).
+   | [v0.3.6](./release_v0.3.6.html) is that latest feature release.
 
 
 --------------
