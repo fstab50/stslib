@@ -10,8 +10,8 @@
 Documentation Release: v0.3.6D
 ------------------------------
 
--  | **Documentation Release**: Doc auto generation to http://stsaval.readthedocs.io.
-   | [v0.3.6](./release_v0.3.6.html) is that latest feature release.
+-  | **ReadTheDocs.io**: Document auto generation, release to: http://stsaval.readthedocs.io.
+   | `v0.3.6 <./release_v0.3.6.html>`__ is the latest feature release.
 
 
 --------------
