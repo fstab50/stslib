@@ -49,10 +49,13 @@ See `v0.3.6 Release Notes <releases/release_v0.3.6.html>`__
 
 ------------
 
-License
+Use
 ~~~~~~~~~
 
-**stsAval** is licensed under `General Public License v3 <./license.html>`__
+.. note::
+
+    | **stsAval** is available via pip in the official `python registry <https://pypi.python.org/pypi>`__
+    | and is licensed under the `General Public License v3 <./license.html>`__
 
 ------------
 
