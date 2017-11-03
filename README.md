@@ -19,8 +19,6 @@ need access to iam roles at AWS.  If temporary credentials are needed for extend
 **stsAval** will automatically renew sts credentials before expiration.
 
 
-[![Read the Docs (version)](https://img.shields.io/readthedocs/pip/stable.svg?style=flat-square)]()
-
 * * *
 
 ## Documentation ##
@@ -37,14 +35,7 @@ Before starting, read the following to understand **stsAval** key concepts and u
 
 **stsAval** is licensed under [GPLv3](http://stsaval.readthedocs.io/en/latest/license.html)
 
-
-* * *
-
-## Deployment Owner/ Author ##
-
-Blake Huber  
-Slack: [@blake](https://mpcaws.slack.com/team/blake)  
-BitBucket: [@blake](blakeca00[AT]gmail.com)
+[![Read the Docs (version)](https://img.shields.io/readthedocs/pip/stable.svg?style=flat-square)]()
 
 * * *
 

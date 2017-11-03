@@ -21,10 +21,15 @@ Purpose
 
 ------------
 
-Important Documents
-~~~~~~~~~~~~~~~~~~~
+Documentation
+~~~~~~~~~~~~~~~
 
-Before going further, you may wish to understand **stsAval** key concepts and use cases:
+Complete Documentation is available at `http://stsaval.readthedocs.io <http://stsaval.readthedocs.io>`__.
+
+Getting Started
+****************
+
+Before starting, read the following to understand **stsAval** key concepts and use cases:
 
 -  `Frequently Asked Questions (FAQ) <./FAQ.html>`__
 -  `Credential Format Overview <./primer/credential-format-overview.html>`__ -- A primer on the dual credential formats supported by **stsAval**
@@ -44,31 +49,15 @@ See `v0.3.6 Release Notes <releases/release_v0.3.6.html>`__
 
 ------------
 
-Dependencies
-~~~~~~~~~~~~
+License
+~~~~~~~~~
 
--  Python3 via one of the following:
+**stsAval** is licensed under `General Public License v3 <./license.html>`__
 
-   -  Python 3.5+
-   -  Python 3.6+
-
--  Installation of Amazon CLI tools (awscli, see Installation section)
--  Linux Operating System, one of the following:
-
-   -  Redhat Enterprise Linux v7.X
-   -  Centos 7.X
-   -  Ubuntu 14.04, (Ubuntu 16.04 preferred)
-   -  Amazon Linux (2017.09+)
-
-**Note**:
-
-    | Any modern Linux distribution should work, but it must have
-    | `Python 3.5 + <http://www.python.org>`_ *as a minimum requirement*.
-
---------------
+------------
 
 Contact
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~
 
 | **Author**: Blake Huber
 | **Slack**: [@blake](https://mpcaws.slack.com/team/blake)
