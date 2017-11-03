@@ -2,6 +2,7 @@
 # README :  stsAval
 * * *
 
+
 ## Purpose ##
 
 **stsAval** (pronounced "s-t-s aay-val") -- Spanish for "sts _trustee_".
@@ -17,13 +18,16 @@ are running in environments external to AWS such as a local machine.
 need access to iam roles at AWS.  If temporary credentials are needed for extended periods (> 1 hour),  
 **stsAval** will automatically renew sts credentials before expiration.
 
+
+[![Read the Docs (version)](https://img.shields.io/readthedocs/pip/stable.svg?style=flat-square)]()
+
 * * *
 
 ## Documentation ##
 
 Complete Documentation is available at [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io).
 
-### Important Documents
+### Getting Started
 Before starting, read the following to understand **stsAval** key concepts and use cases:
 
 * [Frequently Asked Questions (FAQ)](http://stsaval.readthedocs.io/en/latest/FAQ.html)
