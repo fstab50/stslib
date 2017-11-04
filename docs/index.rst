@@ -25,10 +25,8 @@
    :caption: Developer Documentation
 
    code_examples/toctree_code_examples
+   stsAval_modules
    roadmap
-
-* :ref:`modindex`
-
 
 .. toctree::
    :maxdepth: 2
@@ -37,8 +35,10 @@
    releases/toctree_releases
 
 
-Site Map
-^^^^^^^^
+.. toctree::
+  :maxdepth: 1
+  :caption: Site Map
 
+* :ref:`modindex`
 * :ref:`genindex`
 * :ref:`search`
