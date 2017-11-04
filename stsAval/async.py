@@ -3,11 +3,7 @@ Summary:
     Non-blocking event caller
 
 Module Attributes:
-    :type int: (datetime.timedelta)
-    :param cycle : duration of timer cycle which calls event 1 time
-    :delta (int): number of seconds prior to end of cycle
-    :delay (int): duration of cycle when event call occurs
-    :debug (Boolean): flag, enable verbose log output
+    logger: TYPE logging
 
 Returns:
     TYPE: Bool, False when cycle completes
@@ -17,14 +13,15 @@ Example Use:
     thread = TimeKeeper(
         roles=['DynamoDBReadOnlyRole', 'EC2FullAccessRole'],
         event=<self.method of calling class>,
-        RefreshCount=<num of cycles to call event>
+        RefreshCount=3
+
     )
     thread.start()
+
 """
 
 import threading
 from threading import current_thread
-import time
 import datetime
 from stsAval import logd
 from stsAval._version import __version__
@@ -37,11 +34,24 @@ logger = logd.getLogger(__version__)
 thread_exception = {}
 
 
-
-
 class TimeKeeper(threading.Thread):
     """ class def async process trigger """
     def __init__(self, roles, event, RefreshCount, debug=False):
+        """ Initializes thread with timing attributes
+
+        Args:
+            :cycle (datetime.datetime): duration of timer cycle which calls event 1 time
+            :delta (int): number of seconds prior to end of cycle
+            :delay (int): duration of cycle when event call occurs
+            :event (method):  method or function to execute with each iteration
+            :RefreshCount (int):  number of cycles to execute thread
+            :debug (Boolean): flag, enable verbose log output
+
+        Returns:
+            Threading.thread
+        Raises:
+            ValueError | if
+        """
         threading.Thread.__init__(self)
         self._halt_event = threading.Event()
         self.role_list = roles
