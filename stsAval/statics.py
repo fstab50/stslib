@@ -1,9 +1,11 @@
 """
 Summary:
-    stsAval Project defaults and inputs
+    stsAval Project-level Defaults and Settings
+
+    NOTE: local defaults for your specific installation are derived from
+          settings found in ~/.stsaval/config.yml
 
 Module Attributes:
-
     :user_home (attr, TYPE: str):
         $HOME environment variable, present for most Unix and Unix-like POSIX systems
     :config_dirname (attr, TYPE: str):
@@ -74,7 +76,7 @@ else:
     config_file = config_path + '/' + 'config.yml'
     log_dir = user_home + '/' + 'logs'
     log_file = log_dir + '/' + 'stsaval.log'
-    log_mode = 'file'
+    log_mode = 'stdout'
     prefix = 'sts'
     prefix_alt = 'gcreds'
 
