@@ -33,9 +33,8 @@ Before starting, read the following to understand **stsAval** key concepts and u
 * [Code Examples](http://stsaval.readthedocs.io/en/latest/code_examples/toctree_code_examples.html)
 
 
-**stsAval** is licensed under [GPLv3](http://stsaval.readthedocs.io/en/latest/license.html)
+**stsAval** is licensed under [General Public License v3](http://stsaval.readthedocs.io/en/latest/license.html)
 
-[![Read the Docs (version)](https://img.shields.io/readthedocs/pip/stable.svg?style=flat-square)]()
 
 * * *
 
