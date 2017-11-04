@@ -36,9 +36,7 @@
 
 
 .. toctree::
-  :maxdepth: 1
+  :maxdepth: 2
   :caption: Site Map
 
-* :ref:`modindex`
-* :ref:`genindex`
-* :ref:`search`
+  sitemap
