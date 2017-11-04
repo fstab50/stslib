@@ -1,8 +1,19 @@
 stsAval package
 ===============
 
-Submodules
-----------
+.. _top:
+
+Module Index
+-------------------------
+
+- :ref:`async`
+- :ref:`core`
+- :ref:`logd`
+- :ref:`refactor`
+- :ref:`statics`
+- :ref:`vault`
+
+.. _async:
 
 stsAval\.async module
 ---------------------
@@ -12,6 +23,12 @@ stsAval\.async module
     :undoc-members:
     :show-inheritance:
 
+:ref:`top`
+
+-------------
+
+.. _core:
+
 stsAval\.core module
 --------------------
 
@@ -19,6 +36,12 @@ stsAval\.core module
     :members:
     :undoc-members:
     :show-inheritance:
+
+:ref:`top`
+
+-------------
+
+.. _logd:
 
 stsAval\.logd module
 --------------------
@@ -28,6 +51,12 @@ stsAval\.logd module
     :undoc-members:
     :show-inheritance:
 
+:ref:`top`
+
+-------------
+
+.. _refactor:
+
 stsAval\.refactor module
 ------------------------
 
@@ -35,6 +64,12 @@ stsAval\.refactor module
     :members:
     :undoc-members:
     :show-inheritance:
+
+:ref:`top`
+
+-------------
+
+.. _statics:
 
 stsAval\.statics module
 -----------------------
@@ -44,6 +79,12 @@ stsAval\.statics module
     :undoc-members:
     :show-inheritance:
 
+:ref:`top`
+
+-------------
+
+.. _vault:
+
 stsAval\.vault module
 ---------------------
 
@@ -52,11 +93,12 @@ stsAval\.vault module
     :undoc-members:
     :show-inheritance:
 
+:ref:`top`
 
-Module contents
----------------
+-------------
 
-.. automodule:: stsAval
-    :members:
-    :undoc-members:
-    :show-inheritance:
+( `Table Of Contents <./index.html>`__ )
+
+-----------------
+
+|
