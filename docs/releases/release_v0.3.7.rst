@@ -7,7 +7,7 @@
 **Release date**: November 1, 2017
 
 
-v0.3.7 Documentation Release
+Documentation Release
 ------------------------------
 
 -  | **ReadTheDocs.io**: Document auto generation, release to: http://stsaval.readthedocs.io.
