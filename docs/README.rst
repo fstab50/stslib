@@ -37,15 +37,15 @@ Before starting, read the following to understand **stsAval** key concepts and u
 
 ------------
 
-**Current Feature Release**:
+**Current Release**:
 
-See `v0.3.6 Release Notes <releases/release_v0.3.6.html>`__
+See `v0.3.7 Release Notes <releases/release_v0.3.7.html>`__
 
 **Previous Releases**
 
 -  `v0.2.1 Release Notes <releases/release_v0.2.1.html>`__
 -  `v0.1.8 Release Notes <releases/release_v0.1.8.html>`__
--  `v0.3.6D Release Notes <releases/release_v0.3.6D.html>`__
+-  `v0.3.6 Release Notes <releases/release_v0.3.6.html>`__
 
 ------------
 
