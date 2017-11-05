@@ -53,7 +53,7 @@ Complete html documentation available at [http://stsaval.readthedocs.io](http://
 
 Before starting, read the following to understand **stsAval** key concepts and use cases:
 
-* [Frequently Asked Questions (FAQ)](http://stsaval.readthedocs.io/en/latest/FAQ.html)
+* [Frequently Asked Questions (FAQ)](./FAQ.md)
 * [Credential Format Overview](http://stsaval.readthedocs.io/en/latest/primer/credential-format-overview.html) -- A primer on the dual credential formats supported by **stsAval**
 * [Code Examples](http://stsaval.readthedocs.io/en/latest/code_examples/toctree_code_examples.html)
 
