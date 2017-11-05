@@ -22,8 +22,8 @@ that reside in any number of AWS  accounts.
 
 The **stsAval** library is commonly used in python applications that generate temporary access credentials for  
 automation tools which need to _bypass multi-factor authentication enabled on Amazon APIs_.  Temporary credentials  
-of this type are are required authenticate to Amazon Web Services (AWS) when automation tooling is used to deploy to  
-tens or even hundreds of AWS accounts simultaneously.
+of this type are are required authenticate to Amazon Web Services (AWS) when automation tooling is used to deploy  
+to tens or even hundreds of AWS accounts simultaneously.
 
 **stsAva** is appropriate for authentication to AWS Services both from within AWS as well by automation tooling  
 runs in an environment external to AWS such as an on-prem datacenter or local machine.
