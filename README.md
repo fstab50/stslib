@@ -8,8 +8,8 @@
 [![GitHub release](https://img.shields.io/badge/release-v0.3.7-blue.svg)]()
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)]()
 [![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)]()
-[![Platform](https://img.shields.io/badge/platform-linux--64%20%7C%20os--64-lightgrey.svg]()
-[![Dependencies](https://img.shields.io/badge/dependencies-boto3%2C%20awscli%2C%20pytz-yellow.svg]()
+[![](https://img.shields.io/badge/platform-linux--64%20%7C%20os--64-lightgrey.svg]()
+[![](https://img.shields.io/badge/dependencies-boto3%2C%20awscli%2C%20pytz-yellow.svg]()
 
 * * *
 
