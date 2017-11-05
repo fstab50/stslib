@@ -19,6 +19,13 @@ need access to iam roles at AWS.  If temporary credentials are needed for extend
 **stsAval** will automatically renew sts credentials before expiration.
 
 
+[![Read the Docs](https://img.shields.io/readthedocs/pip.svg)]()
+[![Jenkins](https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg)]()
+[![PyPI](https://img.shields.io/pypi/dm/Django.svg)]()
+[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)]()
+[![PyPI](https://img.shields.io/pypi/pyversions/Django.svg)]()
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)]
+
 * * *
 
 ## Documentation ##
