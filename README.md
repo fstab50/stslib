@@ -25,7 +25,7 @@ automation tools which need to _bypass multi-factor authentication enabled on Am
 of this type are are required authenticate to Amazon Web Services (AWS) when automation tooling is used to deploy  
 to tens or even hundreds of AWS accounts simultaneously.
 
-**stsAva** is appropriate for authentication to AWS Services both from within AWS as well by automation tooling  
+**stsAval** is appropriate for authentication to AWS Services both from within AWS as well by automation tooling  
 runs in an environment external to AWS such as an on-prem datacenter or local machine.
 local machine.
 
