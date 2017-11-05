@@ -2,14 +2,23 @@
  README
 ===========================
 
-|version status|
-|Coverage Status|
+
+.. image:: https://img.shields.io/badge/release-v0.3.7-blue.svg   :target:
 
 .. image:: https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg   :target:
-.. image:: https://img.shields.io/readthedocs/pip.svg   :target: latest
-.. image:: https://img.shields.io/github/downloads/atom/atom/latest/total.svg   :target:
-.. image:: https://img.shields.io/pypi/pyversions/Django.svg   :target:
-.. image:: https://img.shields.io/pypi/status/Django.svg   :target: 
+
+.. image:: https://img.shields.io/readthedocs/pip.svg  :target:
+
+.. image::  ./docs/images/python_versions.png  :target:
+
+.. image:: https://img.shields.io/badge/dependencies-boto3%2C%20awscli%2C%20pytz-yellow.svg   :target:
+
+.. image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg   :target:
+
+.. image:: https://img.shields.io/badge/platform-linux--64%20%7C%20os--64-lightgrey.svg :target:
+
+
+
 
 Purpose
 ~~~~~~~
