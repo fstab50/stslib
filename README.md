@@ -34,16 +34,18 @@ renew sts credentials before expiration.
 
 ## Documentation ##
 
-Complete Online Documentation is available at [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io) (html).
+**Online Documentation**
+Complete html documentation available at [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io) (html).
 
-Download Documentation:
+**Download Documentation**:
 
-* [pdf format](https://media.readthedocs.org/pdf/stsaval/stable/stsaval.pdf)
-* [Amazon Kindle](https://readthedocs.org/projects/stsaval/downloads/epub/stable/) (epub) format
-* [Amazon Kindle](https://readthedocs.org/projects/stsaval/downloads/epub/stable/){:target="_blank"}
+* [pdf format](https://readthedocs.org/projects/stsaval/downloads/pdf/latest/)
+* [Amazon Kindle](https://readthedocs.org/projects/stsaval/downloads/epub/latest/) (epub) format
 
+* * *
 
-### Getting Started
+## Getting Started
+
 Before starting, read the following to understand **stsAval** key concepts and use cases:
 
 * [Frequently Asked Questions (FAQ)](http://stsaval.readthedocs.io/en/latest/FAQ.html)
