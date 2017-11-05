@@ -1,6 +1,7 @@
 * * *
 # stsAval
 
+### Generate and Manage STS Credentials for Amazon Web Services
 
 [![GitHub release](https://img.shields.io/badge/release-v0.3.7-blue.svg)]()
 [![Jenkins](https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg)]()
@@ -33,7 +34,14 @@ renew sts credentials before expiration.
 
 ## Documentation ##
 
-Complete Documentation is available at [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io).
+Complete Online Documentation is available at [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io) (html).
+
+Download Documentation:
+
+    | - [pdf format](https://media.readthedocs.org/pdf/stsaval/stable/stsaval.pdf)
+    | - [Amazon Kindle](https://readthedocs.org/projects/stsaval/downloads/epub/stable/) (epub) format
+    | - [Amazon Kindle](https://readthedocs.org/projects/stsaval/downloads/epub/stable/){:target="_blank"}
+
 
 ### Getting Started
 Before starting, read the following to understand **stsAval** key concepts and use cases:
