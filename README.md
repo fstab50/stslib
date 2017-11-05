@@ -16,14 +16,18 @@
 
 ## Purpose ##
 
-**stsAval** (pronounced "s-t-s aay-val") -- Spanish for "sts _trustee_".
+**stsAval** (pronounced "s-t-s aay-val"), is a python3 library that requests and manages temporary credentials from  
+[Amazon's Security Token Service (STS)](http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html) on your behalf. **stsAval** generates temporary credentials against roles  
+that reside in any number of AWS  accounts.
 
-**stsAval** is a python3 library that requests and manages temporary credentials from [Amazon's Security Token Service (STS)](http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html)  
-on your behalf. **stsAval** generates temporary credentials against roles that reside in any number of AWS  accounts.
+The **stsAval** library is commonly used in python applications that generate temporary access credentials for  
+automation tools which need to _bypass multi-factor authentication enabled on Amazon APIs_.  Temporary credentials  
+of this type are are required authenticate to Amazon Web Services (AWS) when automation tooling is used to deploy  
+to tens or even hundreds of AWS accounts simultaneously.
 
-A primary use case for the **stsAval** library is the generation of temporary access credentials for automation tools which  
-need to _bypass multi-factor authentication enabled on Amazon APIs_ in ordeer to authenticate to Amazon Web Services.  
-Such automation tooling may be running within AWS or in an environment external to AWS such as a local machine.
+**stsAval** is appropriate for authentication to AWS Services both from within AWS as well by automation tooling  
+runs in an environment external to AWS such as an on-prem datacenter or local machine.
+local machine.
 
 **stsAval** manages temporary credentials generates credentials in memory for applications that need access to  
 iam roles at AWS.  If temporary credentials are needed for extended periods (> 1 hour), **stsAval** will automatically  
@@ -49,7 +53,7 @@ Complete html documentation available at [http://stsaval.readthedocs.io](http://
 
 Before starting, read the following to understand **stsAval** key concepts and use cases:
 
-* [Frequently Asked Questions (FAQ)](http://stsaval.readthedocs.io/en/latest/FAQ.html)
+* [Frequently Asked Questions (FAQ)](./FAQ.md)
 * [Credential Format Overview](http://stsaval.readthedocs.io/en/latest/primer/credential-format-overview.html) -- A primer on the dual credential formats supported by **stsAval**
 * [Code Examples](http://stsaval.readthedocs.io/en/latest/code_examples/toctree_code_examples.html)
 
