@@ -1,7 +1,7 @@
 * * *
 # stsAval
 
-### Generate and Manage STS Credentials for Amazon Web Services
+<span style="color:blue">Generate STS Credentials for [Amazon Web Services](https://aws.amazon.com)</span>
 
 [![GitHub release](https://img.shields.io/badge/release-v0.3.7-blue.svg)]()
 [![Jenkins](https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg)]()
@@ -34,7 +34,8 @@ renew sts credentials before expiration.
 
 ## Documentation ##
 
-**Online Documentation**
+**Online Documentation**:
+
 Complete html documentation available at [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io) (html).
 
 **Download Documentation**:
