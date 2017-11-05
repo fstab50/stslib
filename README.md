@@ -5,10 +5,12 @@
 [![Jenkins](https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg)]()
 [![Read the Docs](https://img.shields.io/readthedocs/pip.svg)]()
 [![PyPI](./docs/images/python_versions.png)]()
-[![GitHub release](https://img.shields.io/badge/release-0.3.8-blue.svg)]()
+[![GitHub release](https://img.shields.io/badge/release-v0.3.7-blue.svg)]()
 [![PyPI](./docs/images/pypi_version.svg)]()
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)]()
 [![PyPI](https://img.shields.io/pypi/status/Django.svg)]()
+[![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)]()
+[![Dependencies](https://img.shields.io/badge/dependencies-boto3%2C%20awscli%2C%20pytz-yellow.svg]()
 
 * * *
 
