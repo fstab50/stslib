@@ -1,31 +1,52 @@
 * * *
-# README :  stsAval
-* * *
+# stsAval
 
+### Generate STS Credentials for [Amazon Web Services](https://aws.amazon.com)
+
+[![GitHub release](https://img.shields.io/badge/release-v0.3.7-blue.svg)]()
+[![Jenkins](https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg)]()
+[![Read the Docs](https://img.shields.io/readthedocs/pip.svg)]()
+[![PyPI](./docs/images/python_versions.png)]()
+[![Deps](https://img.shields.io/badge/dependencies-boto3%2C%20awscli%2C%20pytz-yellow.svg)]()
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)]()
+[![Platorm](https://img.shields.io/badge/platform-linux--64%20%7C%20os--64-lightgrey.svg)]()
+
+
+* * *
 
 ## Purpose ##
 
 **stsAval** (pronounced "s-t-s aay-val") -- Spanish for "sts _trustee_".
 
-**stsAval** is a python3 library that requests and manages temporary credentials from [Amazon's Security Token Service (STS)](http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html) on your behalf.  
-stsAval generates temporary credentials against roles that reside in any number of AWS accounts.
+**stsAval** is a python3 library that requests and manages temporary credentials from [Amazon's Security Token Service (STS)](http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html)  
+on your behalf. **stsAval** generates temporary credentials against roles that reside in any number of AWS  accounts.
 
-A primary use case for the **stsAval** library is generation of temporary access credentials for automation tools  
-which need to authenticate to Amazon Web Services.  Such automation tooling may be running within AWS; however, commonly  
-are running in environments external to AWS such as a local machine.
+A primary use case for the **stsAval** library is the generation of temporary access credentials for automation tools which  
+need to _bypass multi-factor authentication enabled on Amazon APIs_ in ordeer to authenticate to Amazon Web Services.  
+Such automation tooling may be running within AWS or in an environment external to AWS such as a local machine.
 
-**stsAval** manages temporary credentials generates credentials in memory for applications that  
-need access to iam roles at AWS.  If temporary credentials are needed for extended periods (> 1 hour),  
-**stsAval** will automatically renew sts credentials before expiration.
+**stsAval** manages temporary credentials generates credentials in memory for applications that need access to  
+iam roles at AWS.  If temporary credentials are needed for extended periods (> 1 hour), **stsAval** will automatically  
+renew sts credentials before expiration.
 
 
 * * *
 
 ## Documentation ##
 
-Complete Documentation is available at [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io).
+**Online Documentation**:
 
-### Getting Started
+Complete html documentation available at [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io).
+
+**Download Documentation**:
+
+* [pdf format](https://readthedocs.org/projects/stsaval/downloads/pdf/latest/)
+* [Amazon Kindle](https://readthedocs.org/projects/stsaval/downloads/epub/latest/) (epub) format
+
+* * *
+
+## Getting Started
+
 Before starting, read the following to understand **stsAval** key concepts and use cases:
 
 * [Frequently Asked Questions (FAQ)](http://stsaval.readthedocs.io/en/latest/FAQ.html)
@@ -366,4 +387,6 @@ see [Frequently Asked Questions](./FAQ.md)
 
 ## Enhancement Roadmap ##
 
-for a complete list of enhancements logged against the stsAval project, see the [list of stsAval issues](https://bitbucket.org/blakeca00/stsaval/issues?status=new&status=open).
+A summary roadmap can be found [here](http://stsaval.readthedocs.io/en/latest/roadmap.html).
+
+For a complete list of enhancements logged against the stsAval project, see the [list of stsAval issues](https://github.com/fstab50/stsAval/issues?q=is%3Aopen).
