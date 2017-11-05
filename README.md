@@ -1,6 +1,6 @@
 * * *
 # stsAval
-* * *
+
 
 [![Jenkins](https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg)]()
 [![Read the Docs](https://img.shields.io/readthedocs/pip.svg)]()
