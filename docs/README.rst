@@ -15,8 +15,7 @@
 
 .. image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
 
-.. image:: https://img.shields.io/badge/platform-linux--64%20%7C%20os--64-lightgrey.svg 
-
+.. image:: https://img.shields.io/badge/platform-linux--64%20%7C%20os--64-lightgrey.svg
 
 
 
