@@ -58,7 +58,7 @@ of credentials:
     }
 ```
 
-<a id="top">Back to the Top</a>
+[Back to the Top](#top)
 
 * * *
 
