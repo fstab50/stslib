@@ -21,8 +21,8 @@
 that reside in any number of AWS  accounts.
 
 A primary use case for the **stsAval** library is the generation of temporary access credentials for automation tools  
-which need to _bypass multi-factor authentication enabled on Amazon APIs_ in ordeer to authenticate to Amazon Web Services.  
-Such automation tooling may be running within AWS or in an environment external to AWS such as a local machine.
+which need to _bypass multi-factor authentication enabled on Amazon APIs_ in ordeer to authenticate to Amazon  
+Web Services. Such automation tooling may be running within AWS or in an environment external to AWS such as a local machine.
 
 **stsAval** manages temporary credentials generates credentials in memory for applications that need access to  
 iam roles at AWS.  If temporary credentials are needed for extended periods (> 1 hour), **stsAval** will automatically  
