@@ -9,7 +9,7 @@
 
 .. image:: https://img.shields.io/readthedocs/pip.svg  :target:
 
-.. image::  ./docs/images/python_versions.png  :target:
+.. image::  https://img.shields.io/badge/python-3.5%2C%203.6-blue.svg  :target:
 
 .. image:: https://img.shields.io/badge/dependencies-boto3%2C%20awscli%2C%20pytz-yellow.svg   :target:
 
