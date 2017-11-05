@@ -36,7 +36,7 @@ renew sts credentials before expiration.
 
 **Online Documentation**:
 
-Complete html documentation available at [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io) (html).
+Complete html documentation available at [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io).
 
 **Download Documentation**:
 
