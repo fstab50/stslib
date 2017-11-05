@@ -38,9 +38,9 @@ Complete Online Documentation is available at [http://stsaval.readthedocs.io](ht
 
 Download Documentation:
 
-    | - [pdf format](https://media.readthedocs.org/pdf/stsaval/stable/stsaval.pdf)
-    | - [Amazon Kindle](https://readthedocs.org/projects/stsaval/downloads/epub/stable/) (epub) format
-    | - [Amazon Kindle](https://readthedocs.org/projects/stsaval/downloads/epub/stable/){:target="_blank"}
+* [pdf format](https://media.readthedocs.org/pdf/stsaval/stable/stsaval.pdf)
+* [Amazon Kindle](https://readthedocs.org/projects/stsaval/downloads/epub/stable/) (epub) format
+* [Amazon Kindle](https://readthedocs.org/projects/stsaval/downloads/epub/stable/){:target="_blank"}
 
 
 ### Getting Started
