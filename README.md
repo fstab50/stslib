@@ -6,6 +6,7 @@
 [![Read the Docs](https://img.shields.io/readthedocs/pip.svg)]()
 [![PyPI](./docs/images/python_versions.png)]()
 [![GitHub release](./docs/images/version0.3.8.png)]()
+[![PyPI](./docs/images/pypi_version.svg)]()
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)]()
 [![PyPI](https://img.shields.io/pypi/status/Django.svg)]()
 
