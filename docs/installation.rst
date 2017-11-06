@@ -21,7 +21,7 @@ Dependencies
 **Note**:
 
     | Any modern Linux distribution should work, but it must have
-    | `Python 3.5 + <http://www.python.org>`_ *as a minimum requirement*.
+    | `Python 3.5 + <http://www.python.org>`__ *as a minimum requirement*.
 
 --------------
 
@@ -156,15 +156,6 @@ Amazon Linux v2017.09 +
         $ python3 ...TBD
 
 
-
---------------
-
-Contact
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-| **Author**: Blake Huber
-| **Slack**: [@blake](https://mpcaws.slack.com/team/blake)
-| **Repository**: [@blake](blakeca00[AT]gmail.com)
 
 --------------
 
