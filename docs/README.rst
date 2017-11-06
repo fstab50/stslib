@@ -9,7 +9,7 @@
 .. image:: https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg
     :target: https://github.com/fstab50/stsAval/tree/master
 
-.. image:: https://readthedocs.org/projects/stsAval/badge/?version=latest&style=flat
+.. image:: https://img.shields.io/readthedocs/pip.svg
     :target: http://stsaval.readthedocs.io
 
 .. image::  https://img.shields.io/badge/python-3.5%2C%203.6-blue.svg
@@ -20,8 +20,6 @@
 
 .. image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
     :target: http://www.gnu.org/licenses/gpl-3.0.html
-
-.. image:: https://img.shields.io/badge/platform-linux--64%20%7C%20osx--64-lightgrey.svg
 
 
 
@@ -50,18 +48,24 @@ Purpose
 Documentation
 ~~~~~~~~~~~~~~~
 
-Complete Documentation is available at `http://stsaval.readthedocs.io <http://stsaval.readthedocs.io>`__.
+**Online**:
+
+- Complete html documentation available at `http://stsaval.readthedocs.io <http://stsaval.readthedocs.io>`__.
+
+**Download**:  Available via download in the formats below
+
+- `pdf format <https://readthedocs.org/projects/stsaval/downloads/pdf/latest/>`__
+- `Amazon Kindle <https://readthedocs.org/projects/stsaval/downloads/epub/latest/>`__ (epub) format
+
 
 Getting Started
-****************
+~~~~~~~~~~~~~~~
 
 Before starting, read the following to understand **stsAval** key concepts and use cases:
 
 -  `Frequently Asked Questions (FAQ) <./FAQ.html>`__
 -  `Credential Format Overview <./primer/credential-format-overview.html>`__ -- A primer on the dual credential formats supported by **stsAval**
 -  `Code Examples <./primer/index-code-examples.html>`__
-
-------------
 
 **Current Release**:
 
