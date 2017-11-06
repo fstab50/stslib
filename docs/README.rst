@@ -21,8 +21,6 @@
 .. image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
     :target: http://www.gnu.org/licenses/gpl-3.0.html
 
-.. image:: https://img.shields.io/badge/platform-linux--64%20%7C%20osx--64-lightgrey.svg
-
 
 
 Purpose
@@ -50,7 +48,9 @@ Purpose
 Documentation
 ~~~~~~~~~~~~~~~
 
-**Online**: Complete html documentation available at `http://stsaval.readthedocs.io <http://stsaval.readthedocs.io>`__.
+**Online**:
+
+- Complete html documentation available at `http://stsaval.readthedocs.io <http://stsaval.readthedocs.io>`__.
 
 **Download**:  Available via download in the formats below
 
