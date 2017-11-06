@@ -15,7 +15,7 @@
 
 .. image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
 
-.. image:: https://img.shields.io/badge/platform-linux--64%20%7C%20os--64-lightgrey.svg
+.. image:: https://img.shields.io/badge/platform-linux--64%20%7C%20osx--64-lightgrey.svg
 
 
 
@@ -80,7 +80,7 @@ Contact
 
 | **Author**: Blake Huber
 | **Slack**: [@blake](https://mpcaws.slack.com/team/blake)
-| **Repository**: [@blake](blakeca00[AT]gmail.com)
+| **Github**: [github_user](https://github.com/fstab50)
 
 --------------
 
