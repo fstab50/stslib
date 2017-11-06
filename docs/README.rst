@@ -4,16 +4,22 @@
 
 
 .. image:: https://img.shields.io/badge/release-v0.3.7-blue.svg
+    :target: https://github.com/fstab50/stsAval/tree/master
 
 .. image:: https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg
+    :target: https://github.com/fstab50/stsAval/tree/master
 
-.. image:: https://img.shields.io/readthedocs/pip.svg
+.. image:: https://readthedocs.org/projects/stsAval/badge/?version=latest&style=flat
+    :target: http://stsaval.readthedocs.io
 
 .. image::  https://img.shields.io/badge/python-3.5%2C%203.6-blue.svg
+    :target: https://docs.python.org/3/whatsnew/3.6.html
 
 .. image:: https://img.shields.io/badge/dependencies-boto3%2C%20awscli%2C%20pytz-yellow.svg
+    :target: https://pypi.python.org/pypi/boto3/1.4.7
 
 .. image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
+    :target: http://www.gnu.org/licenses/gpl-3.0.html
 
 .. image:: https://img.shields.io/badge/platform-linux--64%20%7C%20osx--64-lightgrey.svg
 
@@ -22,18 +28,22 @@
 Purpose
 ~~~~~~~
 
-    **stsAval** (pronounced *s-t-s ayy-val*), is a python3 library that requests and manages temporary credentials from
-    `Amazon's Security Token Service (STS) <http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html>`__ on your behalf. The library generates
-    temporary credentials against roles that reside in any number of AWS accounts.
+    **stsAval** (pronounced *s-t-s aay-val*), is a python3 library that requests and manages temporary credentials from
+    `Amazon's Security Token Service (STS) <http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html>`__ on your behalf. **stsAval** generates temporary credentials against roles
+    that reside in any number of AWS  accounts.
 
-    A primary use case for the **stsAval** library is generation of temporary access credentials for
-    automation tools which need to authenticate to Amazon Web Services. Such automation tooling may
-    be running within AWS; however, commonly are running in environments external to AWS such as a
+    The **stsAval** library is commonly used in python applications that generate temporary access credentials for
+    automation tools which need to bypass multi-factor authentication enabled on Amazon APIs.  Temporary credentials
+    of this type are are required authenticate to Amazon Web Services (AWS) when automation tooling is used to deploy
+    to tens or even hundreds of AWS accounts simultaneously.
+
+    **stsAval** is appropriate for authentication to AWS Services both from within AWS as well by automation tooling
+    runs in an environment external to AWS such as an on-prem datacenter or local machine.
     local machine.
 
-    **stsAval** manages temporary credentials generates credentials in memory for applications that
-    need access to iam roles at AWS. If temporary credentials are needed for extended periods
-    (> 1 hour), **stsAval** will automatically renew sts credentials before expiration.
+    **stsAval** manages temporary credentials generates credentials in memory for applications that need access to
+    iam roles at AWS.  If temporary credentials are needed for extended periods (> 1 hour), **stsAval** will automatically
+    renew sts credentials before expiration.
 
 ------------
 
