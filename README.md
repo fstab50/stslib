@@ -9,7 +9,7 @@
 [![PyPI](https://img.shields.io/badge/python-3.5%2C%203.6-blue.svg)]()
 [![Deps](https://img.shields.io/badge/dependencies-boto3%2C%20awscli%2C%20pytz-yellow.svg)]()
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)]()
-[![Platorm](https://img.shields.io/badge/platform-linux--64%20%7C%20os--64-lightgrey.svg)]()
+[![Platorm](https://img.shields.io/badge/platform-linux--64%20%7C%20osx--64-lightgrey.svg)]()
 
 
 * * *

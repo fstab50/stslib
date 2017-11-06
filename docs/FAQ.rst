@@ -2,12 +2,17 @@
  Frequently Asked Questions
 ###################################
 
+- **Q**: For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?
+- **Q**: How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stsAval's default credential format?
+- **Q**: How will **stsAval** generate credentials if the profile name in my local awscli config does not match my actual IAM user in my AWS Account?
+
 ------------
 
-Long-Life (Auto-Refreshed) Credentials
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Auto-Refreshed Credentials
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Q**: For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?
+
 **A**: There are 2 methods.
 
     **Method 1** Call ``current_credentials`` method (Preferred):
@@ -56,12 +61,15 @@ Long-Life (Auto-Refreshed) Credentials
             'sts-S3ReadOnlyRole-prod': <stsAval.vault.STSingleSet at 0x7fee0ae05fd0>
         }
 
+:ref:`Frequently Asked Questions` Index
+
 --------------
 
 Using ``stsAval`` Credentials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Q**: How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stsAval's default credential format?
+
 **A**: Example use below:
 
 .. code:: python
@@ -89,6 +97,9 @@ Using ``stsAval`` Credentials
         >>> credentials['sts-DynamoDBRole-dev'].expiration     # expiration str in isoformat
         '2017-10-22T15:36:14+00:00'
 
+:ref:`Frequently Asked Questions` Index
+
+
 --------------
 
 Miscellaneous Questions
@@ -97,11 +108,12 @@ Miscellaneous Questions
 **Q**: How will **stsAval** generate credentials if the profile name in my local awscli
 config does not match my actual IAM user in my AWS Account?
 
-| **A**: Some basic calls to AWS' sts and iam services do not require
-  MFA even when the Amazon API is protected with MFA. At instantiation,
-  **stsAval** maps profile names given to assume roles to IAM users in
-  your account to pinpoint
-| the real IAM username to be used when assuming roles.
+**A**: Some basic calls to AWS' sts and iam services do not require MFA even when the
+Amazon API is protected with MFA. At instantiation, **stsAval** maps profile names
+given to assume roles to IAM users in your account to pinpoint the real IAM username to
+be used when assuming roles.
+
+:ref:`Frequently Asked Questions` Index
 
 --------------
 
