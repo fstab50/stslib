@@ -29,6 +29,7 @@ import stsAval
 def read(fname):
     return open(os.path.join(basedir, fname)).read()
 
+
 basedir = os.path.dirname(sys.argv[0])
 
 requires = [
@@ -43,7 +44,7 @@ setup(
     version=stsAval.__version__,
     description='Library for bulk generation of Amazon STS temporary credentials',
     long_description=read('README.rst'),
-    url='https://bitbucket.org/blakeca00/stsaval',
+    url='https://github.com/fstab50/stsAval',
     author=stsAval.__author__,
     author_email=stsAval.__email__,
     license='GPL-3.0',
