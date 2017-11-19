@@ -76,7 +76,7 @@ else:
     config_file = config_path + '/' + 'config.yml'
     log_dir = user_home + '/' + 'logs'
     log_file = log_dir + '/' + 'stsaval.log'
-    log_mode = 'stdout'
+    log_mode = 'stream'
     prefix = 'sts'
     prefix_alt = 'gcreds'
 
