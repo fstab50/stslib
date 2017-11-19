@@ -40,9 +40,9 @@ def getLogger(*args, **kwargs):
             s_handler.setFormatter(s_formatter)
 
             # branch on output format, default to stream
-            if log_mode == 'file':
+            if log_mode == 'file' or log_mode == 'File':
                 logger.addHandler(f_handler)
-            elif log_mode == 'stream':
+            elif log_mode == 'stream' or log_mode == 'stdout':
                 logger.addHandler(s_handler)
             else:
                 logger.addHandler(f_handler)
