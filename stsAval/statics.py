@@ -37,6 +37,7 @@ import datetime
 import inspect
 import logging
 from stsAval._version import __version__
+from stsAval.local_config import LocalConfig
 
 # module attributes
 E_DEPENDENCY = 1
@@ -89,6 +90,9 @@ try:
             (inspect.stack()[0][3],config_file, prefix)
         )
 
+    # parse local_config
+    local_config = LocalConfig().read(local_file=config_file)
+
 except OSError as e:
     logger.exception('%s: Error when attempting to access or create %s' %
         (inspect.stack()[0][3], str(e)))
@@ -116,7 +120,7 @@ global_config = {
     'config_file': config_file,
     'log_dir': log_dir,
     'log_file': log_file,
-    'log_mode': log_mode,
+    'log_mode': local_config['log_mode'] or log_mode,
     'credential_prefix': prefix,
     'alternate_prefix': prefix_alt
 }

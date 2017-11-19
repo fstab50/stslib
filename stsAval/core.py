@@ -16,6 +16,7 @@ import json
 from json import JSONDecodeError
 import datetime
 import inspect
+import yaml
 import pytz
 import boto3
 from botocore.exceptions import ClientError, ProfileNotFound
@@ -51,7 +52,9 @@ class StsCore():
             :profile_user (attr, TYPE: str):
                 Instance attr for profile_name when passed as a parameter
             :log_mode (attr, TYPE: str):
-                Parameter designation for file or stream log output
+                Parameter designation for file or stream log output.  If 'file', output
+                defaults to filesystem location denoted in statics module in the
+                global_config dict.
             :format (attr, TYPE: str):
                 format of credentials, either boto (native) or vault (stsAval default format)
             :debug (attr, TYPE: bool):
@@ -69,6 +72,9 @@ class StsCore():
             self.debug_mode = kwargs.get('debug', False)
         else:
             return
+
+        # override defaults from local config file, if exists
+        self.local_config()
 
         # session attributes and objects
         self.config_dir = defaults['config_path']
@@ -101,6 +107,18 @@ class StsCore():
         self.iam_user = self._map_identity(self.profile_user, sts_client)
         self.mfa_serial = self.get_mfa_info(self.iam_user, iam_client)
         self.thread = None
+
+    def local_config(self):
+        """ override defaults in statics with local config values """
+        if os.path.exists(global_config['config_file']):
+            with open(global_config['config_file'], 'r') as stream:
+                try:
+                    yml_object = yaml.load(stream)
+                except yaml.YAMLError as exc:
+                    print(exc)
+                else:
+                    self.log_mode = yml_object['LocalConfiguration']['log_mode'][0]
+        return
 
     def _map_identity(self, user, client):
         """
