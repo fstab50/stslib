@@ -13,7 +13,7 @@ Example Usage:
 
 import os
 import json
-from json import JSONDecodeError
+#from json import JSONDecodeError
 import datetime
 import inspect
 import yaml
@@ -198,7 +198,8 @@ class StsCore():
                     '%s: Problem parsing local awscli credentials file: %s' %
                     (inspect.stack()[0][3], str(profile_file))
                     )
-        except JSONDecodeError as e:
+        # except JSONDecodeError as e:
+        except TypeError as e:
             logger.exception(
                 '%s: %s file not properly formed json. Error %s' %
                 (inspect.stack()[0][3], profile_file, str(e)))
