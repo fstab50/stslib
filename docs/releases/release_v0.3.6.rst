@@ -2,11 +2,13 @@
  v0.3.6 \| Release Notes
 ===============================
 
---------------
+
 
 **Release date**: October 22, 2017
 
-Features Implemented in v0.3.6
+-----------------
+
+Features Implemented, v0.3.6
 ------------------------------
 
 -  | **STSToken Session Token Custom Format**: stsAval now generates
@@ -42,8 +44,8 @@ Features Implemented in v0.3.6
 
 --------------
 
-Limitations
------------
+Limitations, v0.3.6
+--------------------
 
 Generation of Multiple Credential Sets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
