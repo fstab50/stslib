@@ -6,11 +6,11 @@ Summary:
           settings found in ~/.stsaval/config.yml
 
 Module Attributes:
-    :user_home (attr, TYPE: str):
+    :user_home (TYPE: str):
         $HOME environment variable, present for most Unix and Unix-like POSIX systems
-    :config_dirname (attr, TYPE: str):
+    :config_dirname (TYPE: str):
         directory name default for stsaval config files (.stsaval)
-    :config_path (attr, TYPE: str):
+    :config_path (TYPE: str):
         default for stsaval config files, includes config_dirname (~/.stsaval)
     :sts_min (attr, TYPE: int):
         min Amazon STS temp credential lifetime (minutes)
