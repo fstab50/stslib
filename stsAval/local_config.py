@@ -14,7 +14,7 @@ logger.setLevel(logging.INFO)
 
 
 class LocalConfig():
-    def __init__(self, local_file):
+    def __init__(self, local_file=''):
         if os.path.exists(local_file):
             self.read(local_file)
         else:

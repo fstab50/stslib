@@ -91,7 +91,7 @@ try:
         )
 
     # parse local_config
-    local_config = LocalConfig().read(local_file=config_file)
+    #local_config = LocalConfig().read(local_file=config_file)
 
 except OSError as e:
     logger.exception('%s: Error when attempting to access or create %s' %
@@ -120,7 +120,10 @@ global_config = {
     'config_file': config_file,
     'log_dir': log_dir,
     'log_file': log_file,
-    'log_mode': local_config['log_mode'] or log_mode,
+    'log_mode': log_mode,
     'credential_prefix': prefix,
     'alternate_prefix': prefix_alt
 }
+
+
+# 'log_mode': local_config['log_mode'] or log_mode,
