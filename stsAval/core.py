@@ -614,10 +614,10 @@ class StsCore():
 
         Args:
             :type credentials:  STSCredentials object (if specified)
-            :param credentials generated for which remaining life requested
+            :param credentials: generated for which remaining life requested
 
             :type self.token: STSToken object (if exists)
-            :param latest token generated
+            :param self.token: latest token generated
 
         Returns:
             tuple containing TYPE: datetime.timedelta objects (DEFAULT)
@@ -724,9 +724,8 @@ class StsCore():
             are refreshed
 
         Args:
-            input_file: pathname of awscli credentails file
-            output_file: name of json formatted output file, post awscli
-                transformation
+            input_file (str): pathname of awscli credentails file
+            output_file (str): name of json formatted output file, post awscli transformation
 
         Returns:
             TYPE Boolean | Success or Failure
