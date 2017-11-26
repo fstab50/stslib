@@ -43,8 +43,8 @@ renew sts credentials before expiration.
 
 **Download Documentation**:
 
-* [pdf format](https://readthedocs.org/projects/stsaval/downloads/pdf/latest/)
-* [Amazon Kindle](https://readthedocs.org/projects/stsaval/downloads/epub/latest/) (epub) format
+* [pdf format](https://readthedocs.org/projects/stsaval/downloads/pdf/stable/)
+* [Amazon Kindle](https://readthedocs.org/projects/stsaval/downloads/epub/stable/) (epub) format
 
 * * *
 
