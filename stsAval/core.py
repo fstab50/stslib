@@ -73,9 +73,6 @@ class StsCore():
         else:
             return
 
-        # override defaults from local config file, if exists
-        self.local_config()
-
         # session attributes and objects
         self.config_dir = defaults['config_path']
         self.refactor(
