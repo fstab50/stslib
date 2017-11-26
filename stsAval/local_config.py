@@ -1,8 +1,15 @@
 """
-local_config Module
+Summary:
+    local_config Module, creates local config file (yaml) to override default
+    values set in statics module
 
-    processes local config file (yaml) if exists
-
+Module Attributes:
+    - config_file (TYPE str):
+        Name of local config file, usually found in ~/.stsaval dir
+    - logger (TYPE logging obj):
+        system logger, output set by log_mode project-level attribute
+    - seed_file (TYPE str):
+        yaml config file template used to seed local config file if none exists
 """
 import os
 import yaml
@@ -42,8 +49,6 @@ class LocalConfig():
             except yaml.YAMLError as exc:
                 print(exc)
 
-
-
     def update(self):
         """ updates values in local config file """
 
@@ -63,7 +68,7 @@ LocalConfiguration:
     logging:
         log_mode: 'file'
         log_dir: '~/.stsaval'
-        log_file: '/' + 'stsaval.log'
+        log_file: 'stsaval.log'
 
     token_life_default: 60
 
@@ -82,3 +87,6 @@ LocalConfiguration:
         - omit-prefixes: ['sts', 'gcreds']
 
 """
+
+#if __name__ == '__main__':
+#    LocalConfig(local_file='config.yml')
