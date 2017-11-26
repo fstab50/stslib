@@ -3,12 +3,12 @@
 
 ### Generate STS Credentials for [Amazon Web Services](https://aws.amazon.com)
 
-[![GitHub release](https://img.shields.io/badge/release-v0.3.7-blue.svg)]()
+[![GitHub release](https://img.shields.io/badge/release-v0.3.7-blue.svg)]https://github.com/fstab50/stsAval/tree/master)
 [![Jenkins](https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg)]()
-[![Read the Docs](https://img.shields.io/readthedocs/pip.svg)]()
+[![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](http://stsaval.readthedocs.io)
 [![PyPI](https://img.shields.io/badge/python-3.5%2C%203.6-blue.svg)]()
 [![Deps](https://img.shields.io/badge/dependencies-boto3%2C%20awscli%2C%20pytz-yellow.svg)]()
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)]()
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html)
 [![Platorm](https://img.shields.io/badge/platform-linux--64%20%7C%20osx--64-lightgrey.svg)]()
 
 
