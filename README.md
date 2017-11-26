@@ -3,7 +3,7 @@
 
 ### Generate STS Credentials for [Amazon Web Services](https://aws.amazon.com)
 
-[![GitHub release](https://img.shields.io/badge/release-v0.3.7-blue.svg)](https://github.com/fstab50/stsAval/tree/master)
+[![GitHub release](https://img.shields.io/badge/release-v0.3.8-blue.svg)](https://github.com/fstab50/stsAval/tree/master)
 [![Jenkins](https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg)](https://readthedocs.org/projects/stsaval/builds/)
 [![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](http://stsaval.readthedocs.io)
 [![PyPI](https://img.shields.io/badge/python-3.5%2C%203.6-blue.svg)](https://docs.python.org/3/whatsnew/3.6.html)
