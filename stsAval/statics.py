@@ -38,15 +38,13 @@ import inspect
 import logging
 import yaml
 from stsAval._version import __version__
-from stsAval.local_config import LocalConfig
-
-# module attributes
-E_DEPENDENCY = 1
 
 logger = logging.getLogger(__version__)
 logger.setLevel(logging.INFO)
 
+
 # --  declarations  ----------------------------------------------------------
+
 
 def read_local_config(cfg):
     """ Parses local config file for override values
@@ -99,10 +97,12 @@ else:
     credential_format = 'vault'
 
     # global vars
-    config_file = config_path + '/' + 'config.yml'
-    config_script = 'set_local_config.py'
+    config_filename = 'config.yml'
+    config_file = config_path + '/' + config_filename
+    config_script = 'local_config.py'
     log_dir = user_home + '/' + 'logs'
-    log_file = log_dir + '/' + 'stsaval.log'
+    log_filename = 'stsaval.log'
+    log_file = log_dir + '/' + log_filename
     log_mode = 'stream'
     prefix = 'sts'
     prefix_alt = 'gcreds'
@@ -112,8 +112,10 @@ try:
         os.mkdir(log_dir)
         os.chmod(log_dir, 0o755)
     if not os.path.exists(config_file):
-        logger.info('%s: %s has not been generated, run config script (%s) to override defaults' %
+        logger.info('%s: %s has not been generated. To customize stsAval defaults, run the config script (%s)' %
             (inspect.stack()[0][3],config_file, config_script)
+        print('%s has not been generated. To customize stsAval defaults, run the config script (%s)' % config_file)
+        print('\n\t$ python3 %s\n' % config_script)
         )
         local_config = {}
     else:
@@ -145,7 +147,6 @@ defaults = {
 global_config = {
     '__version__': __version__,
     'config_file': config_file,
-    'log_dir': log_dir,
     'log_file': log_file,
     'log_mode': local_config.get('log_mode') or log_mode,
     'credential_prefix': prefix,
