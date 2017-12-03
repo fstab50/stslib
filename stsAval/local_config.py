@@ -50,20 +50,19 @@ class UpdateConfig():
                 '\n\tLog output:  Log messages to ' + Colors.WHITE + Colors.BOLD + 'stdout' +
                  Colors.END + Colors.YELLOW + ', or to a ' + Colors.WHITE + Colors.BOLD + 'file' +
                 Colors.RESET + Colors.YELLOW +'? [stdout] ') or 'stream'
-            #sys.stdout.write(Colors.RESET)
+            print(Colors.RESET + '\n\tlog_mode = %s\n' % log_mode)
             self.print_header('profile_user_header')
             #sys.stdout.write(Colors.RESET)
             profile_user = input(
                 Colors.YELLOW + '\n\tType profile_user name or hit return for default profile. [default] '
                 ) or 'default'
-            sys.stdout.write(Colors.RESET)
-            print('\tprofile_user given as: %s\n' % profile_user)
+            print(Colors.RESET + '\n\tprofile_user = %s\n' % profile_user)
             self.print_header('credential_format_header')
             credential_format = input(
                 Colors.YELLOW + '\n\tCredential Format: [vault] '
                 ) or 'vault'
             sys.stdout.write(Colors.RESET)
-            print('\tTemp credential format given as: %s\n' % credential_format)
+            print('\n\tTemp credential format = %s\n' % credential_format)
         else:
             return
         parameters = {
