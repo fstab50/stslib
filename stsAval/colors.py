@@ -7,7 +7,7 @@ Returns:
     ansi codes
 """
 
-class color():
+class Colors():
     """
     Class attributes provide different format variations
     """
