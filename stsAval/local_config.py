@@ -12,6 +12,7 @@ Module Attributes:
         yaml config file template used to seed local config file if none exists
 """
 import os
+import sys
 import yaml
 import logging
 from stsAval.statics import global_config
@@ -41,19 +42,28 @@ class UpdateConfig():
     def update(self, cfg):
         """ updates values in local config file """
         self.print_header('update_header')
-        response = input('Ready to begin? ')
+        sys.stdout.write(Colors.YELLOW)
+        response = input('\tType "Y" when you are ready to begin. [quit] ')
         if response:
+            sys.stdout.write(Colors.YELLOW)
             log_mode = input(
-                'Log output:  Do to log messages to stdout, or to a file? [stdout] '
-                ) or 'stream'
+                '\n\tLog output:  Log messages to ' + Colors.WHITE + Colors.BOLD + 'stdout' +
+                 Colors.END + Colors.YELLOW + ', or to a ' + Colors.WHITE + Colors.BOLD + 'file' +
+                Colors.RESET + Colors.YELLOW +'? [stdout] ') or 'stream'
+            #sys.stdout.write(Colors.RESET)
             self.print_header('profile_user_header')
+            #sys.stdout.write(Colors.RESET)
             profile_user = input(
-                'Press return for the default awscli profile. [default] '
+                Colors.YELLOW + '\n\tType profile_user name or hit return for default profile. [default] '
                 ) or 'default'
+            sys.stdout.write(Colors.RESET)
+            print('\tprofile_user given as: %s\n' % profile_user)
             self.print_header('credential_format_header')
             credential_format = input(
-                'Which credential format would you like to generate? [vault] '
+                Colors.YELLOW + '\n\tCredential Format: [vault] '
                 ) or 'vault'
+            sys.stdout.write(Colors.RESET)
+            print('\tTemp credential format given as: %s\n' % credential_format)
         else:
             return
         parameters = {
@@ -75,36 +85,34 @@ class UpdateConfig():
             yml_object['LocalConfiguration']['profile_user'][0]['Default'] = parameter_dict['profile_user']
             yml_object['LocalConfiguration']['CredentialFormat'][0]['Default'] = parameter_dict['credential_format']
             with open(cfg, 'w') as yaml_file:
-                yaml_file.write(yaml.dump(yml_object, default_flow_style=True))
+                yaml_file.write(yaml.dump(yml_object, default_flow_style=False))
         return
 
     def print_header(self, header):
         """ prints header strings to stdout """
-        update_header = """
+        update_header = Colors.BOLD + """
                      -- stsAval Local Configuration Setup --
-
+        """ + Colors.END + Colors.YELLOW + """
         You will be asked a series of questions which will ask you to customize
         the input values for the stsAval library or accept the global defaults.
 
         Press return to accept the defaults shown in brackets [] at the end of
         each question.
-
-        Type "Y" when you are ready to begin.
-        """
-        profile_user_header = """
+        """ + Colors.RESET
+        profile_user_header = Colors.YELLOW + """
         What is the name of the IAM account that will be used to generate
         temporary credentials for roles?
-        """
-        credential_format_header = """
+        """ + Colors.RESET
+        credential_format_header = Colors.YELLOW + """
         Which credential format would you like to generate, vault format
         (the default) or the native boto format?
-        """
+        """ + Colors.RESET
         if header == 'update_header':
             print(update_header)
         elif header == 'profile_user_header':
             print(profile_user_header)
-        elif header == 'credentials_format_header':
-            print(credentials_format_header)
+        elif header == 'credential_format_header':
+            print(credential_format_header)
         return
 
 
