@@ -5,6 +5,13 @@ root=$(git rev-parse --show-toplevel 2>/dev/null)
 HOME=$(echo $HOME)
 wkdir="$HOME/Downloads"
 
+function clean(){
+    if [ -e $root/dist ]; then
+        rm -fr $root/dist
+    elif [ -e README.rst ]; then
+        rm -fr README.rst
+    fi
+}
 
 function update_minor_version(){
         version=$(grep '__version__' $PACKAGE/_version.py  | head -n 1 | awk -F"'" '{print $2}')
@@ -28,6 +35,9 @@ else
     echo -e '\nrepo root not found. Exit'
     exit 1
 fi
+
+# make clean if any prev builds
+clean
 
 update_minor_version
 
