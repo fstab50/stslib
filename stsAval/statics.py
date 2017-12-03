@@ -113,10 +113,9 @@ try:
         os.chmod(log_dir, 0o755)
     if not os.path.exists(config_file):
         logger.info('%s: %s has not been generated. To customize stsAval defaults, run the config script (%s)' %
-            (inspect.stack()[0][3],config_file, config_script)
+            (inspect.stack()[0][3],config_file, config_script))
         print('%s has not been generated. To customize stsAval defaults, run the config script (%s)' % config_file)
         print('\n\t$ python3 %s\n' % config_script)
-        )
         local_config = {}
     else:
         # parse local_config file
