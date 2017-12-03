@@ -24,6 +24,9 @@ logger = logging.getLogger(__version__)
 logger.setLevel(logging.INFO)
 
 
+config_file = global_config['config_file']
+
+
 class UpdateConfig():
     def __init__(self, local_file):
         if os.path.exists(local_file):
@@ -66,35 +69,35 @@ class UpdateConfig():
             f1.write(config_seed)
             f1.close()
         if parameter_dict:
-            ReadConfig(local_file=cfg)
-            yml_object = ReadConfig.load()
+            config_obj = ReadConfig(local_file=cfg)
+            yml_object = config_obj.load()
             yml_object['LocalConfiguration']['logging']['log_mode'] = parameter_dict['log_mode']
             yml_object['LocalConfiguration']['profile_user'][0]['Default'] = parameter_dict['profile_user']
             yml_object['LocalConfiguration']['CredentialFormat'][0]['Default'] = parameter_dict['credential_format']
             with open(cfg, 'w') as yaml_file:
-                yaml_file.write( yaml.dump(yml_object, default_flow_style=False))
+                yaml_file.write(yaml.dump(yml_object, default_flow_style=True))
         return
 
     def print_header(self, header):
         """ prints header strings to stdout """
         update_header = """
-                         -- stsAval Local Configuration Setup --
+                     -- stsAval Local Configuration Setup --
 
-            You will be asked a series of questions which will ask you to customize
-            the input values for the stsAval library or accept the global defaults.
+        You will be asked a series of questions which will ask you to customize
+        the input values for the stsAval library or accept the global defaults.
 
-            Press return to accept the defaults shown in brackets [] at the end of
-            each question.
+        Press return to accept the defaults shown in brackets [] at the end of
+        each question.
 
-            Type "Y" if you are ready to begin
+        Type "Y" when you are ready to begin.
         """
         profile_user_header = """
-            What is the name of the IAM account that will be used to generate
-            temporary credentials for roles?
+        What is the name of the IAM account that will be used to generate
+        temporary credentials for roles?
         """
         credential_format_header = """
-            Which credential format would you like to generate, vault format
-            (the default) or the native boto format?
+        Which credential format would you like to generate, vault format
+        (the default) or the native boto format?
         """
         if header == 'update_header':
             print(update_header)
@@ -141,4 +144,8 @@ class ReadConfig():
 
 
 if __name__ == '__main__':
-    UpdateConfig(local_file=global_config['config_file'])
+    if os.path.exists(config_file):
+        UpdateConfig(local_file=global_config['config_file'])
+    else:
+        config_obj = UpdateConfig(local_file=global_config['config_file'])
+        config_obj.update(cfg=global_config['config_file'])
