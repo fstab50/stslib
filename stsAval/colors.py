@@ -28,3 +28,5 @@ class Colors():
     UNDERLINE = '\033[4m'
     ITALIC = '\e[3m'
     END = '\033[0m'
+    REVERSE = "\033[;7m"
+    RESET = "\033[0;0m"
