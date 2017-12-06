@@ -26,7 +26,7 @@ logger.setLevel(logging.INFO)
 
 
 config_file = global_config['config_file']
-
+ACCENT = Colors.GREEN
 
 class UpdateConfig():
     def __init__(self, local_file):
@@ -41,25 +41,25 @@ class UpdateConfig():
 
     def update(self, cfg):
         """ updates values in local config file """
+        os.system('cls' if os.name == 'nt' else 'clear')    # clear screen
         self.print_header('update_header')
-        sys.stdout.write(Colors.YELLOW)
         response = input('\tType "Y" when you are ready to begin. [quit] ')
         if response:
-            sys.stdout.write(Colors.YELLOW)
+            sys.stdout.write(ACCENT)
             log_mode = input(
                 '\n\tLog output:  Log messages to ' + Colors.WHITE + Colors.BOLD + 'stdout' +
-                 Colors.END + Colors.YELLOW + ', or to a ' + Colors.WHITE + Colors.BOLD + 'file' +
-                Colors.RESET + Colors.YELLOW +'? [stdout] ') or 'stream'
+                 Colors.END + ACCENT + ', or to a ' + Colors.WHITE + Colors.BOLD + 'file' +
+                Colors.RESET + ACCENT +'? [stdout] ') or 'stream'
             print(Colors.RESET + '\n\tlog_mode = %s\n' % log_mode)
             self.print_header('profile_user_header')
             #sys.stdout.write(Colors.RESET)
             profile_user = input(
-                Colors.YELLOW + '\n\tType profile_user name or hit return for default profile. [default] '
-                ) or 'default'
+                ACCENT + '\n\tType profile_user name or hit return for default profile.'
+                + Colors.RESET + ' [default] ') or 'default'
             print(Colors.RESET + '\n\tprofile_user = %s\n' % profile_user)
             self.print_header('credential_format_header')
             credential_format = input(
-                Colors.YELLOW + '\n\tCredential Format: [vault] '
+                ACCENT + '\n\tCredential Format:' + Colors.RESET + ' [vault] '
                 ) or 'vault'
             sys.stdout.write(Colors.RESET)
             print('\n\tTemp credential format = %s\n' % credential_format)
@@ -91,18 +91,18 @@ class UpdateConfig():
         """ prints header strings to stdout """
         update_header = Colors.BOLD + """
                      -- stsAval Local Configuration Setup --
-        """ + Colors.END + Colors.YELLOW + """
+        """ + Colors.END + ACCENT + """
         You will be asked a series of questions which will ask you to customize
         the input values for the stsAval library or accept the global defaults.
 
         Press return to accept the defaults shown in brackets [] at the end of
         each question.
         """ + Colors.RESET
-        profile_user_header = Colors.YELLOW + """
+        profile_user_header = ACCENT + """
         What is the name of the IAM account that will be used to generate
         temporary credentials for roles?
         """ + Colors.RESET
-        credential_format_header = Colors.YELLOW + """
+        credential_format_header = ACCENT + """
         Which credential format would you like to generate, vault format
         (the default) or the native boto format?
         """ + Colors.RESET
