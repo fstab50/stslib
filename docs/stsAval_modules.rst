@@ -6,26 +6,14 @@ stsAval package
 Module Index
 -------------------------
 
-- :ref:`async`
 - :ref:`core`
-- :ref:`logd`
+- :ref:`async`
 - :ref:`refactor`
-- :ref:`statics`
 - :ref:`vault`
-
-.. _async:
-
-stsAval\.async module
----------------------
-
-.. automodule:: stsAval.async
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-:ref:`top`
-
--------------
+- :ref:`statics`
+- :ref:`local_config`
+- :ref:`seed`
+- :ref:`logd`
 
 .. _core:
 
@@ -41,12 +29,12 @@ stsAval\.core module
 
 -------------
 
-.. _logd:
+.. _async:
 
-stsAval\.logd module
---------------------
+stsAval\.async module
+---------------------
 
-.. automodule:: stsAval.logd
+.. automodule:: stsAval.async
     :members:
     :undoc-members:
     :show-inheritance:
@@ -69,6 +57,20 @@ stsAval\.refactor module
 
 -------------
 
+.. _vault:
+
+stsAval\.vault module
+---------------------
+
+.. automodule:: stsAval.vault
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:ref:`top`
+
+-------------
+
 .. _statics:
 
 stsAval\.statics module
@@ -83,12 +85,40 @@ stsAval\.statics module
 
 -------------
 
-.. _vault:
+.. _local_config:
 
-stsAval\.vault module
----------------------
+stsAval\.local_config module
+-----------------------------
 
-.. automodule:: stsAval.vault
+.. automodule:: stsAval.local_config
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:ref:`top`
+
+-------------
+
+.. _seed:
+
+stsAval\.seed module
+--------------------
+
+.. automodule:: stsAval.seed
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:ref:`top`
+
+-------------
+
+.. _logd:
+
+stsAval\.logd module
+--------------------
+
+.. automodule:: stsAval.logd
     :members:
     :undoc-members:
     :show-inheritance:
