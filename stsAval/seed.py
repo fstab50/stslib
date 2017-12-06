@@ -1,3 +1,14 @@
+"""
+Summary:
+    local yaml configuration file template
+
+Args:
+    config_seed (str):  file template
+
+Returns:
+    None
+"""
+
 config_seed = """
 # -----------------------------------------------------------------------------
 #        stsAval Configuration File Defaults
