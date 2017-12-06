@@ -11,7 +11,7 @@ class Colors():
     """
     Class attributes provide different format variations
     """
-    # colors
+    # forground colors
     PURPLE = '\033[95m'
     CYAN = '\033[96m'
     DARKCYAN = '\033[36m'
@@ -22,6 +22,9 @@ class Colors():
     WHITE = '\033[37m'
     LTGRAY = '\033[253m'
     DARKGRAY = '\033[90m'
+
+    # background colors
+    WHITEBKG = '\u001b[47;1m'
 
     # formats
     BOLD = '\033[1m'
