@@ -29,3 +29,4 @@ clean:
 	@echo "Cleanup"
 	rm -rf $(VENV_DIR)
 	rm -rf $(CUR_DIR)/dist
+	rm -rf $(CUR_DIR)/*.egg-info
