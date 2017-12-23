@@ -17,10 +17,11 @@ class Colors():
     DARKCYAN = '\033[36m'
     BLUE = '\033[94m'
     GREEN = '\033[92m'
+    DARKGREEN = '\u001b[38;5;2m'
     YELLOW = '\033[93m'
     RED = '\033[91m'
     WHITE = '\033[37m'
-    LTGRAY = '\033[253m'
+    LTGRAY =  '\u001b[38;5;249m'
     DARKGRAY = '\033[90m'
 
     # background colors

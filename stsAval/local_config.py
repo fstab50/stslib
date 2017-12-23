@@ -26,7 +26,8 @@ logger.setLevel(logging.INFO)
 
 
 config_file = global_config['config_file']
-ACCENT = Colors.GREEN
+ACCENT = Colors.DARKGREEN
+TEXT = Colors.LTGRAY
 
 class UpdateConfig():
     def __init__(self, local_file):
@@ -63,6 +64,7 @@ class UpdateConfig():
                 ) or 'vault'
             sys.stdout.write(Colors.RESET)
             print('\n\tTemp credential format = %s\n' % credential_format)
+            self.print_header('closing_footer')
         else:
             return
         parameters = {
@@ -84,19 +86,23 @@ class UpdateConfig():
             yml_object['LocalConfiguration']['profile_user'][0]['Default'] = parameter_dict['profile_user']
             yml_object['LocalConfiguration']['CredentialFormat'][0]['Default'] = parameter_dict['credential_format']
             with open(cfg, 'w') as yaml_file:
-                yaml_file.write(yaml.dump(yml_object, default_flow_style=False))
+                yaml_file.write(yaml.dump(yml_object, default_flow_style=False, indent=4))
         return
 
     def print_header(self, header):
         """ prints header strings to stdout """
-        update_header = Colors.BOLD + """
-                     -- stsAval Local Configuration Setup --
-        """ + Colors.END + ACCENT + """
+        update_header = Colors.BOLD + Colors.WHITE + """
+                     _________________________________________
+                    |                                         |
+                    |    stsAval Local Configuration Setup    |
+                    |_________________________________________|
+        """ + Colors.RESET + ACCENT + """
         You will be asked a series of questions which will ask you to customize
         the input values for the stsAval library or accept the global defaults.
 
-        Press return to accept the defaults shown in brackets [] at the end of
-        each question.
+        Press return if you wish to accept the defaults shown in brackets [] at
+        the end of each question, or simply type an alternative to the default
+        answer shown.
         """ + Colors.RESET
         profile_user_header = ACCENT + """
         What is the name of the IAM account that will be used to generate
@@ -105,6 +111,13 @@ class UpdateConfig():
         credential_format_header = ACCENT + """
         Which credential format would you like to generate, vault format
         (the default) or the native boto format?
+        """ + Colors.RESET
+        closing_footer = Colors.BOLD + """
+                     -- stsAval Local Configuration Setup End --
+
+        """ + Colors.END + ACCENT + """
+        The concludes the local setup options questionnaire.
+
         """ + Colors.RESET
         if header == 'update_header':
             print(update_header)
