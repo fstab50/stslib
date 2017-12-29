@@ -1,7 +1,6 @@
 #!/usr/bin/env/bash
 
 PACKAGE='stsAval'
-HOME=$(echo $HOME)
 PIP_CALL=$(which pip3)
 GIT=$(which git)
 ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
@@ -16,10 +15,10 @@ BOLD=`tput bold`
 UNBOLD=`tput sgr0`
 
 #
-# Logic:
-#   - extract version if package installed local
-#   - not found, searches pip repo for package, extracts version
-#   - increments local version from package module
+# Current Version Search Order:
+#   1 - extract version of the package installed locally
+#   2 - search pip repo for package, extract version if found
+#   3 - extract version from local package repostory version / init module
 #
 
 # --- declarations  ------------------------------------------------------------
@@ -38,22 +37,21 @@ function get_current_version(){
     # check if installed locally
     pip_local=$($PIP_CALL list | grep $PACKAGE  | awk '{print $2}')
 
-    # use package version if not installed in pypi
+    # if not, search pypi
     if [ -z $pip_local ]; then
-        # search pip repo
+        # search pypi repo
         pip_search=$($PIP_CALL search $PACKAGE | awk -F '(' '{print $2}' | awk -F ')' '{print $1}')
 
         if [ -z $pip_search ]; then
             # use local version module in package
-            restore_version
-            std_message "Using version found in ${yellow}$PACKAGE${reset} version module." INFO
             version=$(grep '__version__' $PACKAGE/_version.py  | head -n 1 | awk -F"'" '{print $2}')
+            std_message "Current version ($version) found in ${yellow}$PACKAGE${reset} version module." INFO
         else
-            std_message "Using version number from search of pip repository." INFO
+            std_message "Using version number from search for $PACKAGE in pypi repository." INFO
             version=$pip_search
         fi
     else
-        std_message "Using pip installed version number." INFO
+        std_message "Using locally installed $PACKAGE version number." INFO
         version=$pip_local
     fi
 }
