@@ -161,7 +161,8 @@ def convert_time(timedelta_object, return_iter=False):
     Summary:
         convert timedelta objects to human readable output
     Args:
-        time duration as object | TYPE: datetime.timedelta
+        - **timedelta_object** | TYPE: datetime.timedelta
+        - **return_iter (tuple)**:  tuple containing time sequence
     Returns:
         days, hours, minutes, seconds | TYPE: tuple (integers)
         or
