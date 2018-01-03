@@ -15,9 +15,11 @@ VERSION_FILE = $(CUR_DIR)/$(PROJECT)/_version.py
 
 fresh-install: clean setup-venv install
 fresh-test-install: clean setup-venv test-install
+deploy-test: clean testpypi
+deploy-prod: clean pypi
 
 
-.PHONY: docs testpypi pypi test-install install
+.PHONY: pre-build setup-venv build testpypi pypi test-install install
 
 
 pre-build:
