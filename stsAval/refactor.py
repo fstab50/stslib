@@ -97,15 +97,18 @@ def parse_awscli(parameter_input=None, parameter_output=None):
         os.chmod(output_file, 0o700)
 
     except KeyError as e:
-        logger.critical('%s: Cannot find Key %s while parsing file %s' %
+        logger.critical(
+            '%s: Cannot find Key %s while parsing file %s' %
             (inspect.stack()[0][3], str(e), input_file))
         return False
     except OSError as e:
-        logger.critical('%s: problem opening file %s. Error %s' %
+        logger.critical(
+            '%s: problem opening file %s. Error %s' %
             (inspect.stack()[0][3], awscli_file, str(e)))
         return False
     except Exception as e:
-        logger.critical('%s: Unknown error. Error %s' %
+        logger.critical(
+            '%s: Unknown error. Error %s' %
             (inspect.stack()[0][3], str(e)))
         raise e
     return True
