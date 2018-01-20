@@ -1,6 +1,6 @@
 #!/usr/bin/env/bash
 
-PACKAGE='stsAval'
+PACKAGE='keyup'
 PIP_CALL=$(which pip3)
 GIT=$(which git)
 ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
@@ -24,12 +24,25 @@ UNBOLD=`tput sgr0`
 # --- declarations  ------------------------------------------------------------
 
 # indent
-indent02() { sed 's/^/  /'; }
-indent04() { sed 's/^/    /'; }
+function indent02() { sed 's/^/  /'; }
+function indent04() { sed 's/^/    /'; }
+
 
 function restore_version(){
     $GIT checkout "$PACKAGE/$VERSION_MODULE"
 }
+
+
+function local_install_latest(){
+    ## update local venv instal to avoid erroneous version reporting ##
+    if [ $VIRTUAL_ENV ]; then
+        $PIP_CALL install -U $PACKAGE
+    else
+        std_message "Not running in a virtual env. Cannot update $PACKAGE. Exit" WARN
+        exit 0
+    fi
+}
+
 
 function get_current_version(){
     ## gets current version of package in pypi or testpypi ##
@@ -56,6 +69,7 @@ function get_current_version(){
     fi
 }
 
+
 function update_minor_version(){
     ## increment minor version ##
     if [ $version ]; then
@@ -71,6 +85,7 @@ function update_minor_version(){
         echo -e "\nNo version number identified. Abort\n"
     fi
 }
+
 
 function std_message(){
     local msg="$1"
@@ -100,6 +115,9 @@ else
     echo -e '\nrepo ROOT not found. Exit'
     exit 1
 fi
+
+# update install
+local_install_latest
 
 # current installed version
 get_current_version
