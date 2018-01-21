@@ -1,4 +1,4 @@
-PROJECT := stsAval
+PROJECT := keyup
 CUR_DIR = $(shell pwd)
 PYTHON_VERSION := python3
 PYTHON3_PATH := $(shell which $(PYTHON_VERSION))
@@ -17,9 +17,9 @@ VERSION_FILE = $(CUR_DIR)/$(PROJECT)/_version.py
 .PHONY: fresh-install fresh-test-install deploy-test deploy-prod
 
 
-fresh-install: clean setup-venv install   ## Install (source: pypi). No prebuild artifacts
+zero-install: clean setup-venv install   ## Install (source: pypi). No prebuild artifacts exist
 
-fresh-test-install: clean setup-venv test-install  ## Install (source: testpypi). No prebuild artifacts
+zero-test-install: clean setup-venv test-install  ## Install (source: testpypi). No prebuild artifacts exist
 
 deploy-test: clean testpypi  ## Deploy (testpypi), generate all prebuild artifacts
 
@@ -67,12 +67,12 @@ pypi: clean build    ## Deploy to pypi without regenerating prebuild artifacts
 	. $(VENV_DIR)/bin/activate && twine upload --repository pypi dist/*
 
 .PHONY: test-install
-test-install:  ## Local install - testpypi as source
+test-install:  ## Install (source: testpypi). Build artifacts exist
 	cd $(CUR_DIR) && . $(VENV_DIR)/bin/activate && \
 	$(PIP_CALL) install -U $(PROJECT) --extra-index-url https://test.pypi.org/simple/
 
 .PHONY: install
-install:    ## Local install - pypi as source
+install:    ## Install (source: pypi). Build artifacts exist
 	cd $(CUR_DIR) && . $(VENV_DIR)/bin/activate && \
 	$(PIP_CALL) install -U $(PROJECT)
 
