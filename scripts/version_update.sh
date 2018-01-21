@@ -4,6 +4,7 @@ PACKAGE='keyup'
 PIP_CALL=$(which pip3)
 GIT=$(which git)
 ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
+VENV_DIR="$ROOT/p3_venv"
 VERSION_MODULE='_version.py'
 
 # Formatting
@@ -33,14 +34,16 @@ function restore_version(){
 }
 
 
-function local_install_latest(){
+function check_upgrade(){
     ## update local venv instal to avoid erroneous version reporting ##
-    if [ $VIRTUAL_ENV ]; then
-        $PIP_CALL install -U $PACKAGE
+    local package="$1"
+    if [[ $($PIP_CALL list --outdated | grep $PACKAGE) ]]; then
+        # package installed locally and reports valid upgrade
+        return 0
     else
-        std_message "Not running in a virtual env. Cannot update $PACKAGE. Exit" WARN
-        exit 0
+        return 1
     fi
+
 }
 
 
@@ -48,7 +51,13 @@ function get_current_version(){
     ## gets current version of package in pypi or testpypi ##
 
     # check if installed locally
-    pip_local=$($PIP_CALL list | grep $PACKAGE  | awk '{print $2}')
+    if check_upgrade $PACKAGE; then
+        version=$($PIP_CALL list --outdated | grep $PACKAGE | awk '{print $3}')
+        std_message "Current version ($version) from available pypi ${yellow}$PACKAGE${reset} upgrade." INFO
+        return 0
+    else
+        pip_local=$($PIP_CALL list | grep -i $PACKAGE  | awk '{print $2}')
+    fi
 
     # if not, search pypi
     if [ -z $pip_local ]; then
@@ -115,9 +124,6 @@ else
     echo -e '\nrepo ROOT not found. Exit'
     exit 1
 fi
-
-# update install
-local_install_latest
 
 # current installed version
 get_current_version
