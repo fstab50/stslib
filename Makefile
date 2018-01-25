@@ -1,4 +1,4 @@
-PROJECT := keyup
+PROJECT := stsAval
 CUR_DIR = $(shell pwd)
 PYTHON_VERSION := python3
 PYTHON3_PATH := $(shell which $(PYTHON_VERSION))
