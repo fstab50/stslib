@@ -1,6 +1,7 @@
 #!/usr/bin/env/bash
 
 PACKAGE='keyup'
+VERSION="$1"
 PIP_CALL=$(which pip3)
 GIT=$(which git)
 ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
@@ -81,6 +82,11 @@ function get_current_version(){
 
 function update_minor_version(){
     ## increment minor version ##
+    local force_version="$1"
+    #
+    if [ $force_version ]; then
+        version=$force_version
+    fi
     if [ $version ]; then
         if [ -z $(echo $version | awk -F '.' '{print $3}') ]; then
             add='1'
@@ -128,7 +134,11 @@ fi
 # current installed version
 get_current_version
 
-# increment version number for upload to pypi
-update_minor_version
+if [ $VERSION ]; then
+    update_minor_version $VERSION
+else
+    # increment version number for upload to pypi
+    update_minor_version
+fi
 
 exit 0
