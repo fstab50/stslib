@@ -52,8 +52,9 @@ docs:  setup-venv    ## Generate sphinx documentation
 	cd $(DOC_PATH) && . $(VENV_DIR)/bin/activate && $(MAKE) html
 
 .PHONY: build
-build: pre-build setup-venv    ## Increment version and build dist
-	sh $(SCRIPTS)/version_update.sh && . $(VENV_DIR)/bin/activate && \
+build: pre-build setup-venv    ## Build dist, increment version || force version (VERSION=X.Y)
+	if [ $(VERSION) ]; then sh $(SCRIPTS)/version_update.sh $(VERSION); \
+	else sh $(SCRIPTS)/version_update.sh; fi && . $(VENV_DIR)/bin/activate && \
 	cd $(CUR_DIR) && $(PYTHON3_PATH) setup.py sdist
 
 .PHONY: testpypi
@@ -78,9 +79,10 @@ install:    ## Install (source: pypi). Build artifacts exist
 
 .PHONY: help
 help:   ## Print help index
-	@printf "\n\033[0m %-13s\033[0m %-13s\u001b[37;1m%-15s\u001b[0m\n\n" " " "make targets: " $(PROJECT)
-	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {sub("\\\\n",sprintf("\n%22c"," "), $$2);printf "\033[36m%-20s\033[33m %-8s\033[0m%-5s\n\n", $$1, "-->", $$2}' $(MAKEFILE_LIST)
-
+	@printf "\n\033[0m %-15s\033[0m %-13s\u001b[37;1m%-15s\u001b[0m\n\n" " " "make targets: " $(PROJECT)
+	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {sub("\\\\n",sprintf("\n%22c"," "), $$2);printf "\033[0m%-2s\033[36m%-20s\033[33m %-8s\033[0m%-5s\n\n"," ", $$1, "-->", $$2}' $(MAKEFILE_LIST)
+	@printf "\u001b[37;0m%-2s\u001b[37;0m%-2s\n\n" " " "___________________________________________________________________"
+	@printf "\u001b[37;1m%-3s\u001b[37;1m%-3s\033[0m %-6s\u001b[44;1m%-9s\u001b[37;0m%-15s\n\n" " " "  make" "deploy-[test|prod] " "VERSION=X" " to deploy specific version"
 
 .PHONY: clean-docs
 clean-docs:    ## Remove build artifacts for documentation only
