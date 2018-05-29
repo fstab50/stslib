@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# keyup documentation build configuration file, created by
+# stslib documentation build configuration file, created by
 # sphinx-quickstart on Wed Dec 27 08:20:05 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -21,7 +21,7 @@ import os
 import sys
 import sphinx_rtd_theme
 sys.path.insert(0, os.path.abspath('..'))
-from keyup import __version__
+from stslib import __version__
 
 # -- General configuration ------------------------------------------------
 
@@ -55,7 +55,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'keyup'
+project = 'stslib'
 copyright = '2017, Blake Huber'
 author = 'Blake Huber'
 
@@ -123,7 +123,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'keyupdoc'
+htmlhelp_basename = 'stslibdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -150,7 +150,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'keyup.tex', 'keyup Documentation',
+    (master_doc, 'stslib.tex', 'stslib Documentation',
      'Blake Huber', 'manual'),
 ]
 
@@ -160,7 +160,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'keyup', 'keyup Documentation',
+    (master_doc, 'stslib', 'stslib Documentation',
      [author], 1)
 ]
 
@@ -171,8 +171,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'keyup', 'keyup Documentation',
-     author, 'keyup', 'One line description of project.',
+    (master_doc, 'stslib', 'stslib Documentation',
+     author, 'stslib', 'One line description of project.',
      'Miscellaneous'),
 ]
 
