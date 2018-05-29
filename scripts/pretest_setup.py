@@ -18,7 +18,7 @@ from botocore.exceptions import ClientError, ProfileNotFound
 # test imports
 sys.path.insert(0, os.path.abspath('../'))
 from tests import environment
-from keyup.statics import PACKAGE
+from stslib.statics import PACKAGE
 
 # global objects
 config = ConfigParser()
@@ -113,7 +113,7 @@ def tear_down():
 class PreTestSetup():
     """
     Sets up default AWS Account with all structures to run
-    keyup automated testing
+    stslib automated testing
     """
     def __init__(self, user_list):
         self.test_users = user_list

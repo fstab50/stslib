@@ -5,7 +5,7 @@
 #   Target:  test
 #
 
-PROJECT='keyup'
+PROJECT='stslib'
 ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
 pkg_path=$(cd $(dirname $0); pwd -P)
 CUR_DIR="$1"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# Post-Install Script: keyup 
+# Post-Install Script: stslib 
 #
 
 # globals
@@ -48,8 +48,8 @@ function std_message(){
 if [ $(which rsyslog) ]; then
     LOGGER="rsyslog"    
     # configure rsyslog facility
-    echo -e '\n# added by keyup installer' >> /etc/rsyslog.d/50-default.conf 
-    echo -e 'local7.*      -/var/log/keyup.log' >> /etc/rsyslog.d/50-default.conf 
+    echo -e '\n# added by stslib installer' >> /etc/rsyslog.d/50-default.conf 
+    echo -e 'local7.*      -/var/log/stslib.log' >> /etc/rsyslog.d/50-default.conf 
     
 elif [ $(which syslog-ng) ]; then
     LOGGER="syslog-ng"
@@ -81,16 +81,16 @@ fi
 $RESTART_LOGGER
 
 # test configuration
-$log -p "$facility.info" "keyup installer test message"
+$log -p "$facility.info" "stslib installer test message"
 
 # confirm test results
-if [ $(grep keyup /var/log/keyup.log) ]; then
+if [ $(grep stslib /var/log/stslib.log) ]; then
 
-    msg="[INFO]: keyup post installation completed successfully"
+    msg="[INFO]: stslib post installation completed successfully"
     $log -p "$facility.info" "$msg"
     std_message "$msg" INFO
 else
-    std_message "keyup post installation was unable to configure system logger" WARN
+    std_message "stslib post installation was unable to configure system logger" WARN
 fi
 
 
