@@ -1,6 +1,6 @@
 """
 
-stsAval :  Copyright 2017 Blake Huber
+stslib :  Copyright 2017 Blake Huber
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@ import os
 import sys
 from setuptools import setup, find_packages
 from codecs import open
-import stsAval
+import stslib
 
 
 def read(fname):
@@ -40,13 +40,13 @@ requires = [
 ]
 
 setup(
-    name='stsAval',
-    version=stsAval.__version__,
+    name='stslib',
+    version=stslib.__version__,
     description='Library for bulk generation of Amazon STS temporary credentials',
     long_description=read('README.rst'),
-    url='https://github.com/fstab50/stsAval',
-    author=stsAval.__author__,
-    author_email=stsAval.__email__,
+    url='https://github.com/fstab50/stslib',
+    author=stslib.__author__,
+    author_email=stslib.__email__,
     license='GPL-3.0',
     classifiers=[
         'Development Status :: 3 - Alpha',
