@@ -6,7 +6,7 @@
 Generate Session Token (default IAM User)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  ``Default`` profile in local awscli config. Default user has permissions to assume roles for which **stsAval**
+-  ``Default`` profile in local awscli config. Default user has permissions to assume roles for which **stslib**
    will generate credentials
 -  Token with default lifetime (60 minutes)
 -  Cli *not* protected with MFA (Multi-Factor Authentication, 6 digit code)
@@ -14,12 +14,12 @@ Generate Session Token (default IAM User)
 .. code:: python
 
 
-        from stsAval import StsCore
+        from stslib import StsCore
 
         >>> sts_object = StsCore()
         >>> token = sts_object.generate_session_token()
         >>> print(token)
-        <stsAval.vault.STSToken at 0x7f05365e3ef0>
+        <stslib.vault.STSToken at 0x7f05365e3ef0>
 
         # token attributes
 
@@ -54,7 +54,7 @@ Generate Session Token (named IAM User)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Named IAM user profile in local awscli config. User has permissions
-   to assume roles for which **stsAval**
+   to assume roles for which **stslib**
    will generate credentials
 -  MFA protected cli access configuration
 -  STS Token with default lifetime (60 minutes)
@@ -62,7 +62,7 @@ Generate Session Token (named IAM User)
 .. code:: python
 
 
-        from stsAval import StsCore
+        from stslib import StsCore
 
         >>> sts_object = StsCore(profile_name='BobSmith')
         >>> code = '123456'
@@ -84,8 +84,8 @@ Generate Credentials (1 hour lifetime)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  generate STS temporary credentials, default lifetime (60 minutes)
--  Credential format set to 'vault' (default stsAval format)
--  **stsAval** supports 2 credential formats. See the `Credential Format
+-  Credential format set to 'vault' (default stslib format)
+-  **stslib** supports 2 credential formats. See the `Credential Format
    Overview <./primer/credential-format-overview.html>`__.
 
 .. code:: python
@@ -104,9 +104,9 @@ Generate Credentials (1 hour lifetime)
         >>> print(credentials)
 
     {
-        'sts-DynamoDBRole-dev': <stsAval.vault.STSingleSet at 0x7fee0ae05c88>,
-        'sts-CodeDeployRole-qa': <stsAval.vault.STSingleSet at 0x7fee0ae05f60>,
-        'sts-S3ReadOnlyRole-prod': <stsAval.vault.STSingleSet at 0x7fee0ae05fd0>
+        'sts-DynamoDBRole-dev': <stslib.vault.STSingleSet at 0x7fee0ae05c88>,
+        'sts-CodeDeployRole-qa': <stslib.vault.STSingleSet at 0x7fee0ae05f60>,
+        'sts-S3ReadOnlyRole-prod': <stslib.vault.STSingleSet at 0x7fee0ae05fd0>
     }
 
 ---------------
@@ -115,7 +115,7 @@ Generate Extended Use Credentials (Multi-hour, Auto-refresh)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Named IAM user profile in local awscli config. User has permissions
-   to assume roles for which stsAval
+   to assume roles for which stslib
    will generate credentials
 -  MFA protected cli configuration
 -  Credential format set to 'boto' (native Amazon STS format)
@@ -123,7 +123,7 @@ Generate Extended Use Credentials (Multi-hour, Auto-refresh)
 
 .. code:: python
 
-        from stsAval import StsCore
+        from stslib import StsCore
 
         >>> sts_object = StsCore(profile_name='BobSmith', format='boto')            # boto format credentials
         >>> code = '123456'
@@ -138,7 +138,7 @@ Generate Extended Use Credentials (Multi-hour, Auto-refresh)
         >>> credentials = sts_object.current_credentials
 
 
--  **Auto-Refresh of Credentials**: ``stsAval`` will automatically generate new temporary credentials
+-  **Auto-Refresh of Credentials**: ``stslib`` will automatically generate new temporary credentials
    once per hour, prior to expiration (process below)
 
 .. code:: python
@@ -171,12 +171,12 @@ Generate Extended Use Credentials (Multi-hour, Auto-refresh)
     }
 
     # stdout log stream
-    /stsaval/core.py - 0.2.0 - [INFO]: _validate: Valid account profile names: ['DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod']
-    /stsaval/async.py - 0.2.0 - [INFO]: executing event: <bound method StsCore.generate_credentials of <stsaval.core.StsCore object at 0x7f91c9df02e8>>
-    /stsaval/async.py - 0.2.0 - [INFO]: thread identifier: Thread-150
-    /stsaval/async.py - 0.2.0 - [INFO]: thread Alive status is: True
-    /stsaval/async.py - 0.2.0 - [INFO]: completed 1 out of 5 total executions
-    /stsaval/async.py - 0.2.0 - [INFO]: remaining in cycle: 4 hours, 59 minutes
+    /stslib/core.py - 0.2.0 - [INFO]: _validate: Valid account profile names: ['DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod']
+    /stslib/async.py - 0.2.0 - [INFO]: executing event: <bound method StsCore.generate_credentials of <stslib.core.StsCore object at 0x7f91c9df02e8>>
+    /stslib/async.py - 0.2.0 - [INFO]: thread identifier: Thread-150
+    /stslib/async.py - 0.2.0 - [INFO]: thread Alive status is: True
+    /stslib/async.py - 0.2.0 - [INFO]: completed 1 out of 5 total executions
+    /stslib/async.py - 0.2.0 - [INFO]: remaining in cycle: 4 hours, 59 minutes
 
 
       >>> print(credentials())
@@ -206,11 +206,11 @@ Generate Extended Use Credentials (Multi-hour, Auto-refresh)
     }
 
     # stdout log stream
-    /stsaval/core.py - 0.2.0 - [INFO]: _validate: Valid account profile names: ['DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod']
-    /stsaval/async.py - 0.2.0 - [INFO]: thread identifier: Thread-150
-    /stsaval/async.py - 0.2.0 - [INFO]: thread Alive status is: True
-    /stsaval/async.py - 0.2.0 - [INFO]: completed 2 out of 5 total executions
-    /stsaval/async.py - 0.2.0 - [INFO]: remaining in cycle: 3 hours, 59 minutes
+    /stslib/core.py - 0.2.0 - [INFO]: _validate: Valid account profile names: ['DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod']
+    /stslib/async.py - 0.2.0 - [INFO]: thread identifier: Thread-150
+    /stslib/async.py - 0.2.0 - [INFO]: thread Alive status is: True
+    /stslib/async.py - 0.2.0 - [INFO]: completed 2 out of 5 total executions
+    /stslib/async.py - 0.2.0 - [INFO]: remaining in cycle: 3 hours, 59 minutes
 
 Auto-Refresh Credentials -- Additional Info
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -225,15 +225,15 @@ Auto-Refresh Credentials -- Additional Info
 Non-default IAM Role credentials filename or location
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-| **Use-Case**: When you wish to use role credentials file not currently part of the awscli, provide a custom location to stsAval as a parameter.
+| **Use-Case**: When you wish to use role credentials file not currently part of the awscli, provide a custom location to stslib as a parameter.
 
 -  Initialization
 
 .. code:: python
 
-        import stsAval
+        import stslib
 
-        >>> sts_object = stsAval.StsCore()
+        >>> sts_object = stslib.StsCore()
         >>> credentials_file = '~/myAccount/role_credentials'   # awscli credentials file,
                                                                 # located in ~/.aws
         >>> sts_object.refactor(credentials_file)

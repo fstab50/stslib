@@ -2,10 +2,10 @@
     <a href="https://github.com/fstab50/stslib/tree/master">
         <img src="https://img.shields.io/badge/release-v0.3.7-blue.svg"
             alt="github"></a>
-    <a href="https://readthedocs.org/projects/stsaval/builds">
+    <a href="https://readthedocs.org/projects/stslib/builds">
         <img src="https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-am#d64_deault.svg"
             alt="build status"></a>
-    <a href="http://stsaval.readthedocs.io">
+    <a href="http://stslib.readthedocs.io">
         <img src="https://img.shields.io/readthedocs/pip.svg"
             alt="Read The Docs"></a>
     <a href="https://docs.python.org/3/whatsnew/3.6.html">

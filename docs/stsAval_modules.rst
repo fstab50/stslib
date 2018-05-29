@@ -1,4 +1,4 @@
-stsAval package
+stslib package
 ===============
 
 .. _top:
@@ -17,10 +17,10 @@ Module Index
 
 .. _core:
 
-stsAval\.core module
+stslib\.core module
 --------------------
 
-.. automodule:: stsAval.core
+.. automodule:: stslib.core
     :members:
     :undoc-members:
     :show-inheritance:
@@ -31,10 +31,10 @@ stsAval\.core module
 
 .. _async:
 
-stsAval\.async module
+stslib\.async module
 ---------------------
 
-.. automodule:: stsAval.async
+.. automodule:: stslib.async
     :members:
     :undoc-members:
     :show-inheritance:
@@ -45,10 +45,10 @@ stsAval\.async module
 
 .. _refactor:
 
-stsAval\.refactor module
+stslib\.refactor module
 ------------------------
 
-.. automodule:: stsAval.refactor
+.. automodule:: stslib.refactor
     :members:
     :undoc-members:
     :show-inheritance:
@@ -59,10 +59,10 @@ stsAval\.refactor module
 
 .. _vault:
 
-stsAval\.vault module
+stslib\.vault module
 ---------------------
 
-.. automodule:: stsAval.vault
+.. automodule:: stslib.vault
     :members:
     :undoc-members:
     :show-inheritance:
@@ -73,10 +73,10 @@ stsAval\.vault module
 
 .. _statics:
 
-stsAval\.statics module
+stslib\.statics module
 -----------------------
 
-.. automodule:: stsAval.statics
+.. automodule:: stslib.statics
     :members:
     :undoc-members:
     :show-inheritance:
@@ -87,10 +87,10 @@ stsAval\.statics module
 
 .. _local_config:
 
-stsAval\.local_config module
+stslib\.local_config module
 -----------------------------
 
-.. automodule:: stsAval.local_config
+.. automodule:: stslib.local_config
     :members:
     :undoc-members:
     :show-inheritance:
@@ -101,10 +101,10 @@ stsAval\.local_config module
 
 .. _seed:
 
-stsAval\.seed module
+stslib\.seed module
 --------------------
 
-.. automodule:: stsAval.seed
+.. automodule:: stslib.seed
     :members:
     :undoc-members:
     :show-inheritance:
@@ -115,10 +115,10 @@ stsAval\.seed module
 
 .. _logd:
 
-stsAval\.logd module
+stslib\.logd module
 --------------------
 
-.. automodule:: stsAval.logd
+.. automodule:: stslib.logd
     :members:
     :undoc-members:
     :show-inheritance:

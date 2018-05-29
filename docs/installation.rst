@@ -75,13 +75,13 @@ Redhat Enterprise Linux v7.X / Centos 7.X
 
 .. code:: bash
 
-        $ sudo -H pip3 install stsAval
+        $ sudo -H pip3 install stslib
 
 -  Setup and Configuration
 
 .. code:: bash
 
-        $ cd /home/user/<stsAval directory>/
+        $ cd /home/user/<stslib directory>/
         # $  ...TBD
 
 
@@ -121,13 +121,13 @@ Ubuntu v16.04+ / Ubuntu-based Distros
 
 .. code:: bash
 
-        $ sudo -H pip3 install stsAval
+        $ sudo -H pip3 install stslib
 
 -  Setup and Configuration
 
 .. code:: bash
 
-        $ cd /home/user/<stsAval directory>/
+        $ cd /home/user/<stslib directory>/
         # $  ...TBD
 
 
@@ -146,13 +146,13 @@ Amazon Linux v2017.09 +
 
 .. code:: bash
 
-        $ sudo -H pip3 install stsAval
+        $ sudo -H pip3 install stslib
 
 -  Setup and Configuration
 
 .. code:: bash
 
-        $ cd /home/user/<stsAval directory>/
+        $ cd /home/user/<stslib directory>/
         $ python3 ...TBD
 
 

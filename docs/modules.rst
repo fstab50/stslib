@@ -1,7 +1,7 @@
-stsAval
+stslib
 =======
 
 .. toctree::
    :maxdepth: 4
 
-   stsAval
+   stslib

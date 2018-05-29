@@ -1,5 +1,5 @@
 ===========================================
- stsAval | Generate Amazon STS Credentials
+ stslib | Generate Amazon STS Credentials
 ===========================================
 
 .. toctree::
@@ -25,7 +25,7 @@
    :caption: Developer Documentation
 
    code_examples/toctree_code_examples
-   stsAval_modules
+   stslib_modules
    roadmap
 
 .. toctree::

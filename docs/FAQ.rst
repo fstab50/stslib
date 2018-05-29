@@ -3,8 +3,8 @@
 ###################################
 
 - **Q**: For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?
-- **Q**: How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stsAval's default credential format?
-- **Q**: How will **stsAval** generate credentials if the profile name in my local awscli config does not match my actual IAM user in my AWS Account?
+- **Q**: How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stslib's default credential format?
+- **Q**: How will **stslib** generate credentials if the profile name in my local awscli config does not match my actual IAM user in my AWS Account?
 
 ------------
 
@@ -20,7 +20,7 @@ Auto-Refreshed Credentials
     method will ensure you receive *only* valid credentials (the method returns None
     for expired credentials). You may use this method when generating temporary credentials
     for any length of time; however, it is especially useful when generating long-lived credentials that are
-    auto-refreshed because is it prevents application code from "polling" ``stsAval`` to see if new
+    auto-refreshed because is it prevents application code from "polling" ``stslib`` to see if new
     credentials have been generated.
 
         -  use ``current_credentials`` method
@@ -40,9 +40,9 @@ Auto-Refreshed Credentials
         >>> credentials()
 
         {
-            'sts-DynamoDBRole-dev': <stsAval.vault.STSingleSet at 0x7fee0ae05c88>,
-            'sts-CodeDeployRole-qa': <stsAval.vault.STSingleSet at 0x7fee0ae05f60>,
-            'sts-S3ReadOnlyRole-prod': <stsAval.vault.STSingleSet at 0x7fee0ae05fd0>
+            'sts-DynamoDBRole-dev': <stslib.vault.STSingleSet at 0x7fee0ae05c88>,
+            'sts-CodeDeployRole-qa': <stslib.vault.STSingleSet at 0x7fee0ae05f60>,
+            'sts-S3ReadOnlyRole-prod': <stslib.vault.STSingleSet at 0x7fee0ae05fd0>
         }
 
 | **Method 2**: Monitor the ``StsCore`` credentials class attribute
@@ -56,19 +56,19 @@ Auto-Refreshed Credentials
         >>> print(credentials)
 
         {
-            'sts-DynamoDBRole-dev': <stsAval.vault.STSingleSet at 0x7fee0ae05c88>,
-            'sts-CodeDeployRole-qa': <stsAval.vault.STSingleSet at 0x7fee0ae05f60>,
-            'sts-S3ReadOnlyRole-prod': <stsAval.vault.STSingleSet at 0x7fee0ae05fd0>
+            'sts-DynamoDBRole-dev': <stslib.vault.STSingleSet at 0x7fee0ae05c88>,
+            'sts-CodeDeployRole-qa': <stslib.vault.STSingleSet at 0x7fee0ae05f60>,
+            'sts-S3ReadOnlyRole-prod': <stslib.vault.STSingleSet at 0x7fee0ae05fd0>
         }
 
 :ref:`Frequently Asked Questions` Index
 
 --------------
 
-Using ``stsAval`` Credentials
+Using ``stslib`` Credentials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Q**: How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stsAval's default credential format?
+**Q**: How do I access ``AccessKeyId`` and ``SecretAccessKey`` values when using stslib's default credential format?
 
 **A**: Example use below:
 
@@ -77,9 +77,9 @@ Using ``stsAval`` Credentials
 
         >>> print(credentials)
         {
-            'sts-DynamoDBRole-dev': <stsAval.vault.STSingleSet at 0x7fee0ae05c88>,
-            'sts-CodeDeployRole-qa': <stsAval.vault.STSingleSet at 0x7fee0ae05f60>,
-            'sts-S3ReadOnlyRole-prod': <stsAval.vault.STSingleSet at 0x7fee0ae05fd0>
+            'sts-DynamoDBRole-dev': <stslib.vault.STSingleSet at 0x7fee0ae05c88>,
+            'sts-CodeDeployRole-qa': <stslib.vault.STSingleSet at 0x7fee0ae05f60>,
+            'sts-S3ReadOnlyRole-prod': <stslib.vault.STSingleSet at 0x7fee0ae05fd0>
         }
 
         >>> credentials['sts-DynamoDBRole-dev'].start
@@ -105,11 +105,11 @@ Using ``stsAval`` Credentials
 Miscellaneous Questions
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-**Q**: How will **stsAval** generate credentials if the profile name in my local awscli
+**Q**: How will **stslib** generate credentials if the profile name in my local awscli
 config does not match my actual IAM user in my AWS Account?
 
 **A**: Some basic calls to AWS' sts and iam services do not require MFA even when the
-Amazon API is protected with MFA. At instantiation, **stsAval** maps profile names
+Amazon API is protected with MFA. At instantiation, **stslib** maps profile names
 given to assume roles to IAM users in your account to pinpoint the real IAM username to
 be used when assuming roles.
 
