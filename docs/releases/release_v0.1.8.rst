@@ -23,7 +23,7 @@ Limitations, v0.1.8
 Non-Default Credential Files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--  Instantiation of stsAval objects with non-default credentials
+-  Instantiation of stslib objects with non-default credentials
    filename or file location (ie
    outside of default awscli config) currently broken.
 

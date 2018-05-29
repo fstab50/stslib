@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# stsAval documentation build configuration file, created by
+# stslib documentation build configuration file, created by
 # sphinx-quickstart on Mon Oct 30 11:29:49 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -50,7 +50,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'stsAval'
+project = 'stslib'
 copyright = '2017, Blake Huber'
 author = 'Blake Huber'
 
@@ -119,7 +119,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'stsAvaldoc'
+htmlhelp_basename = 'stslibdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -146,7 +146,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'stsAval.tex', 'stsAval Documentation',
+    (master_doc, 'stslib.tex', 'stslib Documentation',
      'Blake Huber', 'manual'),
 ]
 
@@ -156,7 +156,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'stsaval', 'stsAval Documentation',
+    (master_doc, 'stslib', 'stslib Documentation',
      [author], 1)
 ]
 
@@ -167,7 +167,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'stsAval', 'stsAval Documentation',
-     author, 'stsAval', 'One line description of project.',
+    (master_doc, 'stslib', 'stslib Documentation',
+     author, 'stslib', 'One line description of project.',
      'Miscellaneous'),
 ]

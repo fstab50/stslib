@@ -1,5 +1,5 @@
 ***
-# S3 Use Case:  Accessing S3 using stsAval credentials
+# S3 Use Case:  Accessing S3 using stslib credentials
 ***
 
 * Jenkins IAM user used to assume roles
@@ -8,10 +8,10 @@
 
 ```python
 
-    import stsAval
+    import stslib
 
 
-    sts_object = stsAval.StsCore(profile_name='jenkinsIAMUser')
+    sts_object = stslib.StsCore(profile_name='jenkinsIAMUser')
     token = sts_object.generate_session_token(lifetime=4)          # 4 hours
 
     role_list = [
@@ -27,9 +27,9 @@
     print( credentials() )
 
     {
-        'sts-RoleNameAccount1': <stsAval.vault.STSingleSet at 0x7fee0ae05c88>,
-        'sts-RoleNameAccount2': <stsAval.vault.STSingleSet at 0x7fee0ae05f60>,
-        'sts-RoleNameAccount3': <stsAval.vault.STSingleSet at 0x7fee0ae05fd0>
+        'sts-RoleNameAccount1': <stslib.vault.STSingleSet at 0x7fee0ae05c88>,
+        'sts-RoleNameAccount2': <stslib.vault.STSingleSet at 0x7fee0ae05f60>,
+        'sts-RoleNameAccount3': <stslib.vault.STSingleSet at 0x7fee0ae05fd0>
     }
 
 
