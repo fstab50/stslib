@@ -22,11 +22,14 @@ contained in the program LICENSE file.
 import os
 import sys
 from setuptools import setup, find_packages
+from setuptools.command.develop import develop
+from setuptools.command.install import install
+from subprocess import check_call
 from codecs import open
-import stslib
 
 
 def read(fname):
+    basedir = os.path.dirname(sys.argv[0])
     return open(os.path.join(basedir, fname)).read()
 
 
@@ -55,7 +58,7 @@ setup(
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Operating System :: POSIX :: Linux'
     ],
-    keywords='iam role credentials',
+    keywords='Amazon Web Services iam credentials AWS access key secret key',
     packages=find_packages(exclude=['docs', 'tests*', 'notes']),
     install_requires=requires,
     python_requires='>=3.5, <4',

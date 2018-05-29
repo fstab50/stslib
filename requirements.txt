@@ -5,6 +5,7 @@ chardet
 docutils
 idna
 jmespath
+pandoc
 pip
 pytz
 pkginfo
