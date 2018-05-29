@@ -3,15 +3,15 @@ Summary:
     stslib Project-level Defaults and Settings
 
     NOTE: local defaults for your specific installation are derived from
-          settings found in ~/.stsaval/config.yml
+          settings found in ~/.stslib/config.yml
 
 Module Attributes:
     - user_home (TYPE str):
         $HOME environment variable, present for most Unix and Unix-like POSIX systems
     - config_dirname (TYPE str):
-        directory name default for stsaval config files (.stsaval)
+        directory name default for stslib config files (.stslib)
     - config_path (TYPE str):
-        default for stsaval config files, includes config_dirname (~/.stsaval)
+        default for stslib config files, includes config_dirname (~/.stslib)
     - sts_min (TYPE int):
         min Amazon STS temp credential lifetime (minutes)
     - sts_max (TYPE int):
@@ -83,7 +83,7 @@ except KeyError as e:
 
 else:
     # defaults
-    config_dirname = '.stsaval'                           # config.cfg
+    config_dirname = '.stslib'                           # config.cfg
     config_path = user_home + '/' + config_dirname
     sts_max = 2160                                        # minutes
     sts_min = 15                                          # minutes
@@ -101,7 +101,7 @@ else:
     config_file = config_path + '/' + config_filename
     config_script = 'local_config.py'
     log_dir = user_home + '/' + 'logs'
-    log_filename = 'stsaval.log'
+    log_filename = 'stslib.log'
     log_file = log_dir + '/' + log_filename
     log_mode = 'stream'
     prefix = 'sts'

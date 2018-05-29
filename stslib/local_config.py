@@ -5,7 +5,7 @@ Summary:
 
 Module Attributes:
     - config_file (TYPE str):
-        Name of local config file, usually found in ~/.stsaval dir
+        Name of local config file, usually found in ~/.stslib dir
     - logger (TYPE logging obj):
         system logger, output set by log_mode project-level attribute
     - config_seed (TYPE str):

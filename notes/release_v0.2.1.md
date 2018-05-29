@@ -1,4 +1,4 @@
-# stsAval v0.2.1 | Release Notes
+# stslib v0.2.1 | Release Notes
 
 * * *
 **Release date**:  September 23, 2017
@@ -20,7 +20,7 @@
 
 _Fixed in this version_
 
-* Instantiation of stsAval objects with non-default credentials filename or file location (ie  
+* Instantiation of stslib objects with non-default credentials filename or file location (ie  
 outside of default awscli config) previously broken.  Processes role profile info correctly when  
 passed to StsCore from a non-standard location outside of ~/.aws when contained in a file with   
 a non-standard file name.

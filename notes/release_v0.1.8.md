@@ -1,4 +1,4 @@
-# stsAval v0.1.8 | Release Notes
+# stslib v0.1.8 | Release Notes
 
 * * *
 **Release date**:  September 8, 2017
@@ -18,7 +18,7 @@ Two forms returned: datatime.timedelta objects for programmatic use or human_rea
 
 #### Non-Default Credential Files
 
-* Instantiation of stsAval objects with non-default credentials filename or file location (ie  
+* Instantiation of stslib objects with non-default credentials filename or file location (ie  
 outside of default awscli config) currently broken.
 
 * * *

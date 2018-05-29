@@ -1,11 +1,11 @@
 * * *
-# stsAval
+# stslib
 
 ### Generate STS Credentials for [Amazon Web Services](https://aws.amazon.com)
 
-[![GitHub release](https://img.shields.io/badge/release-v0.3.8-blue.svg)](https://github.com/fstab50/stsAval/tree/master)
-[![Jenkins](https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg)](https://readthedocs.org/projects/stsaval/builds/)
-[![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](http://stsaval.readthedocs.io)
+[![GitHub release](https://img.shields.io/badge/release-v0.3.8-blue.svg)](https://github.com/fstab50/stslib/tree/master)
+[![Jenkins](https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg)](https://readthedocs.org/projects/stslib/builds/)
+[![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](http://stslib.readthedocs.io)
 [![PyPI](https://img.shields.io/badge/python-3.5%2C%203.6-blue.svg)](https://docs.python.org/3/whatsnew/3.6.html)
 [![Deps](https://img.shields.io/badge/dependencies-boto3%2C%20awscli%2C%20pytz-yellow.svg)](https://pypi.python.org/pypi/boto3/1.4.7)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html)
@@ -17,21 +17,21 @@
 
 ## Purpose ##
 
-**stsAval** (pronounced "s-t-s aay-val"), is a python3 library that requests and manages temporary credentials from  
-[Amazon's Security Token Service (STS)](http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html) on your behalf. **stsAval** generates temporary credentials against roles  
+**stslib** (pronounced "s-t-s aay-val"), is a python3 library that requests and manages temporary credentials from  
+[Amazon's Security Token Service (STS)](http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html) on your behalf. **stslib** generates temporary credentials against roles  
 that reside in any number of AWS  accounts.
 
-The **stsAval** library is commonly used in python applications that generate temporary access credentials for  
+The **stslib** library is commonly used in python applications that generate temporary access credentials for  
 automation tools which need to _bypass multi-factor authentication enabled on Amazon APIs_.  Temporary credentials  
 of this type are are required authenticate to Amazon Web Services (AWS) when automation tooling is used to deploy  
 to tens or even hundreds of AWS accounts simultaneously.
 
-**stsAval** is appropriate for authentication to AWS Services both from within AWS as well by automation tooling  
+**stslib** is appropriate for authentication to AWS Services both from within AWS as well by automation tooling  
 runs in an environment external to AWS such as an on-prem datacenter or local machine.
 local machine.
 
-**stsAval** manages temporary credentials generates credentials in memory for applications that need access to  
-iam roles at AWS.  If temporary credentials are needed for extended periods (> 1 hour), **stsAval** will automatically  
+**stslib** manages temporary credentials generates credentials in memory for applications that need access to  
+iam roles at AWS.  If temporary credentials are needed for extended periods (> 1 hour), **stslib** will automatically  
 renew sts credentials before expiration.
 
 
@@ -41,25 +41,25 @@ renew sts credentials before expiration.
 
 **Online Documentation**:
 
-* Complete html documentation available at [http://stsaval.readthedocs.io](http://stsaval.readthedocs.io).
+* Complete html documentation available at [http://stslib.readthedocs.io](http://stslib.readthedocs.io).
 
 **Download Documentation**:
 
-* [pdf format](https://readthedocs.org/projects/stsaval/downloads/pdf/stable/)
-* [Amazon Kindle](https://readthedocs.org/projects/stsaval/downloads/epub/stable/) (epub) format
+* [pdf format](https://readthedocs.org/projects/stslib/downloads/pdf/stable/)
+* [Amazon Kindle](https://readthedocs.org/projects/stslib/downloads/epub/stable/) (epub) format
 
 * * *
 
 ## Getting Started
 
-Before starting, read the following to understand **stsAval** key concepts and use cases:
+Before starting, read the following to understand **stslib** key concepts and use cases:
 
 * [Frequently Asked Questions (FAQ)](./FAQ.md)
-* [Credential Format Overview](http://stsaval.readthedocs.io/en/latest/primer/credential-format-overview.html) -- A primer on the dual credential formats supported by **stsAval**
-* [Code Examples](http://stsaval.readthedocs.io/en/latest/code_examples/toctree_code_examples.html)
+* [Credential Format Overview](http://stslib.readthedocs.io/en/latest/primer/credential-format-overview.html) -- A primer on the dual credential formats supported by **stslib**
+* [Code Examples](http://stslib.readthedocs.io/en/latest/code_examples/toctree_code_examples.html)
 
 
-**stsAval** is licensed under [General Public License v3](http://stsaval.readthedocs.io/en/latest/license.html)
+**stslib** is licensed under [General Public License v3](http://stslib.readthedocs.io/en/latest/license.html)
 
 
 * * *
@@ -99,13 +99,13 @@ Before starting, read the following to understand **stsAval** key concepts and u
 * Installation via pip
 
 ```bash
-    $ sudo -H pip3 install stsAval
+    $ sudo -H pip3 install stslib
 ```
 
 * Setup and Configuration
 
 ```bash
-    $ cd /home/user/<stsAval directory>/
+    $ cd /home/user/<stslib directory>/
     $ python3 ...TBD
 ```
 
@@ -115,19 +115,19 @@ Before starting, read the following to understand **stsAval** key concepts and u
 
 ### Generate Session Token (default IAM User)
 
-* `Default` profile in local awscli config. Default user has permissions to assume roles for which **stsAval**  
+* `Default` profile in local awscli config. Default user has permissions to assume roles for which **stslib**  
 will generate credentials
 * Token with default lifetime (60 minutes)
 * Cli _not_ protected with MFA (Multi-Factor Authentication, 6 digit code)
 
 ```python
 
-    from stsAval import StsCore
+    from stslib import StsCore
 
     >>> sts_object = StsCore()
     >>> token = sts_object.generate_session_token()
     >>> print(token)
-    <stsAval.vault.STSToken at 0x7f05365e3ef0>
+    <stslib.vault.STSToken at 0x7f05365e3ef0>
 
     # token attributes
 
@@ -160,14 +160,14 @@ will generate credentials
 
 ### Generate Session Token (named IAM User)
 
-* Named IAM user profile in local awscli config. User has permissions to assume roles for which **stsAval**  
+* Named IAM user profile in local awscli config. User has permissions to assume roles for which **stslib**  
 will generate credentials
 * MFA protected cli access configuration
 * STS Token with default lifetime (60 minutes)
 
 ```python
 
-    from stsAval import StsCore
+    from stslib import StsCore
 
     >>> sts_object = StsCore(profile_name='BobSmith')
     >>> code = '123456'
@@ -190,8 +190,8 @@ will generate credentials
 ### Generate Credentials (1 hour lifetime)
 
 * generate STS temporary credentials, default lifetime (60 minutes)
-* Credential format set to 'vault' (default stsAval format)
-* **stsAval** supports 2 credential formats.  See the [Credential Format Overview](./docs/markdown/credential-format-overview.md).  
+* Credential format set to 'vault' (default stslib format)
+* **stslib** supports 2 credential formats.  See the [Credential Format Overview](./docs/markdown/credential-format-overview.md).  
 
 ```python
 
@@ -208,9 +208,9 @@ will generate credentials
     >>> print(credentials)     
 
 {
-    'sts-DynamoDBRole-dev': <stsAval.vault.STSingleSet at 0x7fee0ae05c88>,
-    'sts-CodeDeployRole-qa': <stsAval.vault.STSingleSet at 0x7fee0ae05f60>,
-    'sts-S3ReadOnlyRole-prod': <stsAval.vault.STSingleSet at 0x7fee0ae05fd0>
+    'sts-DynamoDBRole-dev': <stslib.vault.STSingleSet at 0x7fee0ae05c88>,
+    'sts-CodeDeployRole-qa': <stslib.vault.STSingleSet at 0x7fee0ae05f60>,
+    'sts-S3ReadOnlyRole-prod': <stslib.vault.STSingleSet at 0x7fee0ae05fd0>
 }
 
 ```
@@ -219,7 +219,7 @@ will generate credentials
 
 ### Generate Extended Use Credentials (Multi-hour, Auto-refresh)
 
-* Named IAM user profile in local awscli config. User has permissions to assume roles for which stsAval  
+* Named IAM user profile in local awscli config. User has permissions to assume roles for which stslib  
 will generate credentials
 * MFA protected cli configuration
 * Credential format set to 'boto' (native Amazon STS format)
@@ -227,7 +227,7 @@ will generate credentials
 
 ```python
 
-    from stsAval import StsCore
+    from stslib import StsCore
 
     >>> sts_object = StsCore(profile_name='BobSmith', format='boto')            # boto format credentials
     >>> code = '123456'
@@ -245,7 +245,7 @@ will generate credentials
 
 #### Auto-Refresh of Credentials
 
-* **stsAval** will automatically generate new temporary credentials once per hour, prior to expiration (process below)
+* **stslib** will automatically generate new temporary credentials once per hour, prior to expiration (process below)
 
 
 ```python
@@ -277,12 +277,12 @@ will generate credentials
 }
 
 # stdout log stream
-/stsaval/core.py - 0.2.0 - [INFO]: _validate: Valid account profile names: ['DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod']
-/stsaval/async.py - 0.2.0 - [INFO]: executing event: <bound method StsCore.generate_credentials of <stsaval.core.StsCore object at 0x7f91c9df02e8>>
-/stsaval/async.py - 0.2.0 - [INFO]: thread identifier: Thread-150
-/stsaval/async.py - 0.2.0 - [INFO]: thread Alive status is: True
-/stsaval/async.py - 0.2.0 - [INFO]: completed 1 out of 5 total executions
-/stsaval/async.py - 0.2.0 - [INFO]: remaining in cycle: 4 hours, 59 minutes
+/stslib/core.py - 0.2.0 - [INFO]: _validate: Valid account profile names: ['DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod']
+/stslib/async.py - 0.2.0 - [INFO]: executing event: <bound method StsCore.generate_credentials of <stslib.core.StsCore object at 0x7f91c9df02e8>>
+/stslib/async.py - 0.2.0 - [INFO]: thread identifier: Thread-150
+/stslib/async.py - 0.2.0 - [INFO]: thread Alive status is: True
+/stslib/async.py - 0.2.0 - [INFO]: completed 1 out of 5 total executions
+/stslib/async.py - 0.2.0 - [INFO]: remaining in cycle: 4 hours, 59 minutes
 
 
   >>> print(credentials())
@@ -312,11 +312,11 @@ will generate credentials
 }
 
 # stdout log stream
-/stsaval/core.py - 0.2.0 - [INFO]: _validate: Valid account profile names: ['DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod']
-/stsaval/async.py - 0.2.0 - [INFO]: thread identifier: Thread-150
-/stsaval/async.py - 0.2.0 - [INFO]: thread Alive status is: True
-/stsaval/async.py - 0.2.0 - [INFO]: completed 2 out of 5 total executions
-/stsaval/async.py - 0.2.0 - [INFO]: remaining in cycle: 3 hours, 59 minutes
+/stslib/core.py - 0.2.0 - [INFO]: _validate: Valid account profile names: ['DynamoDBRole-dev', 'CodeDeployRole-qa', 'S3ReadOnlyRole-prod']
+/stslib/async.py - 0.2.0 - [INFO]: thread identifier: Thread-150
+/stslib/async.py - 0.2.0 - [INFO]: thread Alive status is: True
+/stslib/async.py - 0.2.0 - [INFO]: completed 2 out of 5 total executions
+/stslib/async.py - 0.2.0 - [INFO]: remaining in cycle: 3 hours, 59 minutes
 
 ```
 
@@ -333,15 +333,15 @@ before generating a new set.
 ### Non-default IAM Role credentials filename or location
 
 **Use-Case**: When you wish to use role credentials file not currently part of the awscli,  
-you can provide a custom location to stsAval as a parameter
+you can provide a custom location to stslib as a parameter
 
 * Initialization
 
 ```python
 
-    import stsAval
+    import stslib
 
-    >>> sts_object = stsAval.StsCore()
+    >>> sts_object = stslib.StsCore()
     >>> credentials_file = '~/myAccount/role_credentials'   # awscli credentials file, located in ~/.aws
 
     >>> sts_object.refactor(credentials_file)
@@ -392,6 +392,6 @@ see [Frequently Asked Questions](./FAQ.md)
 
 ## Enhancement Roadmap ##
 
-A summary roadmap can be found [here](http://stsaval.readthedocs.io/en/latest/roadmap.html).
+A summary roadmap can be found [here](http://stslib.readthedocs.io/en/latest/roadmap.html).
 
-For a complete list of enhancements logged against the stsAval project, see the [list of stsAval issues](https://github.com/fstab50/stsAval/issues?q=is%3Aopen).
+For a complete list of enhancements logged against the stslib project, see the [list of stslib issues](https://github.com/fstab50/stslib/issues?q=is%3Aopen).

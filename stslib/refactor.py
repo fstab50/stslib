@@ -36,7 +36,7 @@ def parse_awscli(parameter_input=None, parameter_output=None):
 
     Args:
         parameter_input: TYPE: string, opt input file if not awscli default
-        parameter_output: TYPE: string, opt ouput file if not stsaval default
+        parameter_output: TYPE: string, opt ouput file if not stslib default
 
     Returns:
         Success or Failure, TYPE: Boolean
@@ -116,7 +116,7 @@ def parse_awscli(parameter_input=None, parameter_output=None):
 
 if __name__ == '__main__':
 
-    parser = argparse.ArgumentParser(description='stsaval credential data build')
+    parser = argparse.ArgumentParser(description='stslib credential data build')
     parser.add_argument("-i", "--input", help="awscli format Input File", required=False)
     parser.add_argument("-o", "--output", help="Credential Output File", required=False)
     parser.add_argument("--defaults", help="Use default awscli files", action="store_true")

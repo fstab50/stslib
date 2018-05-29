@@ -1,13 +1,13 @@
 <a id="top"></a>
 * * *
-# stsAval | FAQ
+# stslib | FAQ
 * * *
 
 ## Questions
 
 * [For long-lived (auto-refreshed) credentials, how do I ensure that I always have the latest valid credentials?](#01)
-* [How do I access `AccessKeyId` and `SecretAccessKey` values when using stsAval's default credential format?](#02)
-* [How will **stsAval** generate credentials if the profile name in my local awscli config does not match my  actual](#03)
+* [How do I access `AccessKeyId` and `SecretAccessKey` values when using stslib's default credential format?](#02)
+* [How will **stslib** generate credentials if the profile name in my local awscli config does not match my  actual](#03)
 
 * * *
 
@@ -37,9 +37,9 @@ generating long-lived credentials that are auto-refreshed:
     >>> credentials()
 
     {
-        'sts-DynamoDBRole-dev': <stsAval.vault.STSingleSet at 0x7fee0ae05c88>,
-        'sts-CodeDeployRole-qa': <stsAval.vault.STSingleSet at 0x7fee0ae05f60>,
-        'sts-S3ReadOnlyRole-prod': <stsAval.vault.STSingleSet at 0x7fee0ae05fd0>
+        'sts-DynamoDBRole-dev': <stslib.vault.STSingleSet at 0x7fee0ae05c88>,
+        'sts-CodeDeployRole-qa': <stslib.vault.STSingleSet at 0x7fee0ae05f60>,
+        'sts-S3ReadOnlyRole-prod': <stslib.vault.STSingleSet at 0x7fee0ae05fd0>
     }
 
 ```
@@ -53,9 +53,9 @@ of credentials:
     >>> print(credentials)
 
     {
-        'sts-DynamoDBRole-dev': <stsAval.vault.STSingleSet at 0x7fee0ae05c88>,
-        'sts-CodeDeployRole-qa': <stsAval.vault.STSingleSet at 0x7fee0ae05f60>,
-        'sts-S3ReadOnlyRole-prod': <stsAval.vault.STSingleSet at 0x7fee0ae05fd0>
+        'sts-DynamoDBRole-dev': <stslib.vault.STSingleSet at 0x7fee0ae05c88>,
+        'sts-CodeDeployRole-qa': <stslib.vault.STSingleSet at 0x7fee0ae05f60>,
+        'sts-S3ReadOnlyRole-prod': <stslib.vault.STSingleSet at 0x7fee0ae05fd0>
     }
 ```
 
@@ -64,7 +64,7 @@ of credentials:
 * * *
 
 <a id="02"></a>
-#### Q: How do I access `AccessKeyId` and `SecretAccessKey` values when using stsAval's default credential format?
+#### Q: How do I access `AccessKeyId` and `SecretAccessKey` values when using stslib's default credential format?
 
 **A**:  Example use below:
 
@@ -72,9 +72,9 @@ of credentials:
 
     >>> print(credentials)
     {
-        'sts-DynamoDBRole-dev': <stsAval.vault.STSingleSet at 0x7fee0ae05c88>,
-        'sts-CodeDeployRole-qa': <stsAval.vault.STSingleSet at 0x7fee0ae05f60>,
-        'sts-S3ReadOnlyRole-prod': <stsAval.vault.STSingleSet at 0x7fee0ae05fd0>
+        'sts-DynamoDBRole-dev': <stslib.vault.STSingleSet at 0x7fee0ae05c88>,
+        'sts-CodeDeployRole-qa': <stslib.vault.STSingleSet at 0x7fee0ae05f60>,
+        'sts-S3ReadOnlyRole-prod': <stslib.vault.STSingleSet at 0x7fee0ae05fd0>
     }
 
     >>> credentials['sts-DynamoDBRole-dev'].start
@@ -99,9 +99,9 @@ of credentials:
 * * *
 
 <a id="03"></a>
-#### Q: How will **stsAval** generate credentials if the profile name in my local awscli config does not match my actual IAM user in my AWS Account?
+#### Q: How will **stslib** generate credentials if the profile name in my local awscli config does not match my actual IAM user in my AWS Account?
 
-**A**:  Some basic calls to AWS' sts and iam services do not require MFA even when the Amazon API is protected with MFA.   At instantiation, **stsAval** maps profile names given to assume roles to IAM users in your account to pinpoint  
+**A**:  Some basic calls to AWS' sts and iam services do not require MFA even when the Amazon API is protected with MFA.   At instantiation, **stslib** maps profile names given to assume roles to IAM users in your account to pinpoint  
 the real IAM username to be used when assuming roles.
 
 [Back to the Top](#top)

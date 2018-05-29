@@ -1,6 +1,6 @@
 """
 Summary:
-    Tests for stsAval core.py module
+    Tests for stslib core.py module
 
 Test Framework: pytest
 
@@ -11,13 +11,13 @@ Args:
 Useage:
     import json, sys
     sys.path.insert(0, '..')
-    from stsAval import core
+    from stslib import core
 
     source_a = './assets_core/awscli.reference'        # input file
     source_b = './assets_core/parsed.reference'        # ouput file
     def setup():
         r_obj = generate_reference_object(source_b)
-        # create stsAval object, parse the test input file (awscli_reference)
+        # create stslib object, parse the test input file (awscli_reference)
         b = source_b.split('/')[2]
         sts_obj = core.StsCore(role_file=source_a, output_file=b)
         # set instance attribute for reuse
@@ -34,8 +34,8 @@ import logging
 
 # target modules
 sys.path.insert(0,'..')        # required to import modules
-from stsAval import core
-from stsAval._version import __version__
+from stslib import core
+from stslib._version import __version__
 
 __tracebackhide__ = False
 
@@ -56,7 +56,7 @@ class TestParsing():
     """
     def setup(self):
         r_obj, pp = self.generate_reference_object(source_b)
-        # create stsAval object, parse the test input file (awscli_reference)
+        # create stslib object, parse the test input file (awscli_reference)
         b = source_b.split('/')[2]
         sts_obj = core.StsCore(role_file=source_a, output_file=b)
         # set instance attribute for reuse
@@ -76,7 +76,7 @@ class TestParsing():
     def generate_reference_object(self, fname):
         """
         fixture to gen reference output file asset when a awscli local config
-        file is parsed by stsAval
+        file is parsed by stslib
         """
         try:
             handle = open(fname, 'r')
@@ -103,7 +103,7 @@ class TestParsing():
         r_object_b, pp = self.generate_reference_object(source_b)
         print('\nr_object_b is:\n')
         print(pp)
-        # create stsAval object, parse the test input file (awscli_reference)
+        # create stslib object, parse the test input file (awscli_reference)
         b = source_b.split('/')[2]
         sts_obj = core.StsCore(role_file=source_a, output_file=b)
         self.target_object_b, pp = self.generate_reference_object(sts_obj.profiles)

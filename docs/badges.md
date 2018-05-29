@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://github.com/fstab50/stsAval/tree/master">
+    <a href="https://github.com/fstab50/stslib/tree/master">
         <img src="https://img.shields.io/badge/release-v0.3.7-blue.svg"
             alt="github"></a>
     <a href="https://readthedocs.org/projects/stsaval/builds">

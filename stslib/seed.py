@@ -17,8 +17,8 @@ config_seed = """
 LocalConfiguration:
     logging:
         log_mode: 'file'
-        log_dir: '~/.stsaval'
-        log_file: 'stsaval.log'
+        log_dir: '~/.stslib'
+        log_file: 'stslib.log'
 
     token_life_default: 60
 
