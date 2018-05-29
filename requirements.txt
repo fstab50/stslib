@@ -1,0 +1,17 @@
+boto3
+botocore
+certifi
+chardet
+docutils
+idna
+jmespath
+pip
+pytz
+pkginfo
+ply
+python-dateutil
+s3transfer
+six
+setuptools
+twine
+urllib3

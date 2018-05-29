@@ -1,0 +1,14 @@
+name: stsAval
+
+channels:
+    - conda-forge
+
+dependencies:
+    - python=3.6
+    - sphinx
+    - pip:
+        - sphinx_rtd_theme
+        - boto3
+        - awscli
+        - pytz
+        - Pygments

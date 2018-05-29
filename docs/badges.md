@@ -1,0 +1,23 @@
+<p align="center">
+    <a href="https://github.com/fstab50/stsAval/tree/master">
+        <img src="https://img.shields.io/badge/release-v0.3.7-blue.svg"
+            alt="github"></a>
+    <a href="https://readthedocs.org/projects/stsaval/builds">
+        <img src="https://img.shields.io/jenkins/s/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-am#d64_deault.svg"
+            alt="build status"></a>
+    <a href="http://stsaval.readthedocs.io">
+        <img src="https://img.shields.io/readthedocs/pip.svg"
+            alt="Read The Docs"></a>
+    <a href="https://docs.python.org/3/whatsnew/3.6.html">
+        <img src="https://img.shields.io/badge/python-3.5%2C%203.6-blue.svg"
+            alt="python3"></a>
+    <a href="https://pypi.python.org/pypi/boto3/1.4.7">
+        <img src="https://img.shields.io/badge/dependencies-boto3%2C%20awscli%2C%20pytz-yellow.svg"
+            alt="PyPI"></a>
+    <a href="http://www.gnu.org/licenses/gpl-3.0.html">
+        <img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg"
+            alt="license"></a>
+    <a href="https://en.wikipedia.org/wiki/Linux">
+        <img src="https://img.shields.io/badge/platform-linux--64%20%7C%20osx--64-lightgrey.svg"
+            alt="Linux x86"></a>
+</p>

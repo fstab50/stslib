@@ -2,11 +2,12 @@
  v0.1.8 \| Release Notes
 ===============================
 
---------------
 
 **Release date**: September 8, 2017
 
-Features Implemented in v0.1.8
+--------------
+
+Features Implemented, v0.1.8
 ------------------------------
 
 -  **Thread Management**: Thread persistence solved with threading event based wait states
@@ -16,8 +17,8 @@ Features Implemented in v0.1.8
 
 --------------
 
-Limitations
------------
+Limitations, v0.1.8
+-------------------
 
 Non-Default Credential Files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

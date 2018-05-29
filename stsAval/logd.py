@@ -28,21 +28,19 @@ def getLogger(*args, **kwargs):
 
     try:
         if not logger.handlers:
-            # file handler
-            f_handler = logging.FileHandler(global_config['log_file'])
-            f_formatter = logging.Formatter('%(asctime)s - %(pathname)s - %(name)s - [%(levelname)s]: %(message)s')
-            #f_formatter = logging.Formatter('%(asctime)s %(processName)-10s %(name)s [%(levelname)-5s]: %(message)s')
-            f_handler.setFormatter(f_formatter)
-
-            # stream handlers
-            s_handler = logging.StreamHandler()
-            s_formatter = logging.Formatter('%(pathname)s - %(name)s - [%(levelname)s]: %(message)s')
-            s_handler.setFormatter(s_formatter)
-
             # branch on output format, default to stream
-            if log_mode == 'file':
+            if log_mode == 'file' or log_mode == 'File':
+                # file handler
+                f_handler = logging.FileHandler(global_config['log_file'])
+                f_formatter = logging.Formatter('%(asctime)s - %(pathname)s - %(name)s - [%(levelname)s]: %(message)s')
+                #f_formatter = logging.Formatter('%(asctime)s %(processName)-10s %(name)s [%(levelname)-5s]: %(message)s')
+                f_handler.setFormatter(f_formatter)
                 logger.addHandler(f_handler)
-            elif log_mode == 'stream':
+            elif log_mode == 'stream' or log_mode == 'stdout':
+                # stream handlers
+                s_handler = logging.StreamHandler()
+                s_formatter = logging.Formatter('%(pathname)s - %(name)s - [%(levelname)s]: %(message)s')
+                s_handler.setFormatter(s_formatter)
                 logger.addHandler(s_handler)
             else:
                 logger.addHandler(f_handler)

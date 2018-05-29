@@ -7,7 +7,7 @@ Summary:
     - STSCredentials:  type definition for Amazon STS temporary credentials
 
 Module Attributes:
-    logger - logging object
+    - logger: logging object
 
 """
 
