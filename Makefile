@@ -78,7 +78,6 @@ testpypi: build     ## Deploy to testpypi without regenerating prebuild artifact
 .PHONY: pypi
 pypi: clean build    ## Deploy to pypi without regenerating prebuild artifacts
 	@echo "Deploy $(PROJECT) to pypi.org"
-	@pandoc --from=markdown --to=rst --output=$(CUR_DIR)/README.rst $(CUR_DIR)/README.md \
 	. $(VENV_DIR)/bin/activate && twine upload --repository pypi dist/*
 
 
