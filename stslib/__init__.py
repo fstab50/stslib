@@ -1,5 +1,5 @@
-from stsAval.core import *
-from stsAval._version import __version__ as version
+from stslib.core import *
+from stslib._version import __version__ as version
 
 __author__ = 'Blake Huber'
 __version__ = version

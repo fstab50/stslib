@@ -4,7 +4,7 @@ Project-level logging module
 """
 import logging
 import datetime
-from stsAval.statics import global_config
+from stslib.statics import global_config
 
 
 

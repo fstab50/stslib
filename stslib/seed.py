@@ -11,7 +11,7 @@ Returns:
 
 config_seed = """
 # -----------------------------------------------------------------------------
-#        stsAval Configuration File Defaults
+#        stslib Configuration File Defaults
 # -----------------------------------------------------------------------------
 
 LocalConfiguration:

@@ -15,10 +15,10 @@ import os
 import sys
 import yaml
 import logging
-from stsAval.statics import global_config
-from stsAval.colors import Colors
-from stsAval.seed import config_seed
-from stsAval._version import __version__
+from stslib.statics import global_config
+from stslib.colors import Colors
+from stslib.seed import config_seed
+from stslib._version import __version__
 
 
 logger = logging.getLogger(__version__)
@@ -94,11 +94,11 @@ class UpdateConfig():
         update_header = Colors.BOLD + Colors.WHITE + """
                      _________________________________________
                     |                                         |
-                    |    stsAval Local Configuration Setup    |
+                    |    stslib Local Configuration Setup    |
                     |_________________________________________|
         """ + Colors.RESET + ACCENT + """
         You will be asked a series of questions which will ask you to customize
-        the input values for the stsAval library or accept the global defaults.
+        the input values for the stslib library or accept the global defaults.
 
         Press return if you wish to accept the defaults shown in brackets [] at
         the end of each question, or simply type an alternative to the default
@@ -113,7 +113,7 @@ class UpdateConfig():
         (the default) or the native boto format?
         """ + Colors.RESET
         closing_footer = Colors.BOLD + """
-                     -- stsAval Local Configuration Setup End --
+                     -- stslib Local Configuration Setup End --
 
         """ + Colors.END + ACCENT + """
         The concludes the local setup options questionnaire.

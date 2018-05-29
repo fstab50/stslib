@@ -23,8 +23,8 @@ Example Use:
 import threading
 from threading import current_thread
 import datetime
-from stsAval import logd
-from stsAval._version import __version__
+from stslib import logd
+from stslib._version import __version__
 
 
 logger = logd.getLogger(__version__)

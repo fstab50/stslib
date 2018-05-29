@@ -1,6 +1,6 @@
 """
 Summary:
-    stsAval Project-level Defaults and Settings
+    stslib Project-level Defaults and Settings
 
     NOTE: local defaults for your specific installation are derived from
           settings found in ~/.stsaval/config.yml
@@ -37,7 +37,7 @@ import datetime
 import inspect
 import logging
 import yaml
-from stsAval._version import __version__
+from stslib._version import __version__
 
 logger = logging.getLogger(__version__)
 logger.setLevel(logging.INFO)
@@ -112,7 +112,7 @@ try:
         os.mkdir(log_dir)
         os.chmod(log_dir, 0o755)
     if not os.path.exists(config_file):
-        logger.info('%s: %s has not been generated. To customize stsAval defaults, run the config script (%s)' %
+        logger.info('%s: %s has not been generated. To customize stslib defaults, run the config script (%s)' %
             (inspect.stack()[0][3],config_file, config_script))
         logger.info('\n\t$ python3 %s\n' % config_script)
         local_config = {}

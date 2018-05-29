@@ -14,9 +14,9 @@ Module Attributes:
 import datetime
 import inspect
 from collections import namedtuple
-from stsAval import logd
-from stsAval.statics import defaults
-from stsAval._version import __version__
+from stslib import logd
+from stslib.statics import defaults
+from stslib._version import __version__
 
 
 logger = logd.getLogger(__version__)
