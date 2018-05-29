@@ -1,6 +1,6 @@
-#!/usr/bin/env/bash
+#!/usr/bin/env bash
 
-PACKAGE='stslib'
+PACKAGE='keyup'
 VERSION="$1"
 PIP_CALL=$(which pip3)
 GIT=$(which git)
