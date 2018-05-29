@@ -78,7 +78,7 @@ testpypi: build     ## Deploy to testpypi without regenerating prebuild artifact
 .PHONY: pypi
 pypi: clean build    ## Deploy to pypi without regenerating prebuild artifacts
 	@echo "Deploy $(PROJECT) to pypi.org"
-	@pandoc --from=markdown --to=rst --output=README.rst README.md \
+	@pandoc --from=markdown --to=rst --output=$(CUR_DIR)/README.rst $(CUR_DIR)/README.md \
 	. $(VENV_DIR)/bin/activate && twine upload --repository pypi dist/*
 
 
@@ -115,7 +115,8 @@ help:   ## Print help index
 clean-docs:    ## Remove build artifacts for documentation only
 	@echo "Clean docs build"
 	if [ -e $(VENV_DIR) ]; then . $(VENV_DIR)/bin/activate && \
-	cd $(DOC_PATH) && $(MAKE) clean || true; fi
+	cd $(DOC_PATH) && $(MAKE) clean || true; \
+	else rm -fr $(CUR_DIR)/docs/build/* || true; fi
 
 
 .PHONY: clean
