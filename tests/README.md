@@ -1,5 +1,5 @@
 * * *
-#  stsAval | Tests 
+#  stslib | Tests 
 * * * 
 
 ## Author / License

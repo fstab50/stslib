@@ -3,7 +3,7 @@
 
 VENV_PATH=$(echo $HOME)/Downloads
 VENV_DIR='p3.6_venv'
-PACKAGE='stsAval'
+PACKAGE='stslib'
 
 
 function venv(){

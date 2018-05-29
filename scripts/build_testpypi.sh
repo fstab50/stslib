@@ -1,6 +1,6 @@
 #!/usr/bin/env/bash
 
-PACKAGE='stsAval'
+PACKAGE='stslib'
 root=$(git rev-parse --show-toplevel 2>/dev/null)
 HOME=$(echo $HOME)
 wkdir="$HOME/Downloads"
@@ -23,7 +23,7 @@ function update_minor_version(){
         fi
         updated_version="$(echo $version | awk -F '.' '{print $1"."$2"."$3}').$add"
         echo -e "\nupdated_version number is: $updated_version\n"
-        echo "__version__ = '${updated_version}'" > $root/stsAval/_version.py
+        echo "__version__ = '${updated_version}'" > $root/stslib/_version.py
 }
 
 
