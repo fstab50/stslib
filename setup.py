@@ -47,7 +47,7 @@ setup(
     name='stslib',
     version=stslib.__version__,
     description='Library for bulk generation of Amazon STS temporary credentials',
-    long_description=read('README.rst'),
+    long_description=read('DESCRIPTION.rst'),
     url='https://github.com/fstab50/stslib',
     author=stslib.__author__,
     author_email=stslib.__email__,
