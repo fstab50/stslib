@@ -17,7 +17,7 @@
 
 ## Purpose ##
 
-**stslib** (pronounced "s-t-s aay-val"), is a python3 library that requests and manages temporary credentials from  
+**stslib** is a python3 library that requests and manages temporary credentials from  
 [Amazon's Security Token Service (STS)](http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html) on your behalf. **stslib** generates temporary credentials against roles  
 that reside in any number of AWS  accounts.
 
