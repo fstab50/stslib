@@ -1,6 +1,6 @@
 boto3
 botocore
-certifi
+certifi==2018.4.16
 chardet
 docutils
 idna
