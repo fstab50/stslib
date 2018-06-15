@@ -6,7 +6,7 @@ docutils
 idna
 jmespath
 pandoc
-pip
+pip==10.0.1
 pytz
 pkginfo
 ply
