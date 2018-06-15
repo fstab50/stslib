@@ -11,7 +11,7 @@ pytz
 pkginfo
 ply
 python-dateutil
-s3transfer
+s3transfer==0.1.13
 six
 setuptools
 twine
