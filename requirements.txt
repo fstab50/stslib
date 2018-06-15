@@ -5,7 +5,7 @@ chardet
 docutils
 idna
 jmespath
-pandoc
+pandoc==1.0.2
 pip
 pytz
 pkginfo
