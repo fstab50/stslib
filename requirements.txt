@@ -12,7 +12,7 @@ pkginfo==1.4.2
 ply==3.11
 python-dateutil==2.7.3
 s3transfer==0.1.13
-six
+six==1.11.0
 setuptools
 twine
 urllib3
