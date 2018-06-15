@@ -7,7 +7,7 @@ idna
 jmespath
 pandoc
 pip
-pytz
+pytz==2018.4
 pkginfo
 ply
 python-dateutil
