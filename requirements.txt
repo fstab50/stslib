@@ -1,5 +1,5 @@
 boto3==1.7.39
-botocore
+botocore==1.10.39
 certifi
 chardet
 docutils
