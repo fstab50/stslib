@@ -15,4 +15,4 @@ s3transfer==0.1.13
 six==1.11.0
 setuptools==39.2.0
 twine==1.11.0
-urllib3
+urllib3==1.22
