@@ -8,7 +8,7 @@ jmespath
 pandoc
 pip
 pytz
-pkginfo
+pkginfo==1.4.2
 ply
 python-dateutil
 s3transfer
