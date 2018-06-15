@@ -13,6 +13,6 @@ ply
 python-dateutil
 s3transfer
 six
-setuptools
+setuptools==39.2.0
 twine
 urllib3
