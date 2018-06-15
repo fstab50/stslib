@@ -12,7 +12,7 @@ pkginfo
 ply
 python-dateutil
 s3transfer
-six
+six==1.11.0
 setuptools
 twine
 urllib3
