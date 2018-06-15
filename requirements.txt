@@ -4,7 +4,7 @@ certifi
 chardet
 docutils
 idna
-jmespath
+jmespath==0.9.3
 pandoc
 pip
 pytz
