@@ -10,7 +10,7 @@ pip
 pytz
 pkginfo
 ply
-python-dateutil
+python-dateutil==2.7.3
 s3transfer
 six
 setuptools
