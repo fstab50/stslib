@@ -9,7 +9,7 @@ pandoc
 pip
 pytz
 pkginfo
-ply
+ply==3.11
 python-dateutil
 s3transfer
 six
