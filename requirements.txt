@@ -11,7 +11,7 @@ pytz==2018.4
 pkginfo==1.4.2
 ply==3.11
 python-dateutil==2.7.3
-s3transfer
+s3transfer==0.1.13
 six
 setuptools
 twine
