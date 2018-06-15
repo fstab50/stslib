@@ -14,5 +14,5 @@ python-dateutil
 s3transfer
 six
 setuptools
-twine
+twine==1.11.0
 urllib3
