@@ -12,7 +12,7 @@ jmespath==0.9.3
 MarkupSafe==1.0
 Pygments==2.2.0
 python-dateutil==2.7.3
-pytz==2017.3
+pytz==2018.4
 requests==2.18.4
 s3transfer==0.1.11
 six==1.11.0
