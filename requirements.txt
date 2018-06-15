@@ -3,7 +3,7 @@ botocore
 certifi
 chardet
 docutils
-idna
+idna==2.7
 jmespath
 pandoc
 pip
