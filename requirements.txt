@@ -9,7 +9,7 @@ pandoc==1.0.2
 pip==10.0.1
 pytz==2018.4
 pkginfo==1.4.2
-ply
+ply==3.11
 python-dateutil
 s3transfer
 six
