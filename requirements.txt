@@ -16,3 +16,4 @@ six
 setuptools
 twine
 urllib3
+pyyaml
