@@ -1,3 +1,9 @@
+#
+#	 Makefile, ver 1.6, PROJECT:  stslib
+#
+# --- declarations  --------------------------------------------------------------------------------
+
+
 PROJECT := stslib
 CUR_DIR = $(shell pwd)
 PYTHON_VERSION := python3
@@ -14,12 +20,12 @@ REQUIREMENT = $(CUR_DIR)/requirements.txt
 VERSION_FILE = $(CUR_DIR)/$(PROJECT)/_version.py
 
 
-# --- rollup targets  ----------------------------------------------------------
+# --- rollup targets  ------------------------------------------------------------------------------
 
 
 .PHONY: fresh-install fresh-test-install deploy-test deploy-prod
 
-zero-install: clean setup-venv install   ## Install (source: pypi). Zero prebuild artifacts
+zero-source-install: clean source-install   ## Install (source: local). Zero prebuild artifacts
 
 zero-test-install: clean setup-venv test-install  ## Install (source: testpypi). Zero prebuild artifacts
 
@@ -28,7 +34,7 @@ deploy-test: clean testpypi  ## Deploy (testpypi), generate all prebuild artifac
 deploy-prod: clean pypi   ## Deploy (pypi), generate all prebuild artifacts
 
 
-# --- targets ------------------------------------------------------------------
+# --- targets -------------------------------------------------------------------------------------
 
 
 .PHONY: pre-build
@@ -96,10 +102,16 @@ test-install:  ## Install (source: testpypi). Build artifacts exist
 
 
 .PHONY: source-install
-source-install:    ## Install (source: local source). Build artifacts exist
-	if [ ! -e $(VENV_DIR) ]; then $(MAKE) setup-venv; fi; \
+source-install:  setup-venv  ## Install (source: local source). Build artifacts exist
+	if [ ! -e $(VENV_DIR) ]; then $(MAKE) clean; fi; \
 	cd $(CUR_DIR) && . $(VENV_DIR)/bin/activate && \
 	$(PIP_CALL) install .
+
+
+.PHONY: update-source-install
+update-source-install:    ## Update Install (source: local source).
+	if [ -e $(VENV_DIR) ]; then \
+	cp -rv $(MODULE_PATH) $(VENV_DIR)/lib/python3.6/site-packages/; fi
 
 
 .PHONY: help
@@ -114,8 +126,7 @@ help:   ## Print help index
 clean-docs:    ## Remove build artifacts for documentation only
 	@echo "Clean docs build"
 	if [ -e $(VENV_DIR) ]; then . $(VENV_DIR)/bin/activate && \
-	cd $(DOC_PATH) && $(MAKE) clean || true; \
-	else rm -fr $(CUR_DIR)/docs/build/* || true; fi
+	cd $(DOC_PATH) && $(MAKE) clean || true; fi
 
 
 .PHONY: clean
