@@ -22,8 +22,6 @@ contained in the program LICENSE file.
 import os
 import sys
 from setuptools import setup, find_packages
-from setuptools.command.develop import develop
-from setuptools.command.install import install
 from subprocess import check_call
 from codecs import open
 import stslib
@@ -37,9 +35,8 @@ def read(fname):
 basedir = os.path.dirname(sys.argv[0])
 
 requires = [
-    'awscli>=1.11.100',
-    'boto3>=1.4.6',
-    'botocore>=1.6.8',
+    'awscli>=1.14.1',
+    'boto3>=1.7.1',
     'pytz>=2017.1',
 ]
 
