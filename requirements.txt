@@ -1,7 +1,6 @@
-boto3
+boto3>=1.9.1
 pandoc
 pytz
-python-dateutil
 setuptools
 twine
 pyyaml

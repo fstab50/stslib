@@ -35,8 +35,8 @@ def read(fname):
 basedir = os.path.dirname(sys.argv[0])
 
 requires = [
-    'awscli>=1.14.1',
-    'boto3>=1.7.1',
+    'awscli>=1.16.1',
+    'boto3>=1.9.1',
     'pytz>=2017.1',
 ]
 
