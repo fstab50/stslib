@@ -63,8 +63,8 @@ author = 'Blake Huber'
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
-# The short X.Y version (minor version)
-version = str(__version__.split('.')[0] + '.' + __version__.split('.')[1])
+# The short X.Y version (major version)
+version = '.'.join([x for x in __version__.split('.')][:2])
 
 # The full version, including alpha/beta/rc tags.
 release = __version__
