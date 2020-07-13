@@ -1,7 +1,7 @@
 alabaster==0.7.10
 Babel==2.5.1
 boto3==1.4.7
-botocore==1.7.39
+botocore==1.10.39
 certifi==2017.7.27.1
 chardet==3.0.4
 docutils==0.14
